@@ -15,6 +15,7 @@
       font-family: 'Inter', sans-serif; 
       scroll-behavior: smooth;
       background-color: #0f172a;
+      position: relative;
     }
     .fade-in { 
       opacity: 0; 
@@ -35,6 +36,7 @@
     .navbar { 
       transition: all 0.3s ease; 
       background-color: rgba(17, 24, 39, 0.95); 
+      z-index: 100; 
     }
     .navbar.scrolled { 
       background-color: rgba(17, 24, 39, 0.98); 
@@ -85,6 +87,168 @@
       border-top: 1px solid #374151; 
       margin: 2rem 0; 
     }
+    .hero-content, .section-content { 
+      position: relative; 
+      z-index: 2; 
+    }
+    .animated-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .animated-icon {
+      position: absolute;
+      opacity: 0;
+      filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.7));
+    }
+    /* Hero Section: Scattered Icons */
+    #hero .animated-icon {
+      animation: float-hero 10s infinite ease-in-out;
+    }
+    #hero .animated-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+    #hero .animated-icon:nth-child(2) { left: 30%; top: 60%; animation-delay: 2s; }
+    #hero .animated-icon:nth-child(3) { left: 50%; top: 30%; animation-delay: 4s; }
+    #hero .animated-icon:nth-child(4) { left: 70%; top: 70%; animation-delay: 6s; }
+    #hero .animated-icon:nth-child(5) { left: 90%; top: 40%; animation-delay: 8s; }
+    @keyframes float-hero {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+      50% { transform: translateY(-50px) scale(1); opacity: 0.7; }
+      100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+    }
+    /* About Section: Left-Aligned Icons */
+    #about .animated-bg {
+      width: 30%;
+      left: 0;
+    }
+    #about .animated-icon {
+      animation: float-left 8s infinite ease-in-out;
+    }
+    #about .animated-icon:nth-child(1) { left: 10%; top: 10%; animation-delay: 0s; }
+    #about .animated-icon:nth-child(2) { left: 20%; top: 40%; animation-delay: 2s; }
+    #about .animated-icon:nth-child(3) { left: 15%; top: 70%; animation-delay: 4s; }
+    @keyframes float-left {
+      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+      50% { transform: translateX(20px) scale(0.9); opacity: 0.5; }
+      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    }
+    /* Social Links Section: Right-Aligned Icons */
+    #social .animated-bg {
+      width: 30%;
+      right: 0;
+      left: auto;
+    }
+    #social .animated-icon {
+      animation: float-right 9s infinite ease-in-out;
+    }
+    #social .animated-icon:nth-child(1) { right: 10%; top: 15%; animation-delay: 1s; }
+    #social .animated-icon:nth-child(2) { right: 20%; top: 50%; animation-delay: 3s; }
+    #social .animated-icon:nth-child(3) { right: 15%; top: 80%; animation-delay: 5s; }
+    @keyframes float-right {
+      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+      50% { transform: translateX(-20px) scale(0.9); opacity: 0.5; }
+      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    }
+    /* Tech Stack Section: Scattered with Diagonal Movement */
+    #tech .animated-icon {
+      animation: float-diagonal 12s infinite ease-in-out;
+    }
+    #tech .animated-icon:nth-child(1) { left: 15%; top: 10%; animation-delay: 0s; }
+    #tech .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 3s; }
+    #tech .animated-icon:nth-child(3) { left: 65%; top: 20%; animation-delay: 6s; }
+    #tech .animated-icon:nth-child(4) { left: 85%; top: 60%; animation-delay: 9s; }
+    @keyframes float-diagonal {
+      0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+      50% { transform: translate(30px, -30px) scale(1); opacity: 0.6; }
+      100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+    }
+    /* Projects Section: Center-Aligned Vertical Movement */
+    #projects .animated-bg {
+      width: 50%;
+      left: 25%;
+    }
+    #projects .animated-icon {
+      animation: float-vertical 10s infinite ease-in-out;
+    }
+    #projects .animated-icon:nth-child(1) { left: 20%; top: 20%; animation-delay: 0s; }
+    #projects .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
+    #projects .animated-icon:nth-child(3) { left: 60%; top: 80%; animation-delay: 4s; }
+    @keyframes float-vertical {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+      50% { transform: translateY(-40px) scale(1); opacity: 0.6; }
+      100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+    }
+    /* Experience Section: Left-to-Right Movement */
+    #experience .animated-icon {
+      animation: float-horizontal 11s infinite ease-in-out;
+    }
+    #experience .animated-icon:nth-child(1) { left: 10%; top: 15%; animation-delay: 0s; }
+    #experience .animated-icon:nth-child(2) { left: 30%; top: 45%; animation-delay: 3s; }
+    #experience .animated-icon:nth-child(3) { left: 50%; top: 75%; animation-delay: 6s; }
+    @keyframes float-horizontal {
+      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+      50% { transform: translateX(50px) scale(0.9); opacity: 0.5; }
+      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    }
+    /* Education Section: Right-to-Left Movement */
+    #education .animated-bg {
+      width: 30%;
+      right: 0;
+      left: auto;
+    }
+    #education .animated-icon {
+      animation: float-right-left 9s infinite ease-in-out;
+    }
+    #education .animated-icon:nth-child(1) { right: 10%; top: 20%; animation-delay: 1s; }
+    #education .animated-icon:nth-child(2) { right: 20%; top: 50%; animation-delay: 3s; }
+    @keyframes float-right-left {
+      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+      50% { transform: translateX(-30px) scale(0.9); opacity: 0.5; }
+      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    }
+    /* Certifications Section: Circular Movement */
+    #certifications .animated-icon {
+      animation: float-circular 12s infinite ease-in-out;
+    }
+    #certifications .animated-icon:nth-child(1) { left: 20%; top: 10%; animation-delay: 0s; }
+    #certifications .animated-icon:nth-child(2) { left: 50%; top: 40%; animation-delay: 3s; }
+    #certifications .animated-icon:nth-child(3) { left: 80%; top: 70%; animation-delay: 6s; }
+    @keyframes float-circular {
+      0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+      25% { transform: translate(20px, -20px) scale(0.9); opacity: 0.5; }
+      50% { transform: translate(0, -40px) scale(1); opacity: 0.6; }
+      75% { transform: translate(-20px, -20px) scale(0.9); opacity: 0.5; }
+      100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+    }
+    /* Resume Section: Scattered Slow Movement */
+    #resume .animated-icon {
+      animation: float-slow 14s infinite ease-in-out;
+    }
+    #resume .animated-icon:nth-child(1) { left: 15%; top: 30%; animation-delay: 0s; }
+    #resume .animated-icon:nth-child(2) { left: 45%; top: 60%; animation-delay: 4s; }
+    @keyframes float-slow {
+      0% { transform: translateY(0) scale(0.7); opacity: 0.2; }
+      50% { transform: translateY(-20px) scale(0.9); opacity: 0.4; }
+      100% { transform: translateY(0) scale(0.7); opacity: 0.2; }
+    }
+    /* Contact Section: Diagonal Left-to-Right */
+    #contact .animated-icon {
+      animation: float-diagonal-contact 10s infinite ease-in-out;
+    }
+    #contact .animated-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+    #contact .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
+    #contact .animated-icon:nth-child(3) { left: 70%; top: 80%; animation-delay: 4s; }
+    @keyframes float-diagonal-contact {
+      0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+      50% { transform: translate(40px, -40px) scale(1); opacity: 0.6; }
+      100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+    }
+    @media (max-width: 768px) {
+      .animated-icon { transform: scale(0.6); }
+    }
   </style>
 </head>
 <body class="text-gray-100">
@@ -104,9 +268,26 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-green-600 to-blue-800 text-white h-screen flex items-center justify-center">
+  <section id="hero" class="relative bg-gradient-to-br from-green-600 to-blue-800 text-white h-screen flex items-center justify-center">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M5 12h14M12 5v14" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+      </svg>
+    </div>
     <div class="absolute inset-0 bg-[url('https://source.unsplash.com/random/1920x1080?technology')] opacity-15 bg-cover bg-center"></div>
-    <div class="relative text-center px-6 fade-in">
+    <div class="hero-content text-center px-6 fade-in">
       <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">Arun Thiruvacholayil</h1>
       <p class="text-xl md:text-2xl mb-8 font-light leading-relaxed">DevOps Engineer | Kubernetes Specialist | Cloud Solutions Architect</p>
       <a href="#contact" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition duration-300 shadow-lg hover-scale">Connect With Me</a>
@@ -114,16 +295,40 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="max-w-7xl mx-auto px-6 py-20 text-center fade-in">
-    <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">About Me</h2>
-    <p class="text-lg leading-relaxed max-w-3xl mx-auto">
-      I am a seasoned <b>DevOps Engineer</b> with over <b>12 years of experience</b> in designing and implementing robust, scalable, and secure infrastructure solutions. My expertise spans <b>multi-cloud environments (AWS, Azure, GCP, OCI)</b>, container orchestration with <b>Kubernetes</b>, and end-to-end <b>CI/CD pipeline automation</b>. I am passionate about leveraging <b>Infrastructure as Code (IaC)</b>, observability tools, and DevSecOps practices to drive operational excellence and accelerate business outcomes.
-    </p>
+  <section id="about" class="relative max-w-7xl mx-auto px-6 py-20 text-center">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
+      </svg>
+    </div>
+    <div class="section-content fade-in">
+      <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">About Me</h2>
+      <p class="text-lg leading-relaxed max-w-3xl mx-auto">
+        I am a seasoned <b>DevOps Engineer</b> with over <b>12 years of experience</b> in designing and implementing robust, scalable, and secure infrastructure solutions. My expertise spans <b>multi-cloud environments (AWS, Azure, GCP, OCI)</b>, container orchestration with <b>Kubernetes</b>, and end-to-end <b>CI/CD pipeline automation</b>. I am passionate about leveraging <b>Infrastructure as Code (IaC)</b>, observability tools, and DevSecOps practices to drive operational excellence and accelerate business outcomes.
+      </p>
+    </div>
   </section>
 
   <!-- Social Links -->
-  <section class="bg-gray-800 py-12 shadow-inner">
-    <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 fade-in">
+  <section id="social" class="relative bg-gray-800 py-12 shadow-inner">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M5 12h14M12 5v14" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+    </div>
+    <div class="section-content max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 fade-in">
       <a href="https://www.linkedin.com/in/vilayilarun/" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 hover-scale transition duration-300">
         <i class="fab fa-linkedin mr-2"></i> LinkedIn
       </a>
@@ -140,176 +345,192 @@
   </section>
 
   <!-- Tech Stack -->
-  <section id="tech" class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Technology Expertise</h2>
-    <div class="space-y-16">
-      <!-- Core Expertise & Programming -->
-      <div class="fade-in">
-        <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Core Expertise & Programming</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-gears text-green-500 text-4xl mb-3"></i>
-            <p class="font-medium">DevOps</p>
-            <span class="tooltip">End-to-End Infrastructure Automation</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fab fa-linux text-gray-300 text-4xl mb-3"></i>
-            <p class="font-medium">Linux</p>
-            <span class="tooltip">Advanced System Administration</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fab fa-python text-yellow-500 text-4xl mb-3"></i>
-            <p class="font-medium">Python</p>
-            <span class="tooltip">Scripting & Automation Solutions</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-golang text-teal-500 text-4xl mb-3"></i>
-            <p class="font-medium">Golang</p>
-            <span class="tooltip">Cloud-Native Application Development</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-terminal text-gray-400 text-4xl mb-3"></i>
-            <p class="font-medium">Shell Scripting</p>
-            <span class="tooltip">System Automation & Optimization</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-robot text-blue-500 text-4xl mb-3"></i>
-            <p class="font-medium">Automation</p>
-            <span class="tooltip">Workflow & Process Optimization</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cloud, Orchestration & CI/CD -->
-      <div class="fade-in">
-        <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Cloud, Orchestration & CI/CD</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-          <div class="tech-card p-6 shadow-lg hover-scale border-2 border-green-500">
-            <i class="fa-brands fa-docker text-blue-500 text-4xl mb-3"></i>
-            <p class="font-medium">Kubernetes</p>
-            <span class="tooltip">Advanced Container Orchestration</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-network-wired text-purple-500 text-4xl mb-3"></i>
-            <p class="font-medium">Istio</p>
-            <span class="tooltip">Service Mesh Management</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-code-branch text-orange-500 text-4xl mb-3"></i>
-            <p class="font-medium">ArgoCD</p>
-            <span class="tooltip">GitOps Continuous Delivery</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-docker text-blue-600 text-4xl mb-3"></i>
-            <p class="font-medium">Docker</p>
-            <span class="tooltip">Containerization & Deployment</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-helmet-safety text-green-500 text-4xl mb-3"></i>
-            <p class="font-medium">Helm</p>
-            <span class="tooltip">Kubernetes Package Management</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-aws text-orange-500 text-4xl mb-3"></i>
-            <p class="font-medium">AWS</p>
-            <span class="tooltip">Cloud Infrastructure & Services</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-microsoft text-blue-500 text-4xl mb-3"></i>
-            <p class="font-medium">Azure</p>
-            <span class="tooltip">Cloud Platform & Services</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-google text-red-500 text-4xl mb-3"></i>
-            <p class="font-medium">Google Cloud</p>
-            <span class="tooltip">Scalable Cloud Solutions</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-cloud text-orange-600 text-4xl mb-3"></i>
-            <p class="font-medium">OCI</p>
-            <span class="tooltip">Oracle Cloud Infrastructure</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-infinity text-pink-500 text-4xl mb-3"></i>
-            <p class="font-medium">Terraform</p>
-            <span class="tooltip">Infrastructure as Code</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-server text-red-500 text-4xl mb-3"></i>
-            <p class="font-medium">Ansible</p>
-            <span class="tooltip">Configuration Management</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-tools text-blue-500 text-4xl mb-3"></i>
-            <p class="font-medium">Jenkins</p>
-            <span class="tooltip">CI/CD Pipeline Automation</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-github text-gray-300 text-4xl mb-3"></i>
-            <p class="font-medium">GitHub Actions</p>
-            <span class="tooltip">Workflow Automation & CI/CD</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-brands fa-gitlab text-orange-500 text-4xl mb-3"></i>
-            <p class="font-medium">GitLab</p>
-            <span class="tooltip">CI/CD & Version Control</span>
+  <section id="tech" class="relative max-w-7xl mx-auto px-6 py-20">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M5 12h14M12 5v14" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+    </div>
+    <div class="section-content fade-in">
+      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Technology Expertise</h2>
+      <div class="space-y-16">
+        <!-- Core Expertise & Programming -->
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Core Expertise & Programming</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-gears text-green-500 text-4xl mb-3"></i>
+              <p class="font-medium">DevOps</p>
+              <span class="tooltip">End-to-End Infrastructure Automation</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fab fa-linux text-gray-300 text-4xl mb-3"></i>
+              <p class="font-medium">Linux</p>
+              <span class="tooltip">Advanced System Administration</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fab fa-python text-yellow-500 text-4xl mb-3"></i>
+              <p class="font-medium">Python</p>
+              <span class="tooltip">Scripting & Automation Solutions</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-golang text-teal-500 text-4xl mb-3"></i>
+              <p class="font-medium">Golang</p>
+              <span class="tooltip">Cloud-Native Application Development</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-terminal text-gray-400 text-4xl mb-3"></i>
+              <p class="font-medium">Shell Scripting</p>
+              <span class="tooltip">System Automation & Optimization</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-robot text-blue-500 text-4xl mb-3"></i>
+              <p class="font-medium">Automation</p>
+              <span class="tooltip">Workflow & Process Optimization</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Databases, Monitoring & Collaboration -->
-      <div class="fade-in">
-        <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Databases, Monitoring & Collaboration</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fas fa-database text-indigo-500 text-4xl mb-3"></i>
-            <p class="font-medium">PostgreSQL</p>
-            <span class="tooltip">Enterprise-Grade Relational Database</span>
+        <!-- Cloud, Orchestration & CI/CD -->
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Cloud, Orchestration & CI/CD</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+            <div class="tech-card p-6 shadow-lg hover-scale border-2 border-green-500">
+              <i class="fa-brands fa-docker text-blue-500 text-4xl mb-3"></i>
+              <p class="font-medium">Kubernetes</p>
+              <span class="tooltip">Advanced Container Orchestration</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-network-wired text-purple-500 text-4xl mb-3"></i>
+              <p class="font-medium">Istio</p>
+              <span class="tooltip">Service Mesh Management</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-code-branch text-orange-500 text-4xl mb-3"></i>
+              <p class="font-medium">ArgoCD</p>
+              <span class="tooltip">GitOps Continuous Delivery</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-docker text-blue-600 text-4xl mb-3"></i>
+              <p class="font-medium">Docker</p>
+              <span class="tooltip">Containerization & Deployment</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-helmet-safety text-green-500 text-4xl mb-3"></i>
+              <p class="font-medium">Helm</p>
+              <span class="tooltip">Kubernetes Package Management</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-aws text-orange-500 text-4xl mb-3"></i>
+              <p class="font-medium">AWS</p>
+              <span class="tooltip">Cloud Infrastructure & Services</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-microsoft text-blue-500 text-4xl mb-3"></i>
+              <p class="font-medium">Azure</p>
+              <span class="tooltip">Cloud Platform & Services</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-google text-red-500 text-4xl mb-3"></i>
+              <p class="font-medium">Google Cloud</p>
+              <span class="tooltip">Scalable Cloud Solutions</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-cloud text-orange-600 text-4xl mb-3"></i>
+              <p class="font-medium">OCI</p>
+              <span class="tooltip">Oracle Cloud Infrastructure</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-infinity text-pink-500 text-4xl mb-3"></i>
+              <p class="font-medium">Terraform</p>
+              <span class="tooltip">Infrastructure as Code</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-server text-red-500 text-4xl mb-3"></i>
+              <p class="font-medium">Ansible</p>
+              <span class="tooltip">Configuration Management</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-tools text-blue-500 text-4xl mb-3"></i>
+              <p class="font-medium">Jenkins</p>
+              <span class="tooltip">CI/CD Pipeline Automation</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-github text-gray-300 text-4xl mb-3"></i>
+              <p class="font-medium">GitHub Actions</p>
+              <span class="tooltip">Workflow Automation & CI/CD</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-brands fa-gitlab text-orange-500 text-4xl mb-3"></i>
+              <p class="font-medium">GitLab</p>
+              <span class="tooltip">CI/CD & Version Control</span>
+            </div>
           </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fas fa-database text-red-500 text-4xl mb-3"></i>
-            <p class="font-medium">Redis</p>
-            <span class="tooltip">High-Performance In-Memory Cache</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fas fa-search text-yellow-500 text-4xl mb-3"></i>
-            <p class="font-medium">ElasticSearch</p>
-            <span class="tooltip">Search & Analytics Engine</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-chart-line text-red-500 text-4xl mb-3"></i>
-            <p class="font-medium">Prometheus</p>
-            <span class="tooltip">Real-Time Monitoring & Alerting</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-tachometer-alt text-teal-500 text-4xl mb-3"></i>
-            <p class="font-medium">Grafana</p>
-            <span class="tooltip">Advanced Visualization Dashboards</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-ticket-alt text-blue-500 text-4xl mb-3"></i>
-            <p class="font-medium">Jira</p>
-            <span class="tooltip">Agile Project Management</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-book text-green-500 text-4xl mb-3"></i>
-            <p class="font-medium">Confluence</p>
-            <span class="tooltip">Team Collaboration & Documentation</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-shield-halved text-blue-600 text-4xl mb-3"></i>
-            <p class="font-medium">Sonatype Nexus</p>
-            <span class="tooltip">Artifact & Dependency Management</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-bug text-green-500 text-4xl mb-3"></i>
-            <p class="font-medium">SonarQube</p>
-            <span class="tooltip">Code Quality & Security Analysis</span>
-          </div>
-          <div class="tech-card p-6 shadow-lg hover-scale">
-            <i class="fa-solid fa-search text-purple-500 text-4xl mb-3"></i>
-            <p class="font-medium">Trivy</p>
-            <span class="tooltip">Container Vulnerability Scanning</span>
+        </div>
+
+        <!-- Databases, Monitoring & Collaboration -->
+        <div class="fade-in">
+          <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Databases, Monitoring & Collaboration</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fas fa-database text-indigo-500 text-4xl mb-3"></i>
+              <p class="font-medium">PostgreSQL</p>
+              <span class="tooltip">Enterprise-Grade Relational Database</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fas fa-database text-red-500 text-4xl mb-3"></i>
+              <p class="font-medium">Redis</p>
+              <span class="tooltip">High-Performance In-Memory Cache</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fas fa-search text-yellow-500 text-4xl mb-3"></i>
+              <p class="font-medium">ElasticSearch</p>
+              <span class="tooltip">Search & Analytics Engine</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-chart-line text-red-500 text-4xl mb-3"></i>
+              <p class="font-medium">Prometheus</p>
+              <span class="tooltip">Real-Time Monitoring & Alerting</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-tachometer-alt text-teal-500 text-4xl mb-3"></i>
+              <p class="font-medium">Grafana</p>
+              <span class="tooltip">Advanced Visualization Dashboards</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-ticket-alt text-blue-500 text-4xl mb-3"></i>
+              <p class="font-medium">Jira</p>
+              <span class="tooltip">Agile Project Management</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-book text-green-500 text-4xl mb-3"></i>
+              <p class="font-medium">Confluence</p>
+              <span class="tooltip">Team Collaboration & Documentation</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-shield-halved text-blue-600 text-4xl mb-3"></i>
+              <p class="font-medium">Sonatype Nexus</p>
+              <span class="tooltip">Artifact & Dependency Management</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-bug text-green-500 text-4xl mb-3"></i>
+              <p class="font-medium">SonarQube</p>
+              <span class="tooltip">Code Quality & Security Analysis</span>
+            </div>
+            <div class="tech-card p-6 shadow-lg hover-scale">
+              <i class="fa-solid fa-search text-purple-500 text-4xl mb-3"></i>
+              <p class="font-medium">Trivy</p>
+              <span class="tooltip">Container Vulnerability Scanning</span>
+            </div>
           </div>
         </div>
       </div>
@@ -317,8 +538,19 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="bg-gray-800 py-20">
-    <div class="max-w-7xl mx-auto px-6">
+  <section id="projects" class="relative bg-gray-800 py-20">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
+      </svg>
+    </div>
+    <div class="section-content max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Featured Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover-scale fade-in">
@@ -351,87 +583,142 @@
   </section>
 
   <!-- Professional Experience -->
-  <section id="experience" class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Professional Experience</h2>
-    <div class="space-y-8">
-      <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
-        <h3 class="font-bold text-xl text-green-300">Lead DevOps Engineer</h3>
-        <p class="text-gray-400">Trasna Solutions / Workz | 2020 – Present</p>
-        <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-          <li>Architected and managed Kubernetes-based deployments on AKS and OKE, enhancing scalability and reliability.</li>
-          <li>Implemented observability frameworks with Prometheus and Grafana for real-time system monitoring.</li>
-          <li>Led cloud migrations to Azure and OCI, optimizing costs and performance.</li>
-        </ul>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
-        <h3 class="font-bold text-xl text-green-300">System Integrator</h3>
-        <p class="text-gray-400">Verint Systems | 2019 – 2020</p>
-        <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-          <li>Streamlined system integrations using Docker and Kubernetes, improving deployment efficiency.</li>
-          <li>Automated workflows with CI/CD pipelines, reducing manual intervention.</li>
-        </ul>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
-        <h3 class="font-bold text-xl text-green-300">IT Analyst</h3>
-        <p class="text-gray-400">Tata Consultancy Services | 2017 – 2019</p>
-        <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-          <li>Optimized enterprise infrastructure using Terraform and Ansible for scalable deployments.</li>
-          <li>Collaborated with cross-functional teams to implement secure cloud solutions.</li>
-        </ul>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
-        <h3 class="font-bold text-xl text-green-300">System Administrator</h3>
-        <p class="text-gray-400">HCL Infosystems | 2013 – 2017</p>
-        <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-          <li>Managed Linux/Unix systems and supported early cloud adoption initiatives.</li>
-          <li>Automated routine tasks using shell scripting, improving operational efficiency.</li>
-        </ul>
+  <section id="experience" class="relative max-w-7xl mx-auto px-6 py-20">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M5 12h14M12 5v14" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+    </div>
+    <div class="section-content">
+      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Professional Experience</h2>
+      <div class="space-y-8">
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+          <h3 class="font-bold text-xl text-green-300">Lead DevOps Engineer</h3>
+          <p class="text-gray-400">Trasna Solutions / Workz | 2020 – Present</p>
+          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
+            <li>Architected and managed Kubernetes-based deployments on AKS and OKE, enhancing scalability and reliability.</li>
+            <li>Implemented observability frameworks with Prometheus and Grafana for real-time system monitoring.</li>
+            <li>Led cloud migrations to Azure and OCI, optimizing costs and performance.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+          <h3 class="font-bold text-xl text-green-300">System Integrator</h3>
+          <p class="text-gray-400">Verint Systems | 2019 – 2020</p>
+          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
+            <li>Streamlined system integrations using Docker and Kubernetes, improving deployment efficiency.</li>
+            <li>Automated workflows with CI/CD pipelines, reducing manual intervention.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+          <h3 class="font-bold text-xl text-green-300">IT Analyst</h3>
+          <p class="text-gray-400">Tata Consultancy Services | 2017 – 2019</p>
+          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
+            <li>Optimized enterprise infrastructure using Terraform and Ansible for scalable deployments.</li>
+            <li>Collaborated with cross-functional teams to implement secure cloud solutions.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+          <h3 class="font-bold text-xl text-green-300">System Administrator</h3>
+          <p class="text-gray-400">HCL Infosystems | 2013 – 2017</p>
+          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
+            <li>Managed Linux/Unix systems and supported early cloud adoption initiatives.</li>
+            <li>Automated routine tasks using shell scripting, improving operational efficiency.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Education -->
-  <section class="bg-gray-800 py-20">
-    <div class="max-w-7xl mx-auto px-6 text-center fade-in">
+  <section id="education" class="relative bg-gray-800 py-20">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
+      </svg>
+    </div>
+    <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
       <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">Education</h2>
       <p class="text-lg"><b>Diploma in Electronics Engineering</b><br>Board of Technical Education, Kerala, India</p>
     </div>
   </section>
 
   <!-- Certifications -->
-  <section id="certifications" class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Certifications & Achievements</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
-        <p class="font-medium text-green-300">Oracle Cloud Infrastructure (OCI) Foundations</p>
-        <p class="text-gray-400 text-sm mt-2">Certified expertise in OCI core services and cloud architecture.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
-        <p class="font-medium text-green-300">Microsoft Certified: Azure Fundamentals</p>
-        <p class="text-gray-400 text-sm mt-2">Proficiency in Azure cloud services and foundational concepts.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
-        <p class="font-medium text-green-300">Certified Kubernetes Administrator (CKA)</p>
-        <p class="text-gray-400 text-sm mt-2">In progress, demonstrating advanced Kubernetes expertise.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
-        <p class="font-medium text-green-300">DevSecOps Implementation</p>
-        <p class="text-gray-400 text-sm mt-2">Led integration of SonarQube, Trivy, and Nexus for secure CI/CD pipelines.</p>
+  <section id="certifications" class="relative max-w-7xl mx-auto px-6 py-20">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M5 12h14M12 5v14" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+      </svg>
+    </div>
+    <div class="section-content">
+      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Certifications & Achievements</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+          <p class="font-medium text-green-300">Oracle Cloud Infrastructure (OCI) Foundations</p>
+          <p class="text-gray-400 text-sm mt-2">Certified expertise in OCI core services and cloud architecture.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+          <p class="font-medium text-green-300">Microsoft Certified: Azure Fundamentals</p>
+          <p class="text-gray-400 text-sm mt-2">Proficiency in Azure cloud services and foundational concepts.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+          <p class="font-medium text-green-300">Certified Kubernetes Administrator (CKA)</p>
+          <p class="text-gray-400 text-sm mt-2">In progress, demonstrating advanced Kubernetes expertise.</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+          <p class="font-medium text-green-300">DevSecOps Implementation</p>
+          <p class="text-gray-400 text-sm mt-2">Led integration of SonarQube, Trivy, and Nexus for secure CI/CD pipelines.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Resume Download -->
-  <section class="max-w-7xl mx-auto px-6 py-16 text-center fade-in">
-    <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank"
-       class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 hover-scale transition duration-300 text-lg">
-      <i class="fas fa-file-download mr-2"></i> Download Resume
-    </a>
+  <section id="resume" class="relative max-w-7xl mx-auto px-6 py-16 text-center">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
+      </svg>
+    </div>
+    <div class="section-content fade-in">
+      <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank"
+         class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 hover-scale transition duration-300 text-lg">
+        <i class="fas fa-file-download mr-2"></i> Download Resume
+      </a>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 bg-gradient-to-br from-green-600 to-blue-600 text-white">
-    <div class="max-w-7xl mx-auto px-6 text-center fade-in">
+  <section id="contact" class="relative py-20 bg-gradient-to-br from-green-600 to-blue-600 text-white">
+    <div class="animated-bg">
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M5 12h14M12 5v14" />
+      </svg>
+      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
+      </svg>
+    </div>
+    <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
       <h2 class="text-4xl font-bold mb-8 tracking-tight">Let's Collaborate</h2>
       <p class="text-lg mb-8">I'm always open to discussing new opportunities, projects, or innovative ideas. Reach out to connect!</p>
       <div class="flex flex-col md:flex-row justify-center gap-8 text-lg">
