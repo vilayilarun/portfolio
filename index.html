@@ -47,10 +47,10 @@
       display: none; 
       position: fixed; 
       bottom: 30px; 
-      right: 30px; 
+      right: 20px; 
       z-index: 1000; 
       background-color: #10b981; 
-      padding: 12px; 
+      padding: 10px; 
       border-radius: 50%; 
     }
     .tech-category { 
@@ -103,6 +103,8 @@
     .animated-icon {
       position: absolute;
       opacity: 0;
+      font-size: 40px;
+      color: #10b981;
       filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.7));
     }
     /* Hero Section: Scattered Icons */
@@ -129,7 +131,6 @@
     }
     #about .animated-icon:nth-child(1) { left: 10%; top: 10%; animation-delay: 0s; }
     #about .animated-icon:nth-child(2) { left: 20%; top: 40%; animation-delay: 2s; }
-    #about .animated-icon:nth-child(3) { left: 15%; top: 70%; animation-delay: 4s; }
     @keyframes float-left {
       0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
       50% { transform: translateX(20px) scale(0.9); opacity: 0.5; }
@@ -146,7 +147,6 @@
     }
     #social .animated-icon:nth-child(1) { right: 10%; top: 15%; animation-delay: 1s; }
     #social .animated-icon:nth-child(2) { right: 20%; top: 50%; animation-delay: 3s; }
-    #social .animated-icon:nth-child(3) { right: 15%; top: 80%; animation-delay: 5s; }
     @keyframes float-right {
       0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
       50% { transform: translateX(-20px) scale(0.9); opacity: 0.5; }
@@ -159,7 +159,6 @@
     #tech .animated-icon:nth-child(1) { left: 15%; top: 10%; animation-delay: 0s; }
     #tech .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 3s; }
     #tech .animated-icon:nth-child(3) { left: 65%; top: 20%; animation-delay: 6s; }
-    #tech .animated-icon:nth-child(4) { left: 85%; top: 60%; animation-delay: 9s; }
     @keyframes float-diagonal {
       0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
       50% { transform: translate(30px, -30px) scale(1); opacity: 0.6; }
@@ -175,7 +174,6 @@
     }
     #projects .animated-icon:nth-child(1) { left: 20%; top: 20%; animation-delay: 0s; }
     #projects .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
-    #projects .animated-icon:nth-child(3) { left: 60%; top: 80%; animation-delay: 4s; }
     @keyframes float-vertical {
       0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
       50% { transform: translateY(-40px) scale(1); opacity: 0.6; }
@@ -187,7 +185,6 @@
     }
     #experience .animated-icon:nth-child(1) { left: 10%; top: 15%; animation-delay: 0s; }
     #experience .animated-icon:nth-child(2) { left: 30%; top: 45%; animation-delay: 3s; }
-    #experience .animated-icon:nth-child(3) { left: 50%; top: 75%; animation-delay: 6s; }
     @keyframes float-horizontal {
       0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
       50% { transform: translateX(50px) scale(0.9); opacity: 0.5; }
@@ -203,7 +200,6 @@
       animation: float-right-left 9s infinite ease-in-out;
     }
     #education .animated-icon:nth-child(1) { right: 10%; top: 20%; animation-delay: 1s; }
-    #education .animated-icon:nth-child(2) { right: 20%; top: 50%; animation-delay: 3s; }
     @keyframes float-right-left {
       0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
       50% { transform: translateX(-30px) scale(0.9); opacity: 0.5; }
@@ -215,7 +211,6 @@
     }
     #certifications .animated-icon:nth-child(1) { left: 20%; top: 10%; animation-delay: 0s; }
     #certifications .animated-icon:nth-child(2) { left: 50%; top: 40%; animation-delay: 3s; }
-    #certifications .animated-icon:nth-child(3) { left: 80%; top: 70%; animation-delay: 6s; }
     @keyframes float-circular {
       0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
       25% { transform: translate(20px, -20px) scale(0.9); opacity: 0.5; }
@@ -228,7 +223,6 @@
       animation: float-slow 14s infinite ease-in-out;
     }
     #resume .animated-icon:nth-child(1) { left: 15%; top: 30%; animation-delay: 0s; }
-    #resume .animated-icon:nth-child(2) { left: 45%; top: 60%; animation-delay: 4s; }
     @keyframes float-slow {
       0% { transform: translateY(0) scale(0.7); opacity: 0.2; }
       50% { transform: translateY(-20px) scale(0.9); opacity: 0.4; }
@@ -240,14 +234,89 @@
     }
     #contact .animated-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
     #contact .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
-    #contact .animated-icon:nth-child(3) { left: 70%; top: 80%; animation-delay: 4s; }
     @keyframes float-diagonal-contact {
       0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
       50% { transform: translate(40px, -40px) scale(1); opacity: 0.6; }
       100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
     }
+    /* Mobile Optimizations */
     @media (max-width: 768px) {
-      .animated-icon { transform: scale(0.6); }
+      .animated-icon { 
+        transform: scale(0.5); 
+        font-size: 30px; 
+      }
+      #hero .animated-icon:nth-child(n+4) { display: none; }
+      #about .animated-icon:nth-child(n+3) { display: none; }
+      #social .animated-icon:nth-child(n+3) { display: none; }
+      #tech .animated-icon:nth-child(n+4) { display: none; }
+      #projects .animated-icon:nth-child(n+3) { display: none; }
+      #experience .animated-icon:nth-child(n+3) { display: none; }
+      #education .animated-icon:nth-child(n+2) { display: none; }
+      #certifications .animated-icon:nth-child(n+3) { display: none; }
+      #resume .animated-icon:nth-child(n+2) { display: none; }
+      #contact .animated-icon:nth-child(n+3) { display: none; }
+      #hero .animated-icon { animation: float-hero-mobile 8s infinite ease-in-out; }
+      @keyframes float-hero-mobile {
+        0% { transform: translateY(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateY(-20px) scale(0.8); opacity: 0.5; }
+        100% { transform: translateY(0) scale(0.6); opacity: 0.2; }
+      }
+      #about .animated-icon { animation: float-left-mobile 7s infinite ease-in-out; }
+      @keyframes float-left-mobile {
+        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateX(10px) scale(0.7); opacity: 0.4; }
+        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+      }
+      #social .animated-icon { animation: float-right-mobile 7s infinite ease-in-out; }
+      @keyframes float-right-mobile {
+        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateX(-10px) scale(0.7); opacity: 0.4; }
+        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+      }
+      #tech .animated-icon { animation: float-diagonal-mobile 9s infinite ease-in-out; }
+      @keyframes float-diagonal-mobile {
+        0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
+        50% { transform: translate(15px, -15px) scale(0.7); opacity: 0.4; }
+        100% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
+      }
+      #projects .animated-icon { animation: float-vertical-mobile 8s infinite ease-in-out; }
+      @keyframes float-vertical-mobile {
+        0% { transform: translateY(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateY(-20px) scale(0.7); opacity: 0.4; }
+        100% { transform: translateY(0) scale(0.6); opacity: 0.2; }
+      }
+      #experience .animated-icon { animation: float-horizontal-mobile 8s infinite ease-in-out; }
+      @keyframes float-horizontal-mobile {
+        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateX(20px) scale(0.7); opacity: 0.4; }
+        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+      }
+      #education .animated-icon { animation: float-right-left-mobile 7s infinite ease-in-out; }
+      @keyframes float-right-left-mobile {
+        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateX(-15px) scale(0.7); opacity: 0.4; }
+        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
+      }
+      #certifications .animated-icon { animation: float-circular-mobile 9s infinite ease-in-out; }
+      @keyframes float-circular-mobile {
+        0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
+        25% { transform: translate(10px, -10px) scale(0.7); opacity: 0.4; }
+        50% { transform: translate(0, -20px) scale(0.8); opacity: 0.5; }
+        75% { transform: translate(-10px, -10px) scale(0.7); opacity: 0.4; }
+        100% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
+      }
+      #resume .animated-icon { animation: float-slow-mobile 10s infinite ease-in-out; }
+      @keyframes float-slow-mobile {
+        0% { transform: translateY(0) scale(0.6); opacity: 0.2; }
+        50% { transform: translateY(-15px) scale(0.7); opacity: 0.3; }
+        100% { transform: translateY(0) scale(0.6); opacity: 0.2; }
+      }
+      #contact .animated-icon { animation: float-diagonal-contact-mobile 8s infinite ease-in-out; }
+      @keyframes float-diagonal-contact-mobile {
+        0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
+        50% { transform: translate(20px, -20px) scale(0.7); opacity: 0.4; }
+        100% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
+      }
     }
   </style>
 </head>
@@ -270,21 +339,11 @@
   <!-- Hero Section -->
   <section id="hero" class="relative bg-gradient-to-br from-green-600 to-blue-800 text-white h-screen flex items-center justify-center">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M5 12h14M12 5v14" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-      </svg>
+      <i class="animated-icon fas fa-tools"></i> <!-- Jenkins -->
+      <i class="animated-icon fab fa-aws"></i> <!-- AWS -->
+      <i class="animated-icon fab fa-google"></i> <!-- GCP -->
+      <i class="animated-icon fas fa-gears"></i> <!-- DevOps -->
+      <i class="animated-icon fab fa-docker"></i> <!-- Kubernetes/Docker -->
     </div>
     <div class="absolute inset-0 bg-[url('https://source.unsplash.com/random/1920x1080?technology')] opacity-15 bg-cover bg-center"></div>
     <div class="hero-content text-center px-6 fade-in">
@@ -297,15 +356,8 @@
   <!-- About -->
   <section id="about" class="relative max-w-7xl mx-auto px-6 py-20 text-center">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
-      </svg>
+      <i class="animated-icon fab fa-github"></i> <!-- GitHub -->
+      <i class="animated-icon fas fa-database"></i> <!-- PostgreSQL -->
     </div>
     <div class="section-content fade-in">
       <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">About Me</h2>
@@ -318,15 +370,8 @@
   <!-- Social Links -->
   <section id="social" class="relative bg-gray-800 py-12 shadow-inner">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M5 12h14M12 5v14" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
+      <i class="animated-icon fab fa-docker"></i> <!-- Docker -->
+      <i class="animated-icon fas fa-gears"></i> <!-- DevOps -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 fade-in">
       <a href="https://www.linkedin.com/in/vilayilarun/" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 hover-scale transition duration-300">
@@ -347,18 +392,9 @@
   <!-- Tech Stack -->
   <section id="tech" class="relative max-w-7xl mx-auto px-6 py-20">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M5 12h14M12 5v14" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
+      <i class="animated-icon fas fa-tools"></i> <!-- Jenkins -->
+      <i class="animated-icon fab fa-aws"></i> <!-- AWS -->
+      <i class="animated-icon fab fa-google"></i> <!-- GCP -->
     </div>
     <div class="section-content fade-in">
       <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Technology Expertise</h2>
@@ -540,15 +576,8 @@
   <!-- Projects -->
   <section id="projects" class="relative bg-gray-800 py-20">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
-      </svg>
+      <i class="animated-icon fab fa-docker"></i> <!-- Kubernetes/Docker -->
+      <i class="animated-icon fas fa-database"></i> <!-- PostgreSQL -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Featured Projects</h2>
@@ -585,15 +614,8 @@
   <!-- Professional Experience -->
   <section id="experience" class="relative max-w-7xl mx-auto px-6 py-20">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M5 12h14M12 5v14" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
+      <i class="animated-icon fas fa-tools"></i> <!-- Jenkins -->
+      <i class="animated-icon fab fa-aws"></i> <!-- AWS -->
     </div>
     <div class="section-content">
       <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Professional Experience</h2>
@@ -638,12 +660,7 @@
   <!-- Education -->
   <section id="education" class="relative bg-gray-800 py-20">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
-      </svg>
+      <i class="animated-icon fab fa-github"></i> <!-- GitHub -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
       <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">Education</h2>
@@ -654,15 +671,8 @@
   <!-- Certifications -->
   <section id="certifications" class="relative max-w-7xl mx-auto px-6 py-20">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M5 12h14M12 5v14" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-      </svg>
+      <i class="animated-icon fas fa-gears"></i> <!-- DevOps -->
+      <i class="animated-icon fab fa-docker"></i> <!-- Kubernetes/Docker -->
     </div>
     <div class="section-content">
       <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Certifications & Achievements</h2>
@@ -690,12 +700,7 @@
   <!-- Resume Download -->
   <section id="resume" class="relative max-w-7xl mx-auto px-6 py-16 text-center">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 2a10 10 0 0 0-9 5.5h18A10 10 0 0 0 12 2zm0 20a10 10 0 0 0 9-5.5H3a10 10 0 0 0 9 5.5z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" />
-      </svg>
+      <i class="animated-icon fas fa-database"></i> <!-- PostgreSQL -->
     </div>
     <div class="section-content fade-in">
       <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank"
@@ -708,15 +713,8 @@
   <!-- Contact -->
   <section id="contact" class="relative py-20 bg-gradient-to-br from-green-600 to-blue-600 text-white">
     <div class="animated-bg">
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M5 12h14M12 5v14" />
-      </svg>
-      <svg class="animated-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-        <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 0 0-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-      </svg>
+      <i class="animated-icon fab fa-aws"></i> <!-- AWS -->
+      <i class="animated-icon fas fa-tools"></i> <!-- Jenkins -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
       <h2 class="text-4xl font-bold mb-8 tracking-tight">Let's Collaborate</h2>
