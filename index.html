@@ -6,9 +6,11 @@
   <meta name="description" content="Arun Thiruvacholayil's Professional DevOps Portfolio - Expert in Kubernetes, Cloud Infrastructure, and Automation"/>
   <meta name="keywords" content="DevOps, Kubernetes, Cloud, AWS, Azure, GCP, OCI, CI/CD, Automation, Infrastructure as Code"/>
   <meta name="author" content="Arun Thiruvacholayil"/>
+  <meta property="og:title" content="Arun Thiruvacholayil | DevOps Portfolio"/>
+  <meta property="og:image" content="https://source.unsplash.com/random/1200x630?technology"/>
   <title>Arun Thiruvacholayil | Professional DevOps Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body { 
@@ -30,8 +32,8 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease; 
     }
     .hover-scale:hover { 
-      transform: scale(1.03); 
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+      transform: scale(1.03) rotate(2deg); 
+      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.5); 
     }
     .navbar { 
       transition: all 0.3s ease; 
@@ -121,9 +123,9 @@
     #hero .animated-icon:nth-child(8) { left: 60%; top: 80%; animation-delay: 5s; }
     #hero .animated-icon:nth-child(9) { left: 80%; top: 20%; animation-delay: 7s; }
     @keyframes float-hero {
-      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
-      50% { transform: translateY(-50px) scale(1); opacity: 0.7; }
-      100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+      0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.3; }
+      50% { transform: translateY(-50px) rotate(5deg) scale(1); opacity: 0.7; }
+      100% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.3; }
     }
     /* About Section: Left-Aligned Icons */
     #about .animated-bg {
@@ -261,6 +263,10 @@
       50% { transform: translate(40px, -40px) scale(1); opacity: 0.6; }
       100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
     }
+    /* Card Styling */
+    .card {
+      @apply bg-gray-800 p-8 rounded-xl shadow-lg;
+    }
     /* Mobile Optimizations */
     @media (max-width: 768px) {
       .animated-icon { 
@@ -270,7 +276,7 @@
       #hero .animated-icon:nth-child(n+4) { display: none; }
       #about .animated-icon:nth-child(n+3) { display: none; }
       #social .animated-icon:nth-child(n+3) { display: none; }
-      #tech .animated-icon:nth-child(n+4) { display: none; }
+      #tech .animated-icon:nth-child(n++4) { display: none; }
       #projects .animated-icon:nth-child(n+3) { display: none; }
       #experience .animated-icon:nth-child(n+3) { display: none; }
       #education .animated-icon:nth-child(n+2) { display: none; }
@@ -347,13 +353,13 @@
   <!-- Navigation -->
   <nav class="navbar fixed top-0 left-0 w-full text-white shadow-lg z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold tracking-tight">Arun Thiruvacholayil</h1>
+      <h1 class="text-2xl font-extrabold tracking-tight">Arun Thiruvacholayil</h1>
       <div class="space-x-6 text-lg">
-        <a href="#about" class="hover:text-green-400 transition duration-300">About</a>
-        <a href="#tech" class="hover:text-green-400 transition duration-300">Tech Stack</a>
-        <a href="#projects" class="hover:text-green-400 transition duration-300">Projects</a>
-        <a href="#experience" class="hover:text-green-400 transition duration-300">Experience</a>
-        <a href="#contact" class="hover:text-green-400 transition duration-300">Contact</a>
+        <a href="#about" class="hover:text-teal-400 transition duration-300">About</a>
+        <a href="#tech" class="hover:text-teal-400 transition duration-300">Tech Stack</a>
+        <a href="#projects" class="hover:text-teal-400 transition duration-300">Projects</a>
+        <a href="#experience" class="hover:text-teal-400 transition duration-300">Experience</a>
+        <a href="#contact" class="hover:text-teal-400 transition duration-300">Contact</a>
       </div>
     </div>
   </nav>
@@ -373,9 +379,9 @@
     </div>
     <div class="absolute inset-0 bg-[url('https://source.unsplash.com/random/1920x1080?technology')] opacity-15 bg-cover bg-center"></div>
     <div class="hero-content text-center px-6 fade-in">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">Arun Thiruvacholayil</h1>
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">Arun Thiruvacholayil</h1>
       <p class="text-xl md:text-2xl mb-8 font-light leading-relaxed">DevOps Engineer | Kubernetes Specialist | Cloud Solutions Architect</p>
-      <a href="#contact" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition duration-300 shadow-lg hover-scale">Connect With Me</a>
+      <a href="#contact" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-teal-500 transition duration-300 shadow-lg hover-scale">Connect With Me</a>
     </div>
   </section>
 
@@ -388,9 +394,9 @@
       <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
     </div>
     <div class="section-content fade-in">
-      <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">About Me</h2>
+      <h2 class="text-5xl font-extrabold mb-6 text-green-400 tracking-tight">About Me</h2>
       <p class="text-lg leading-relaxed max-w-3xl mx-auto">
-        I am a seasoned <b>DevOps Engineer</b> with over <b>12 years of experience</b> in designing and implementing robust, scalable, and secure infrastructure solutions. My expertise spans <b>multi-cloud environments (AWS, Azure, GCP, OCI)</b>, container orchestration with <b>Kubernetes</b>, and end-to-end <b>CI/CD pipeline automation</b>. I am passionate about leveraging <b>Infrastructure as Code (IaC)</b>, observability tools, and DevSecOps practices to drive operational excellence and accelerate business outcomes.
+        I am a seasoned <b>DevOps Engineer</b> with over <b>12 years of experience</b> in designing robust, scalable, and secure infrastructure solutions. My expertise spans <b>multi-cloud environments (AWS, Azure, GCP, OCI)</b>, container orchestration with <b>Kubernetes</b>, and end-to-end <b>CI/CD pipeline automation</b>. I specialize in <b>DevSecOps</b>, integrating tools like SonarQube and Trivy to ensure secure deployments, and have a strong background in database migrations, optimizing performance for large-scale PostgreSQL systems (e.g., cross-region syncs with logical replication). Passionate about <b>Infrastructure as Code (IaC)</b> and observability, I drive operational excellence to accelerate business outcomes.
       </p>
     </div>
   </section>
@@ -404,16 +410,16 @@
       <i class="animated-icon fa-solid fa-code-branch text-orange-500"></i> <!-- ArgoCD -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 fade-in">
-      <a href="https://www.linkedin.com/in/vilayilarun/" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 hover-scale transition duration-300">
+      <a href="https://www.linkedin.com/in/vilayilarun/" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
         <i class="fab fa-linkedin mr-2"></i> LinkedIn
       </a>
-      <a href="https://github.com/vilayilarun" class="bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-black hover-scale transition duration-300">
+      <a href="https://github.com/vilayilarun" class="bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
         <i class="fab fa-github mr-2"></i> GitHub
       </a>
       <a href="https://medium.com/@vilayilarun" class="bg-teal-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-600 hover-scale transition duration-300">
         <i class="fab fa-medium mr-2"></i> Medium
       </a>
-      <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-orange-600 hover-scale transition duration-300">
+      <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
         <i class="fab fa-stack-overflow mr-2"></i> StackOverflow
       </a>
     </div>
@@ -429,7 +435,7 @@
       <i class="animated-icon fa-brands fa-microsoft text-blue-500"></i> <!-- Azure -->
     </div>
     <div class="section-content fade-in">
-      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Technology Expertise</h2>
+      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Technology Expertise</h2>
       <div class="space-y-16">
         <!-- Core Expertise & Programming -->
         <div class="fade-in">
@@ -614,32 +620,32 @@
       <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Featured Projects</h2>
+      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Featured Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl mb-4 text-green-300">Dynamic Helm Chart Generator</h3>
           <p class="text-gray-300">Developed a dynamic Helm umbrella chart for managing Deployments, StatefulSets, and Ingress with Helm and ArgoCD, achieving a <b>70% reduction in maintenance overhead</b>. Integrated reusable templates to streamline Kubernetes deployments.</p>
-          <a href="https://github.com/vilayilarun/helm-chart-generator" class="text-green-400 hover:text-green-300 mt-4 inline-block">View Project</a>
+          <a href="https://github.com/vilayilarun/helm-chart-generator" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
         </div>
-        <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl mb-4 text-green-300">CI/CD Pipeline Automation</h3>
           <p class="text-gray-300">Designed and implemented CI/CD pipelines using Jenkins, GitLab CI, and ArgoCD, with SonarQube and Trivy for code quality and security. Reduced deployment failures by <b>40%</b> through automated testing and validation.</p>
-          <a href="https://github.com/vilayilarun/cicd-pipeline" class="text-green-400 hover:text-green-300 mt-4 inline-block">View Project</a>
+          <a href="https://github.com/vilayilarun/cicd-pipeline" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
         </div>
-        <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl mb-4 text-green-300">Multi-Cloud Migration</h3>
           <p class="text-gray-300">Led migration of PostgreSQL Patroni clusters to Azure Flexible Server and OCI using pgcopy and logical replication, optimizing performance and achieving <b>35% cost savings</b> through efficient resource utilization.</p>
-          <a href="https://github.com/vilayilarun/cloud-migration" class="text-green-400 hover:text-green-300 mt-4 inline-block">View Project</a>
+          <a href="https://github.com/vilayilarun/cloud-migration" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
         </div>
-        <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl mb-4 text-green-300">Dynamic Cloud Infrastructure</h3>
           <p class="text-gray-300">Provisioned high-availability infrastructure with HAProxy, Fortinet Firewalls, and Kubernetes clusters using Terraform and Ansible, reducing provisioning time by <b>80%</b> through automation.</p>
-          <a href="https://github.com/vilayilarun/cloud-infra" class="text-green-400 hover:text-green-300 mt-4 inline-block">View Project</a>
+          <a href="https://github.com/vilayilarun/cloud-infra" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
         </div>
-        <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl mb-4 text-green-300">Centralized Observability Platform</h3>
-          <p class="text-gray-300">Implemented Prometheus, Grafana, Loki, and OpenTelemetry for real-time monitoring and observability, reducing Mean Time to Resolution (MTTR) by <b>50%</b> through actionable insights.</p>
-          <a href="https://github.com/vilayilarun/observability-platform" class="text-green-400 hover:text-green-300 mt-4 inline-block">View Project</a>
+          <p class="text-gray-300">Implemented Prometheus, Grafana, Loki, and OpenTelemetry for real-time monitoring of a system handling <b>10,000 requests/day</b>, reducing Mean Time to Resolution (MTTR) by <b>50%</b>. Overcame challenges in scaling Loki for high log volumes and integrating OpenTelemetry with legacy systems.</p>
+          <a href="https://github.com/vilayilarun/observability-platform" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
         </div>
       </div>
     </div>
@@ -654,9 +660,9 @@
       <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
     </div>
     <div class="section-content">
-      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Professional Experience</h2>
+      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Professional Experience</h2>
       <div class="space-y-8">
-        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl text-green-300">Lead DevOps Engineer</h3>
           <p class="text-gray-400">Trasna Solutions / Workz | 2020 – Present</p>
           <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
@@ -665,7 +671,7 @@
             <li>Led cloud migrations to Azure and OCI, optimizing costs and performance.</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl text-green-300">System Integrator</h3>
           <p class="text-gray-400">Verint Systems | 2019 – 2020</p>
           <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
@@ -673,7 +679,7 @@
             <li>Automated workflows with CI/CD pipelines, reducing manual intervention.</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl text-green-300">IT Analyst</h3>
           <p class="text-gray-400">Tata Consultancy Services | 2017 – 2019</p>
           <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
@@ -681,7 +687,7 @@
             <li>Collaborated with cross-functional teams to implement secure cloud solutions.</li>
           </ul>
         </div>
-        <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <h3 class="font-bold text-xl text-green-300">System Administrator</h3>
           <p class="text-gray-400">HCL Infosystems | 2013 – 2017</p>
           <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
@@ -701,7 +707,7 @@
       <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
-      <h2 class="text-4xl font-bold mb-6 text-green-400 tracking-tight">Education</h2>
+      <h2 class="text-5xl font-extrabold mb-6 text-green-400 tracking-tight">Education</h2>
       <p class="text-lg"><b>Diploma in Electronics Engineering</b><br>Board of Technical Education, Kerala, India</p>
     </div>
   </section>
@@ -715,21 +721,21 @@
       <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
     </div>
     <div class="section-content">
-      <h2 class="text-4xl font-bold mb-12 text-center text-green-400 tracking-tight">Certifications & Achievements</h2>
+      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Certifications & Achievements</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <p class="font-medium text-green-300">Oracle Cloud Infrastructure (OCI) Foundations</p>
           <p class="text-gray-400 text-sm mt-2">Certified expertise in OCI core services and cloud architecture.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <p class="font-medium text-green-300">Microsoft Certified: Azure Fundamentals</p>
           <p class="text-gray-400 text-sm mt-2">Proficiency in Azure cloud services and foundational concepts.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <p class="font-medium text-green-300">Certified Kubernetes Administrator (CKA)</p>
           <p class="text-gray-400 text-sm mt-2">In progress, demonstrating advanced Kubernetes expertise.</p>
         </div>
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale fade-in">
+        <div class="card hover-scale fade-in">
           <p class="font-medium text-green-300">DevSecOps Implementation</p>
           <p class="text-gray-400 text-sm mt-2">Led integration of SonarQube, Trivy, and Nexus for secure CI/CD pipelines.</p>
         </div>
@@ -746,7 +752,7 @@
     </div>
     <div class="section-content fade-in">
       <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank"
-         class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-600 hover-scale transition duration-300 text-lg">
+         class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300 text-lg">
         <i class="fas fa-file-download mr-2"></i> Download Resume
       </a>
     </div>
@@ -761,13 +767,13 @@
       <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
     </div>
     <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
-      <h2 class="text-4xl font-bold mb-8 tracking-tight">Let's Collaborate</h2>
+      <h2 class="text-5xl font-extrabold mb-8 tracking-tight">Let's Collaborate</h2>
       <p class="text-lg mb-8">I'm always open to discussing new opportunities, projects, or innovative ideas. Reach out to connect!</p>
       <div class="flex flex-col md:flex-row justify-center gap-8 text-lg">
-        <a href="tel:+971585014388" class="bg-gray-800 text-green-300 px-8 py-4 rounded-full shadow-lg hover:bg-gray-700 hover-scale transition duration-300">
+        <a href="tel:+971585014388" class="bg-gray-800 text-green-300 px-8 py-4 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
           <i class="fas fa-phone mr-2"></i> +971 58 501 4388
         </a>
-        <a href="mailto:vilayilarun@gmail.com" class="bg-gray-800 text-green-300 px-8 py-4 rounded-full shadow-lg hover:bg-gray-700 hover-scale transition duration-300">
+        <a href="mailto:vilayilarun@gmail.com" class="bg-gray-800 text-green-300 px-8 py-4 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
           <i class="fas fa-envelope mr-2"></i> vilayilarun@gmail.com
         </a>
       </div>
@@ -775,13 +781,19 @@
   </section>
 
   <!-- Back to Top Button -->
-  <button id="back-to-top" class="text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+  <button id="back-to-top" aria-label="Back to top" class="text-white p-4 rounded-full shadow-lg hover:bg-teal-500 transition duration-300">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-10">
     <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="flex justify-center gap-6 mb-4">
+        <a href="https://www.linkedin.com/in/vilayilarun/" class="text-green-400 hover:text-teal-400"><i class="fab fa-linkedin text-2xl"></i></a>
+        <a href="https://github.com/vilayilarun" class="text-green-400 hover:text-teal-400"><i class="fab fa-github text-2xl"></i></a>
+        <a href="https://medium.com/@vilayilarun" class="text-green-400 hover:text-teal-400"><i class="fab fa-medium text-2xl"></i></a>
+        <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="text-green-400 hover:text-teal-400"><i class="fab fa-stack-overflow text-2xl"></i></a>
+      </div>
       <p class="mb-4">Designed & Developed by Arun Thiruvacholayil</p>
       <p>&copy; 2025 Arun Thiruvacholayil. All Rights Reserved.</p>
     </div>
