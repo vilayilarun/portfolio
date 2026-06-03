@@ -3,837 +3,1504 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Arun Thiruvacholayil's Professional DevOps Portfolio - Expert in Kubernetes, Cloud Infrastructure, and Automation"/>
-  <meta name="keywords" content="DevOps, Kubernetes, Cloud, AWS, Azure, GCP, OCI, CI/CD, Automation, Infrastructure as Code"/>
+  <meta name="description" content="Arun Thiruvacholayil — Lead DevOps Engineer, Kubernetes Specialist, Cloud Solutions Architect with 12+ years experience."/>
+  <meta name="keywords" content="DevOps, Kubernetes, Cloud, AWS, Azure, GCP, OCI, CI/CD, Automation, Infrastructure as Code, SRE"/>
   <meta name="author" content="Arun Thiruvacholayil"/>
-  <meta property="og:title" content="Arun Thiruvacholayil | DevOps Portfolio"/>
-  <meta property="og:image" content="https://source.unsplash.com/random/1200x630?technology"/>
-  <title>Arun Thiruvacholayil | Professional DevOps Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <title>Arun Thiruvacholayil | Lead DevOps Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    body { 
-      font-family: 'Inter', sans-serif; 
-      scroll-behavior: smooth;
-      background-color: #0f172a;
+    /* ── TOKENS ──────────────────────────────────────────────── */
+    :root {
+      --void:    #060810;
+      --base:    #0b0e1a;
+      --surface: #101424;
+      --card:    #141829;
+      --lift:    #1c2038;
+      --hover:   #222640;
+
+      --border-xs: rgba(255,255,255,0.05);
+      --border-sm: rgba(255,255,255,0.09);
+      --border-md: rgba(255,255,255,0.16);
+
+      --text1: #eef1f8;
+      --text2: #9aa3c0;
+      --text3: #525d80;
+      --text4: #2e3555;
+
+      --green:      #00e5a0;
+      --green-dim:  rgba(0,229,160,0.10);
+      --green-rim:  rgba(0,229,160,0.22);
+      --green-dark: #00b87f;
+
+      --blue:     #4f8ef7;
+      --orange:   #ff7c3a;
+      --purple:   #a78bfa;
+      --amber:    #fbbf24;
+      --red:      #f87171;
+      --cyan:     #22d3ee;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+
+      --r:  4px;
+      --r2: 8px;
+      --r3: 14px;
+      --max: 1120px;
+    }
+
+    /* ── RESET ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--base);
+      color: var(--text2);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--green-dim); color: var(--text1); }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--void); }
+    ::-webkit-scrollbar-thumb { background: var(--lift); border-radius: 2px; }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ── TYPOGRAPHY ───────────────────────────────────────────── */
+    .display { font-family: var(--font-display); }
+    .mono    { font-family: var(--font-mono); }
+    .text1   { color: var(--text1); }
+    .text2   { color: var(--text2); }
+    .text3   { color: var(--text3); }
+    .accent  { color: var(--green); }
+
+    /* ── SECTION LABEL ────────────────────────────────────────── */
+    .sec-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sec-label::after {
+      content: '';
+      flex: 0 0 28px;
+      height: 1px;
+      background: var(--green-rim);
+    }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--text1);
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    /* ── SCROLLBAR ANIMATIONS ──────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ── GRID BG ──────────────────────────────────────────────── */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,160,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* ── NAV ──────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 max(20px,(100vw - var(--max))/2);
+      border-bottom: 1px solid transparent;
+      transition: all .3s;
+    }
+    .nav.scrolled {
+      background: rgba(6,8,16,0.94);
+      border-color: var(--border-xs);
+      backdrop-filter: blur(16px);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-mark {
+      width: 30px; height: 30px;
+      border-radius: var(--r2);
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 13px; font-weight: 600;
+      color: var(--void);
+    }
+    .nav-brand strong {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 700;
+      color: var(--text1);
+      letter-spacing: -.1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--text3);
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--green);
+      color: var(--void);
+      padding: 7px 14px;
+      border-radius: var(--r);
+      border: none;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .nav-cta:hover { background: var(--green-dark); }
+
+    /* hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text2);
+      border-radius: 1px;
+      transition: all .2s;
+    }
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 56px; left: 0; right: 0;
+      background: rgba(6,8,16,0.98);
+      border-bottom: 1px solid var(--border-xs);
+      padding: 16px max(20px,(100vw - var(--max))/2);
+      flex-direction: column;
+      gap: 0;
+      backdrop-filter: blur(16px);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text3);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-xs);
+      transition: color .15s;
+    }
+    .mobile-menu a:hover { color: var(--green); }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--void);
+      padding: 100px max(20px,(100vw - var(--max))/2) 60px;
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+    }
+    .orb1 { width: 560px; height: 560px; background: rgba(0,229,160,.07); top: -100px; left: -100px; }
+    .orb2 { width: 420px; height: 420px; background: rgba(79,142,247,.05); top: -80px; right: -80px; }
+    .orb3 { width: 360px; height: 360px; background: rgba(0,229,160,.04); bottom: 0; right: 15%; }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 72px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text3);
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: 20px;
+      padding: 5px 12px 5px 8px;
+      margin-bottom: 22px;
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:.5;transform:scale(1.3)}
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 82px);
+      font-weight: 800;
+      line-height: .94;
+      letter-spacing: -.05em;
+      color: var(--text1);
+      margin-bottom: 18px;
+    }
+    .hero h1 .line { display: block; overflow: hidden; }
+    .hero h1 .word {
+      display: inline-block;
+      animation: slide-word .9s cubic-bezier(.22,1,.36,1) both;
+    }
+    .hero h1 .line:nth-child(2) .word { animation-delay: .09s; }
+    .hero h1 .line:nth-child(3) .word { animation-delay: .18s; }
+    @keyframes slide-word {
+      from { transform: translateY(110%); opacity: 0; }
+      to   { transform: none; opacity: 1; }
+    }
+
+    .hero-role {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: .05em;
+      color: var(--green);
+      margin-bottom: 18px;
+      animation: fade-up .7s .3s both;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text3);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+      animation: fade-up .7s .42s both;
+    }
+    @keyframes fade-up {
+      from { opacity:0; transform:translateY(14px); }
+      to   { opacity:1; transform:none; }
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      animation: fade-up .7s .54s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--void);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 11px 20px;
+      border-radius: var(--r2);
+      border: none;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,229,160,.25); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      color: var(--text2);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 11px 18px;
+      border-radius: var(--r2);
+      border: 1px solid var(--border-sm);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-ghost:hover { border-color: var(--green-rim); color: var(--green); background: var(--green-dim); }
+
+    /* hero quick stats */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      animation: fade-up .7s .66s both;
+    }
+    .hero-stat {
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r2);
+      padding: 14px;
+      text-align: center;
+      transition: border-color .2s;
+    }
+    .hero-stat:hover { border-color: var(--green-rim); }
+    .hero-stat strong {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--green);
+      display: block;
+      line-height: 1.1;
+    }
+    .hero-stat span {
+      font-size: 11px;
+      color: var(--text3);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* hero console */
+    .hero-console {
+      background: var(--card);
+      border: 1px solid var(--border-sm);
+      border-radius: var(--r3);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(0,229,160,.05);
+      animation: fade-up .7s .25s both;
+    }
+    .console-bar {
+      height: 36px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-xs);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 6px;
+    }
+    .console-bar span { width: 9px; height: 9px; border-radius: 50%; }
+    .cb-r { background: #ff5f57; }
+    .cb-y { background: #febc2e; }
+    .cb-g { background: #28c840; }
+    .console-bar small {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text4);
+      margin-left: 8px;
+      letter-spacing: .03em;
+    }
+    .console-live {
+      padding: 6px 14px;
+      background: rgba(0,229,160,.05);
+      border-bottom: 1px solid rgba(0,229,160,.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .console-live span { font-family: var(--font-mono); font-size: 10px; color: var(--text4); text-transform: uppercase; letter-spacing: .07em; }
+    .console-live strong { font-family: var(--font-mono); font-size: 10px; color: var(--green); letter-spacing: .05em; }
+    .console-kpis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border-xs);
+    }
+    .ckpi {
+      background: var(--card);
+      padding: 14px 12px;
+    }
+    .ckpi.wide { grid-column: span 2; }
+    .ckpi .ck-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text4);
+      margin-bottom: 4px;
+    }
+    .ckpi .ck-val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--green);
+      line-height: 1;
+    }
+    .ckpi .ck-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 22px;
+      margin-top: 6px;
+    }
+    .ckpi .ck-bars i {
+      flex: 1;
+      background: var(--green);
+      border-radius: 2px 2px 0 0;
+      opacity: .6;
+    }
+    .ckpi .ck-bars i:last-child { opacity: 1; box-shadow: 0 0 6px var(--green); }
+    .console-code {
+      grid-column: span 2;
+      background: var(--surface);
+      border-top: 1px solid var(--border-xs);
+      padding: 12px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.9;
+      color: var(--text3);
+    }
+    .kw { color: var(--blue); }
+    .str { color: var(--green); }
+    .cm { color: var(--text4); }
+    .gg { color: var(--green); }
+    .console-activity {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .ca-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      border-top: 1px solid var(--border-xs);
+    }
+    .ca-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text2);
+    }
+    .ca-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .ca-right { font-family: var(--font-mono); font-size: 9px; color: var(--text4); }
+
+    /* ── SOCIAL STRIP ──────────────────────────────────────────── */
+    .social-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border-xs);
+      border-bottom: 1px solid var(--border-xs);
+      padding: 20px max(20px,(100vw - var(--max))/2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 9px 16px;
+      border-radius: var(--r);
+      border: 1px solid var(--border-sm);
+      background: var(--card);
+      color: var(--text2);
+      transition: all .15s;
+    }
+    .social-btn:hover { border-color: var(--green-rim); color: var(--green); background: var(--green-dim); transform: translateY(-1px); }
+
+    /* ── LAYOUT SECTIONS ───────────────────────────────────────── */
+    .section {
+      padding: 88px max(20px,(100vw - var(--max))/2);
+    }
+    .section.dark { background: var(--void); border-top: 1px solid var(--border-xs); border-bottom: 1px solid var(--border-xs); }
+    .section.surface { background: var(--surface); border-top: 1px solid var(--border-xs); }
+
+    /* ── ABOUT ─────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text p strong { color: var(--text1); font-weight: 600; }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: var(--r);
+      border: 1px solid var(--border-xs);
+      color: var(--text3);
+      background: var(--card);
+      transition: all .15s;
+    }
+    .tag:hover { border-color: var(--green-rim); color: var(--green); }
+    .tag.highlight { border-color: var(--green-rim); color: var(--green); background: var(--green-dim); }
+
+    .about-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .about-metric {
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r3);
+      padding: 20px;
+      transition: border-color .2s;
+    }
+    .about-metric:hover { border-color: var(--green-rim); }
+    .about-metric::before {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      border-radius: 1px;
+      margin-bottom: 14px;
+    }
+    .about-metric strong {
+      font-family: var(--font-mono);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--green);
+      display: block;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .about-metric span {
+      font-size: 12px;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+
+    /* ── TECH GRID ─────────────────────────────────────────────── */
+    .tech-cat-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--green-rim);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .tech-card {
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r2);
+      padding: 18px 12px 14px;
+      text-align: center;
+      cursor: default;
+      transition: all .2s;
       position: relative;
     }
-    .fade-in { 
-      opacity: 0; 
-      transform: translateY(20px); 
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+    .tech-card:hover {
+      background: var(--lift);
+      border-color: var(--border-sm);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.4);
     }
-    .fade-in.visible { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-    .hover-scale { 
-      transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    }
-    .hover-scale:hover { 
-      transform: scale(1.03) rotate(2deg); 
-      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.5); 
-    }
-    .navbar { 
-      transition: all 0.3s ease; 
-      background-color: rgba(17, 24, 39, 0.95); 
-      z-index: 100; 
-    }
-    .navbar.scrolled { 
-      background-color: rgba(17, 24, 39, 0.98); 
-      backdrop-filter: blur(12px); 
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    }
-    #back-to-top { 
-      display: none; 
-      position: fixed; 
-      bottom: 30px; 
-      right: 20px; 
-      z-index: 1000; 
-      background-color: #10b981; 
-      padding: 10px; 
-      border-radius: 50%; 
-    }
-    .tech-category { 
-      border-bottom: 3px solid #10b981; 
-      padding-bottom: 8px; 
-    }
-    .tech-card { 
-      position: relative; 
-      background: linear-gradient(145deg, #1f2937, #111827); 
-      border-radius: 12px; 
-    }
-    .tooltip { 
-      visibility: hidden; 
-      position: absolute; 
-      bottom: 100%; 
-      left: 50%; 
-      transform: translateX(-50%); 
-      background: #111827; 
-      color: #fff; 
-      padding: 8px 16px; 
-      border-radius: 8px; 
-      font-size: 13px; 
-      white-space: nowrap; 
-      z-index: 10; 
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
-      transition: visibility 0.2s ease, opacity 0.2s ease; 
-      opacity: 0; 
-    }
-    .tech-card:hover .tooltip { 
-      visibility: visible; 
-      opacity: 1; 
-    }
-    .section-divider { 
-      border-top: 1px solid #374151; 
-      margin: 2rem 0; 
-    }
-    .hero-content, .section-content { 
-      position: relative; 
-      z-index: 2; 
-    }
-    .animated-bg {
+    .tech-card.featured { border-color: var(--green-rim); background: var(--green-dim); }
+    .tech-card .ti { font-size: 24px; margin-bottom: 10px; display: block; transition: color .2s; }
+    .tech-card:hover .ti { color: var(--green) !important; }
+    .tech-card p { font-size: 12px; font-weight: 500; color: var(--text2); }
+    .tech-card.featured p { color: var(--green); }
+    .tech-tooltip {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-    }
-    .animated-icon {
-      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--border-sm);
+      color: var(--text1);
+      padding: 6px 12px;
+      border-radius: var(--r);
+      font-size: 12px;
+      white-space: nowrap;
       opacity: 0;
-      font-size: 40px;
-      color: #10b981;
-      filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.7));
+      pointer-events: none;
+      transition: opacity .2s;
+      z-index: 10;
     }
-    /* Hero Section: Scattered Icons */
-    #hero .animated-icon {
-      animation: float-hero 10s infinite ease-in-out;
+    .tech-card:hover .tech-tooltip { opacity: 1; }
+
+    /* ── PROJECTS ──────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+      gap: 14px;
     }
-    #hero .animated-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
-    #hero .animated-icon:nth-child(2) { left: 30%; top: 60%; animation-delay: 2s; }
-    #hero .animated-icon:nth-child(3) { left: 50%; top: 30%; animation-delay: 4s; }
-    #hero .animated-icon:nth-child(4) { left: 70%; top: 70%; animation-delay: 6s; }
-    #hero .animated-icon:nth-child(5) { left: 90%; top: 40%; animation-delay: 8s; }
-    #hero .animated-icon:nth-child(6) { left: 20%; top: 50%; animation-delay: 1s; }
-    #hero .animated-icon:nth-child(7) { left: 40%; top: 10%; animation-delay: 3s; }
-    #hero .animated-icon:nth-child(8) { left: 60%; top: 80%; animation-delay: 5s; }
-    #hero .animated-icon:nth-child(9) { left: 80%; top: 20%; animation-delay: 7s; }
-    @keyframes float-hero {
-      0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.3; }
-      50% { transform: translateY(-50px) rotate(5deg) scale(1); opacity: 0.7; }
-      100% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.3; }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r3);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: all .2s;
+      position: relative;
+      overflow: hidden;
     }
-    /* About Section: Left-Aligned Icons */
-    #about .animated-bg {
-      width: 30%;
-      left: 0;
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 0;
+      transition: opacity .3s;
     }
-    #about .animated-icon {
-      animation: float-left 8s infinite ease-in-out;
+    .project-card:hover { border-color: var(--border-sm); background: var(--lift); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.5); }
+    .project-card:hover::before { opacity: 1; }
+    .project-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--r2);
+      background: var(--green-dim);
+      border: 1px solid var(--green-rim);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 18px;
+      margin-bottom: 16px;
+      transition: box-shadow .2s;
     }
-    #about .animated-icon:nth-child(1) { left: 10%; top: 10%; animation-delay: 0s; }
-    #about .animated-icon:nth-child(2) { left: 20%; top: 40%; animation-delay: 2s; }
-    #about .animated-icon:nth-child(3) { left: 15%; top: 70%; animation-delay: 4s; }
-    #about .animated-icon:nth-child(4) { left: 25%; top: 20%; animation-delay: 6s; }
-    @keyframes float-left {
-      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
-      50% { transform: translateX(20px) scale(0.9); opacity: 0.5; }
-      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    .project-card:hover .project-icon { box-shadow: 0 0 14px var(--green-rim); }
+    .project-card h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text1);
+      margin-bottom: 10px;
+      letter-spacing: -.1px;
     }
-    /* Social Links Section: Right-Aligned Icons */
-    #social .animated-bg {
-      width: 30%;
-      right: 0;
-      left: auto;
+    .project-card p {
+      font-size: 13px;
+      color: var(--text3);
+      line-height: 1.7;
+      margin-bottom: 16px;
+      flex: 1;
     }
-    #social .animated-icon {
-      animation: float-right 9s infinite ease-in-out;
+    .project-card p strong { color: var(--green); font-weight: 600; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--text3);
+      transition: color .15s;
     }
-    #social .animated-icon:nth-child(1) { right: 10%; top: 15%; animation-delay: 1s; }
-    #social .animated-icon:nth-child(2) { right: 20%; top: 50%; animation-delay: 3s; }
-    #social .animated-icon:nth-child(3) { right: 15%; top: 80%; animation-delay: 5s; }
-    #social .animated-icon:nth-child(4) { right: 25%; top: 30%; animation-delay: 7s; }
-    @keyframes float-right {
-      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
-      50% { transform: translateX(-20px) scale(0.9); opacity: 0.5; }
-      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    .project-link:hover { color: var(--green); }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
     }
-    /* Tech Stack Section: Scattered with Diagonal Movement */
-    #tech .animated-icon {
-      animation: float-diagonal 12s infinite ease-in-out;
+
+    /* ── EXPERIENCE TIMELINE ───────────────────────────────────── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 16px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border-sm);
     }
-    #tech .animated-icon:nth-child(1) { left: 15%; top: 10%; animation-delay: 0s; }
-    #tech .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 3s; }
-    #tech .animated-icon:nth-child(3) { left: 65%; top: 20%; animation-delay: 6s; }
-    #tech .animated-icon:nth-child(4) { left: 25%; top: 70%; animation-delay: 2s; }
-    #tech .animated-icon:nth-child(5) { left: 50%; top: 30%; animation-delay: 4s; }
-    @keyframes float-diagonal {
-      0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
-      50% { transform: translate(30px, -30px) scale(1); opacity: 0.6; }
-      100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 28px;
+      position: relative;
     }
-    /* Projects Section: Center-Aligned Vertical Movement */
-    #projects .animated-bg {
-      width: 50%;
-      left: 25%;
+    .timeline-dot {
+      width: 33px; height: 33px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--green-rim);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 14px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: all .2s;
     }
-    #projects .animated-icon {
-      animation: float-vertical 10s infinite ease-in-out;
+    .timeline-item:hover .timeline-dot {
+      background: var(--green-dim);
+      border-color: var(--green);
+      box-shadow: 0 0 12px var(--green-rim);
     }
-    #projects .animated-icon:nth-child(1) { left: 20%; top: 20%; animation-delay: 0s; }
-    #projects .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
-    #projects .animated-icon:nth-child(3) { left: 30%; top: 70%; animation-delay: 4s; }
-    #projects .animated-icon:nth-child(4) { left: 50%; top: 30%; animation-delay: 6s; }
-    @keyframes float-vertical {
-      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
-      50% { transform: translateY(-40px) scale(1); opacity: 0.6; }
-      100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+    .timeline-card {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r2);
+      padding: 20px 22px;
+      transition: all .2s;
     }
-    /* Experience Section: Left-to-Right Movement */
-    #experience .animated-icon {
-      animation: float-horizontal 11s infinite ease-in-out;
+    .timeline-card:hover { border-color: var(--border-sm); background: var(--lift); }
+    .timeline-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
     }
-    #experience .animated-icon:nth-child(1) { left: 10%; top: 15%; animation-delay: 0s; }
-    #experience .animated-icon:nth-child(2) { left: 30%; top: 45%; animation-delay: 3s; }
-    #experience .animated-icon:nth-child(3) { left: 20%; top: 70%; animation-delay: 5s; }
-    #experience .animated-icon:nth-child(4) { left: 40%; top: 20%; animation-delay: 7s; }
-    @keyframes float-horizontal {
-      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
-      50% { transform: translateX(50px) scale(0.9); opacity: 0.5; }
-      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    .timeline-card h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text1);
+      letter-spacing: -.1px;
     }
-    /* Education Section: Right-to-Left Movement */
-    #education .animated-bg {
-      width: 30%;
-      right: 0;
-      left: auto;
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text4);
+      white-space: nowrap;
+      background: var(--surface);
+      border: 1px solid var(--border-xs);
+      padding: 3px 8px;
+      border-radius: var(--r);
     }
-    #education .animated-icon {
-      animation: float-right-left 9s infinite ease-in-out;
+    .timeline-company {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--green);
+      margin-bottom: 12px;
     }
-    #education .animated-icon:nth-child(1) { right: 10%; top: 20%; animation-delay: 1s; }
-    #education .animated-icon:nth-child(2) { right: 20%; top: 50%; animation-delay: 3s; }
-    #education .animated-icon:nth-child(3) { right: 15%; top: 70%; animation-delay: 5s; }
-    @keyframes float-right-left {
-      0% { transform: translateX(0) scale(0.7); opacity: 0.2; }
-      50% { transform: translateX(-30px) scale(0.9); opacity: 0.5; }
-      100% { transform: translateX(0) scale(0.7); opacity: 0.2; }
+    .timeline-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .timeline-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text3);
+      line-height: 1.65;
     }
-    /* Certifications Section: Circular Movement */
-    #certifications .animated-icon {
-      animation: float-circular 12s infinite ease-in-out;
+    .timeline-card li::before {
+      content: '→';
+      font-family: var(--font-mono);
+      color: var(--green);
+      flex-shrink: 0;
+      margin-top: 1px;
     }
-    #certifications .animated-icon:nth-child(1) { left: 20%; top: 10%; animation-delay: 0s; }
-    #certifications .animated-icon:nth-child(2) { left: 50%; top: 40%; animation-delay: 3s; }
-    #certifications .animated-icon:nth-child(3) { left: 30%; top: 70%; animation-delay: 5s; }
-    #certifications .animated-icon:nth-child(4) { left: 60%; top: 20%; animation-delay: 7s; }
-    @keyframes float-circular {
-      0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
-      25% { transform: translate(20px, -20px) scale(0.9); opacity: 0.5; }
-      50% { transform: translate(0, -40px) scale(1); opacity: 0.6; }
-      75% { transform: translate(-20px, -20px) scale(0.9); opacity: 0.5; }
-      100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+
+    /* ── CERTIFICATIONS ────────────────────────────────────────── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+      gap: 14px;
     }
-    /* Resume Section: Scattered Slow Movement */
-    #resume .animated-icon {
-      animation: float-slow 14s infinite ease-in-out;
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r2);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all .2s;
     }
-    #resume .animated-icon:nth-child(1) { left: 15%; top: 30%; animation-delay: 0s; }
-    #resume .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
-    #resume .animated-icon:nth-child(3) { left: 25%; top: 70%; animation-delay: 4s; }
-    @keyframes float-slow {
-      0% { transform: translateY(0) scale(0.7); opacity: 0.2; }
-      50% { transform: translateY(-20px) scale(0.9); opacity: 0.4; }
-      100% { transform: translateY(0) scale(0.7); opacity: 0.2; }
+    .cert-card:hover { border-color: var(--green-rim); background: var(--lift); }
+    .cert-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--r);
+      background: var(--green-dim);
+      border: 1px solid var(--green-rim);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 16px;
+      flex-shrink: 0;
     }
-    /* Contact Section: Diagonal Left-to-Right */
-    #contact .animated-icon {
-      animation: float-diagonal-contact 10s infinite ease-in-out;
+    .cert-card h3 { font-size: 13px; font-weight: 600; color: var(--text1); margin-bottom: 5px; }
+    .cert-card p { font-size: 12px; color: var(--text3); line-height: 1.55; }
+
+    /* ── CONTACT ───────────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
     }
-    #contact .animated-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
-    #contact .animated-icon:nth-child(2) { left: 40%; top: 50%; animation-delay: 2s; }
-    #contact .animated-icon:nth-child(3) { left: 20%; top: 70%; animation-delay: 4s; }
-    #contact .animated-icon:nth-child(4) { left: 60%; top: 30%; animation-delay: 6s; }
-    @keyframes float-diagonal-contact {
-      0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
-      50% { transform: translate(40px, -40px) scale(1); opacity: 0.6; }
-      100% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text1);
+      letter-spacing: -.03em;
+      line-height: 1.25;
+      margin-bottom: 14px;
     }
-    /* Card Styling */
-    .card {
-      @apply bg-gray-800 p-8 rounded-xl shadow-lg;
+    .contact-info p { font-size: 14px; color: var(--text3); line-height: 1.75; margin-bottom: 28px; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r2);
+      padding: 14px 16px;
+      transition: all .15s;
     }
-    /* Mobile Optimizations */
-    @media (max-width: 768px) {
-      .animated-icon { 
-        transform: scale(0.5); 
-        font-size: 30px; 
-      }
-      #hero .animated-icon:nth-child(n+4) { display: none; }
-      #about .animated-icon:nth-child(n+3) { display: none; }
-      #social .animated-icon:nth-child(n+3) { display: none; }
-      #tech .animated-icon:nth-child(n++4) { display: none; }
-      #projects .animated-icon:nth-child(n+3) { display: none; }
-      #experience .animated-icon:nth-child(n+3) { display: none; }
-      #education .animated-icon:nth-child(n+2) { display: none; }
-      #certifications .animated-icon:nth-child(n+3) { display: none; }
-      #resume .animated-icon:nth-child(n+2) { display: none; }
-      #contact .animated-icon:nth-child(n+3) { display: none; }
-      #hero .animated-icon { animation: float-hero-mobile 8s infinite ease-in-out; }
-      @keyframes float-hero-mobile {
-        0% { transform: translateY(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateY(-20px) scale(0.8); opacity: 0.5; }
-        100% { transform: translateY(0) scale(0.6); opacity: 0.2; }
-      }
-      #about .animated-icon { animation: float-left-mobile 7s infinite ease-in-out; }
-      @keyframes float-left-mobile {
-        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateX(10px) scale(0.7); opacity: 0.4; }
-        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-      }
-      #social .animated-icon { animation: float-right-mobile 7s infinite ease-in-out; }
-      @keyframes float-right-mobile {
-        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateX(-10px) scale(0.7); opacity: 0.4; }
-        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-      }
-      #tech .animated-icon { animation: float-diagonal-mobile 9s infinite ease-in-out; }
-      @keyframes float-diagonal-mobile {
-        0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
-        50% { transform: translate(15px, -15px) scale(0.7); opacity: 0.4; }
-        100% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
-      }
-      #projects .animated-icon { animation: float-vertical-mobile 8s infinite ease-in-out; }
-      @keyframes float-vertical-mobile {
-        0% { transform: translateY(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateY(-20px) scale(0.7); opacity: 0.4; }
-        100% { transform: translateY(0) scale(0.6); opacity: 0.2; }
-      }
-      #experience .animated-icon { animation: float-horizontal-mobile 8s infinite ease-in-out; }
-      @keyframes float-horizontal-mobile {
-        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateX(20px) scale(0.7); opacity: 0.4; }
-        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-      }
-      #education .animated-icon { animation: float-right-left-mobile 7s infinite ease-in-out; }
-      @keyframes float-right-left-mobile {
-        0% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateX(-15px) scale(0.7); opacity: 0.4; }
-        100% { transform: translateX(0) scale(0.6); opacity: 0.2; }
-      }
-      #certifications .animated-icon { animation: float-circular-mobile 9s infinite ease-in-out; }
-      @keyframes float-circular-mobile {
-        0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
-        25% { transform: translate(10px, -10px) scale(0.7); opacity: 0.4; }
-        50% { transform: translate(0, -20px) scale(0.8); opacity: 0.5; }
-        75% { transform: translate(-10px, -10px) scale(0.7); opacity: 0.4; }
-        100% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
-      }
-      #resume .animated-icon { animation: float-slow-mobile 10s infinite ease-in-out; }
-      @keyframes float-slow-mobile {
-        0% { transform: translateY(0) scale(0.6); opacity: 0.2; }
-        50% { transform: translateY(-15px) scale(0.7); opacity: 0.3; }
-        100% { transform: translateY(0) scale(0.6); opacity: 0.2; }
-      }
-      #contact .animated-icon { animation: float-diagonal-contact-mobile 8s infinite ease-in-out; }
-      @keyframes float-diagonal-contact-mobile {
-        0% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
-        50% { transform: translate(20px, -20px) scale(0.7); opacity: 0.4; }
-        100% { transform: translate(0, 0) scale(0.6); opacity: 0.2; }
-      }
+    .contact-link:hover { border-color: var(--green-rim); background: var(--green-dim); }
+    .contact-link-icon {
+      width: 32px; height: 32px;
+      border-radius: var(--r);
+      background: var(--green-dim);
+      border: 1px solid var(--green-rim);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .contact-link strong { font-size: 13px; font-weight: 500; color: var(--text1); display: block; }
+    .contact-link span { font-family: var(--font-mono); font-size: 11px; color: var(--text3); letter-spacing: .02em; }
+
+    .social-links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r2);
+      padding: 14px;
+      transition: all .15s;
+    }
+    .social-card:hover { border-color: var(--border-sm); background: var(--lift); transform: translateY(-1px); }
+    .social-card .ti { font-size: 18px; }
+    .social-card strong { font-size: 13px; font-weight: 500; color: var(--text1); display: block; }
+    .social-card span { font-size: 11px; color: var(--text3); }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--void);
+      border-top: 1px solid var(--border-xs);
+      padding: 32px max(20px,(100vw - var(--max))/2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-copy { font-family: var(--font-mono); font-size: 11px; color: var(--text4); letter-spacing: .03em; }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: var(--text4); font-size: 16px; transition: color .15s; }
+    .footer-social a:hover { color: var(--green); }
+
+    /* ── BACK TO TOP ───────────────────────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 28px; right: 24px;
+      z-index: 100;
+      width: 40px; height: 40px;
+      background: var(--green);
+      color: var(--void);
+      border: none;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all .2s;
+      box-shadow: 0 4px 16px rgba(0,229,160,.3);
+    }
+    #back-to-top:hover { background: var(--green-dark); transform: translateY(-2px); }
+    #back-to-top.show { display: flex; }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-console { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 700px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .social-links-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: repeat(auto-fill, minmax(100px,1fr)); }
+      .about-metrics { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a, .hero-actions button { width: 100%; justify-content: center; }
     }
   </style>
 </head>
-<body class="text-gray-100">
+<body>
 
-  <!-- Navigation -->
-  <nav class="navbar fixed top-0 left-0 w-full text-white shadow-lg z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-extrabold tracking-tight">Arun Thiruvacholayil</h1>
-      <div class="space-x-6 text-lg">
-        <a href="#about" class="hover:text-teal-400 transition duration-300">About</a>
-        <a href="#tech" class="hover:text-teal-400 transition duration-300">Tech Stack</a>
-        <a href="#projects" class="hover:text-teal-400 transition duration-300">Projects</a>
-        <a href="#experience" class="hover:text-teal-400 transition duration-300">Experience</a>
-        <a href="#contact" class="hover:text-teal-400 transition duration-300">Contact</a>
+<!-- NAV -->
+<nav class="nav" id="navbar">
+  <div class="nav-brand">
+    <div class="nav-mark">AT</div>
+    <strong>Arun Thiruvacholayil</strong>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#tech">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:8px">
+    <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" class="nav-cta">
+      <i class="fas fa-download" style="font-size:11px"></i> Resume
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#tech" onclick="closeMobile()">Tech Stack</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank">Download Resume</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+
+  <div class="hero-layout">
+    <!-- Left: Text -->
+    <div>
+      <div class="hero-status"><span class="status-dot"></span>Available for senior DevOps roles</div>
+
+      <h1>
+        <span class="line"><span class="word">Build.</span></span>
+        <span class="line"><span class="word">Automate.</span></span>
+        <span class="line"><span class="word" style="color:var(--green)">Scale.</span></span>
+      </h1>
+
+      <p class="hero-role">Lead DevOps Engineer &nbsp;·&nbsp; Kubernetes Specialist &nbsp;·&nbsp; Cloud Architect</p>
+      <p class="hero-desc">12+ years engineering production-grade infrastructure across AWS, Azure, GCP, and OCI. I make deployments fearless, systems observable, and cloud costs predictable.</p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Connect With Me</a>
+        <a href="#projects" class="btn-ghost"><i class="fas fa-code-branch"></i> View Projects</a>
+        <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" class="btn-ghost"><i class="fas fa-download"></i> Resume</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>12+</strong><span>Years exp.</span></div>
+        <div class="hero-stat"><strong>4</strong><span>Cloud platforms</span></div>
+        <div class="hero-stat"><strong>70%</strong><span>Overhead cut</span></div>
+        <div class="hero-stat"><strong>50%</strong><span>MTTR reduced</span></div>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="relative bg-gradient-to-br from-green-600 to-blue-800 text-white h-screen flex items-center justify-center">
-    <div class="animated-bg">
-      <i class="animated-icon fas fa-tools text-blue-500"></i> <!-- Jenkins -->
-      <i class="animated-icon fab fa-aws text-orange-500"></i> <!-- AWS -->
-      <i class="animated-icon fab fa-google text-red-500"></i> <!-- GCP -->
-      <i class="animated-icon fas fa-gears text-green-500"></i> <!-- DevOps -->
-      <i class="animated-icon fab fa-docker text-blue-500"></i> <!-- Kubernetes -->
-      <i class="animated-icon fa-solid fa-server text-red-500"></i> <!-- Ansible -->
-      <i class="animated-icon fa-brands fa-microsoft text-blue-500"></i> <!-- Azure -->
-      <i class="animated-icon fa-solid fa-code-branch text-orange-500"></i> <!-- ArgoCD -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="absolute inset-0 bg-[url('https://source.unsplash.com/random/1920x1080?technology')] opacity-15 bg-cover bg-center"></div>
-    <div class="hero-content text-center px-6 fade-in">
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">Arun Thiruvacholayil</h1>
-      <p class="text-xl md:text-2xl mb-8 font-light leading-relaxed">DevOps Engineer | Kubernetes Specialist | Cloud Solutions Architect</p>
-      <a href="#contact" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-teal-500 transition duration-300 shadow-lg hover-scale">Connect With Me</a>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="relative max-w-7xl mx-auto px-6 py-20 text-center">
-    <div class="animated-bg">
-      <i class="animated-icon fab fa-github text-gray-300"></i> <!-- GitHub -->
-      <i class="animated-icon fas fa-database text-indigo-500"></i> <!-- PostgreSQL -->
-      <i class="animated-icon fa-solid fa-server text-red-500"></i> <!-- Ansible -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="section-content fade-in">
-      <h2 class="text-5xl font-extrabold mb-6 text-green-400 tracking-tight">About Me</h2>
-      <p class="text-lg leading-relaxed max-w-3xl mx-auto">
-        I am a seasoned <b>DevOps Engineer</b> with over <b>12 years of experience</b> in designing robust, scalable, and secure infrastructure solutions. My expertise spans <b>multi-cloud environments (AWS, Azure, GCP, OCI)</b>, container orchestration with <b>Kubernetes</b>, and end-to-end <b>CI/CD pipeline automation</b>. I specialize in <b>DevSecOps</b>, integrating tools like SonarQube and Trivy to ensure secure deployments, and have a strong background in database migrations, optimizing performance for large-scale PostgreSQL systems (e.g., cross-region syncs with logical replication). Passionate about <b>Infrastructure as Code (IaC)</b> and observability, I drive operational excellence to accelerate business outcomes.
-      </p>
-    </div>
-  </section>
-
-  <!-- Social Links -->
-  <section id="social" class="relative bg-gray-800 py-12 shadow-inner">
-    <div class="animated-bg">
-      <i class="animated-icon fab fa-docker text-blue-500"></i> <!-- Kubernetes -->
-      <i class="animated-icon fas fa-gears text-green-500"></i> <!-- DevOps -->
-      <i class="animated-icon fa-brands fa-microsoft text-blue-500"></i> <!-- Azure -->
-      <i class="animated-icon fa-solid fa-code-branch text-orange-500"></i> <!-- ArgoCD -->
-    </div>
-    <div class="section-content max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 fade-in">
-      <a href="https://www.linkedin.com/in/vilayilarun/" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
-        <i class="fab fa-linkedin mr-2"></i> LinkedIn
-      </a>
-      <a href="https://github.com/vilayilarun" class="bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
-        <i class="fab fa-github mr-2"></i> GitHub
-      </a>
-      <a href="https://medium.com/@vilayilarun" class="bg-teal-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-600 hover-scale transition duration-300">
-        <i class="fab fa-medium mr-2"></i> Medium
-      </a>
-      <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="bg-orange-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
-        <i class="fab fa-stack-overflow mr-2"></i> StackOverflow
-      </a>
-    </div>
-  </section>
-
-  <!-- Tech Stack -->
-  <section id="tech" class="relative max-w-7xl mx-auto px-6 py-20">
-    <div class="animated-bg">
-      <i class="animated-icon fas fa-tools text-blue-500"></i> <!-- Jenkins -->
-      <i class="animated-icon fab fa-aws text-orange-500"></i> <!-- AWS -->
-      <i class="animated-icon fab fa-google text-red-500"></i> <!-- GCP -->
-      <i class="animated-icon fa-solid fa-server text-red-500"></i> <!-- Ansible -->
-      <i class="animated-icon fa-brands fa-microsoft text-blue-500"></i> <!-- Azure -->
-    </div>
-    <div class="section-content fade-in">
-      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Technology Expertise</h2>
-      <div class="space-y-16">
-        <!-- Core Expertise & Programming -->
-        <div class="fade-in">
-          <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Core Expertise & Programming</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-gears text-green-500 text-4xl mb-3"></i>
-              <p class="font-medium">DevOps</p>
-              <span class="tooltip">End-to-End Infrastructure Automation</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fab fa-linux text-gray-300 text-4xl mb-3"></i>
-              <p class="font-medium">Linux</p>
-              <span class="tooltip">Advanced System Administration</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fab fa-python text-yellow-500 text-4xl mb-3"></i>
-              <p class="font-medium">Python</p>
-              <span class="tooltip">Scripting & Automation Solutions</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-golang text-teal-500 text-4xl mb-3"></i>
-              <p class="font-medium">Golang</p>
-              <span class="tooltip">Cloud-Native Application Development</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-terminal text-gray-400 text-4xl mb-3"></i>
-              <p class="font-medium">Shell Scripting</p>
-              <span class="tooltip">System Automation & Optimization</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-robot text-blue-500 text-4xl mb-3"></i>
-              <p class="font-medium">Automation</p>
-              <span class="tooltip">Workflow & Process Optimization</span>
-            </div>
+    <!-- Right: Console -->
+    <div class="hero-console">
+      <div class="console-bar">
+        <span class="cb-r"></span><span class="cb-y"></span><span class="cb-g"></span>
+        <small>platform.ops — deploy console</small>
+      </div>
+      <div class="console-live">
+        <span>Live signal</span>
+        <strong>All systems nominal</strong>
+      </div>
+      <div class="console-kpis">
+        <div class="ckpi wide">
+          <div class="ck-label">Pipeline health / 7d</div>
+          <div class="ck-val">98.7%</div>
+          <div class="ck-bars">
+            <i style="height:40%"></i><i style="height:62%"></i><i style="height:55%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:90%"></i><i style="height:100%"></i>
           </div>
         </div>
-
-        <!-- Cloud, Orchestration & CI/CD -->
-        <div class="fade-in">
-          <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Cloud, Orchestration & CI/CD</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-            <div class="tech-card p-6 shadow-lg hover-scale border-2 border-green-500">
-              <i class="fa-brands fa-docker text-blue-500 text-4xl mb-3"></i>
-              <p class="font-medium">Kubernetes</p>
-              <span class="tooltip">Advanced Container Orchestration</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-network-wired text-purple-500 text-4xl mb-3"></i>
-              <p class="font-medium">Istio</p>
-              <span class="tooltip">Service Mesh Management</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-code-branch text-orange-500 text-4xl mb-3"></i>
-              <p class="font-medium">ArgoCD</p>
-              <span class="tooltip">GitOps Continuous Delivery</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-docker text-blue-600 text-4xl mb-3"></i>
-              <p class="font-medium">Docker</p>
-              <span class="tooltip">Containerization & Deployment</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-helmet-safety text-green-500 text-4xl mb-3"></i>
-              <p class="font-medium">Helm</p>
-              <span class="tooltip">Kubernetes Package Management</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-aws text-orange-500 text-4xl mb-3"></i>
-              <p class="font-medium">AWS</p>
-              <span class="tooltip">Cloud Infrastructure & Services</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-microsoft text-blue-500 text-4xl mb-3"></i>
-              <p class="font-medium">Azure</p>
-              <span class="tooltip">Cloud Platform & Services</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-google text-red-500 text-4xl mb-3"></i>
-              <p class="font-medium">Google Cloud</p>
-              <span class="tooltip">Scalable Cloud Solutions</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-cloud text-orange-600 text-4xl mb-3"></i>
-              <p class="font-medium">OCI</p>
-              <span class="tooltip">Oracle Cloud Infrastructure</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-infinity text-pink-500 text-4xl mb-3"></i>
-              <p class="font-medium">Terraform</p>
-              <span class="tooltip">Infrastructure as Code</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-server text-red-500 text-4xl mb-3"></i>
-              <p class="font-medium">Ansible</p>
-              <span class="tooltip">Configuration Management</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-tools text-blue-500 text-4xl mb-3"></i>
-              <p class="font-medium">Jenkins</p>
-              <span class="tooltip">CI/CD Pipeline Automation</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-github text-gray-300 text-4xl mb-3"></i>
-              <p class="font-medium">GitHub Actions</p>
-              <span class="tooltip">Workflow Automation & CI/CD</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-brands fa-gitlab text-orange-500 text-4xl mb-3"></i>
-              <p class="font-medium">GitLab</p>
-              <span class="tooltip">CI/CD & Version Control</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Databases, Monitoring & Collaboration -->
-        <div class="fade-in">
-          <h3 class="text-2xl font-semibold mb-6 text-green-300 tech-category">Databases, Monitoring & Collaboration</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fas fa-database text-indigo-500 text-4xl mb-3"></i>
-              <p class="font-medium">PostgreSQL</p>
-              <span class="tooltip">Enterprise-Grade Relational Database</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fas fa-database text-red-500 text-4xl mb-3"></i>
-              <p class="font-medium">Redis</p>
-              <span class="tooltip">High-Performance In-Memory Cache</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fas fa-search text-yellow-500 text-4xl mb-3"></i>
-              <p class="font-medium">ElasticSearch</p>
-              <span class="tooltip">Search & Analytics Engine</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-chart-line text-red-500 text-4xl mb-3"></i>
-              <p class="font-medium">Prometheus</p>
-              <span class="tooltip">Real-Time Monitoring & Alerting</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-tachometer-alt text-teal-500 text-4xl mb-3"></i>
-              <p class="font-medium">Grafana</p>
-              <span class="tooltip">Advanced Visualization Dashboards</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-ticket-alt text-blue-500 text-4xl mb-3"></i>
-              <p class="font-medium">Jira</p>
-              <span class="tooltip">Agile Project Management</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-book text-green-500 text-4xl mb-3"></i>
-              <p class="font-medium">Confluence</p>
-              <span class="tooltip">Team Collaboration & Documentation</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-shield-halved text-blue-600 text-4xl mb-3"></i>
-              <p class="font-medium">Sonatype Nexus</p>
-              <span class="tooltip">Artifact & Dependency Management</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-bug text-green-500 text-4xl mb-3"></i>
-              <p class="font-medium">SonarQube</p>
-              <span class="tooltip">Code Quality & Security Analysis</span>
-            </div>
-            <div class="tech-card p-6 shadow-lg hover-scale">
-              <i class="fa-solid fa-search text-purple-500 text-4xl mb-3"></i>
-              <p class="font-medium">Trivy</p>
-              <span class="tooltip">Container Vulnerability Scanning</span>
-            </div>
-          </div>
+        <div class="ckpi"><div class="ck-label">Cloud savings</div><div class="ck-val">32%</div></div>
+        <div class="ckpi"><div class="ck-label">Deploys/week</div><div class="ck-val">24</div></div>
+        <div class="console-code" style="grid-column:span 2">
+          <span class="cm">// release-guard.js</span><br>
+          <span class="kw">if</span> (tests.pass &amp;&amp; risk.score &lt; <span class="str">0.2</span>)<br>
+          &nbsp;&nbsp;deploy.<span class="str">production</span>();<br>
+          status: <span class="gg">"live"</span> · latency: <span class="gg">42ms</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="relative bg-gray-800 py-20">
-    <div class="animated-bg">
-      <i class="animated-icon fab fa-docker text-blue-500"></i> <!-- Kubernetes -->
-      <i class="animated-icon fas fa-database text-indigo-500"></i> <!-- PostgreSQL -->
-      <i class="animated-icon fa-solid fa-code-branch text-orange-500"></i> <!-- ArgoCD -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="section-content max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Featured Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl mb-4 text-green-300">Dynamic Helm Chart Generator</h3>
-          <p class="text-gray-300">Developed a dynamic Helm umbrella chart for managing Deployments, StatefulSets, and Ingress with Helm and ArgoCD, achieving a <b>70% reduction in maintenance overhead</b>. Integrated reusable templates to streamline Kubernetes deployments.</p>
-          <a href="https://github.com/vilayilarun/helm-chart-generator" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl mb-4 text-green-300">CI/CD Pipeline Automation</h3>
-          <p class="text-gray-300">Designed and implemented CI/CD pipelines using Jenkins, GitLab CI, and ArgoCD, with SonarQube and Trivy for code quality and security. Reduced deployment failures by <b>40%</b> through automated testing and validation.</p>
-          <a href="https://github.com/vilayilarun/cicd-pipeline" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl mb-4 text-green-300">Multi-Cloud Migration</h3>
-          <p class="text-gray-300">Led migration of PostgreSQL Patroni clusters to Azure Flexible Server and OCI using pgcopy and logical replication, optimizing performance and achieving <b>35% cost savings</b> through efficient resource utilization.</p>
-          <a href="https://github.com/vilayilarun/cloud-migration" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl mb-4 text-green-300">Dynamic Cloud Infrastructure</h3>
-          <p class="text-gray-300">Provisioned high-availability infrastructure with HAProxy, Fortinet Firewalls, and Kubernetes clusters using Terraform and Ansible, reducing provisioning time by <b>80%</b> through automation.</p>
-          <a href="https://github.com/vilayilarun/cloud-infra" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl mb-4 text-green-300">Centralized Observability Platform</h3>
-          <p class="text-gray-300">Implemented Prometheus, Grafana, Loki, and OpenTelemetry for real-time monitoring of a system handling <b>10,000 requests/day</b>, reducing Mean Time to Resolution (MTTR) by <b>50%</b>. Overcame challenges in scaling Loki for high log volumes and integrating OpenTelemetry with legacy systems.</p>
-          <a href="https://github.com/vilayilarun/observability-platform" class="text-green-400 hover:text-teal-400 mt-4 inline-block">View Project</a>
-        </div>
+      <div class="console-activity">
+        <div class="ca-item"><div class="ca-left"><span class="ca-dot" style="background:var(--green)"></span>AKS rolling update — 100% healthy</div><div class="ca-right">2m ago</div></div>
+        <div class="ca-item"><div class="ca-left"><span class="ca-dot" style="background:var(--blue)"></span>FinOps anomaly auto-resolved</div><div class="ca-right">18m ago</div></div>
+        <div class="ca-item"><div class="ca-left"><span class="ca-dot" style="background:var(--amber)"></span>Trivy scan: 0 critical findings</div><div class="ca-right">1h ago</div></div>
+        <div class="ca-item"><div class="ca-left"><span class="ca-dot" style="background:var(--purple)"></span>PostgreSQL logical replication synced</div><div class="ca-right">2h ago</div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Professional Experience -->
-  <section id="experience" class="relative max-w-7xl mx-auto px-6 py-20">
-    <div class="animated-bg">
-      <i class="animated-icon fas fa-tools text-blue-500"></i> <!-- Jenkins -->
-      <i class="animated-icon fab fa-aws text-orange-500"></i> <!-- AWS -->
-      <i class="animated-icon fa-brands fa-microsoft text-blue-500"></i> <!-- Azure -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="section-content">
-      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Professional Experience</h2>
-      <div class="space-y-8">
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl text-green-300">Lead DevOps Engineer</h3>
-          <p class="text-gray-400">Trasna Solutions / Workz | 2020 – Present</p>
-          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-            <li>Architected and managed Kubernetes-based deployments on AKS and OKE, enhancing scalability and reliability.</li>
-            <li>Implemented observability frameworks with Prometheus and Grafana for real-time system monitoring.</li>
-            <li>Led cloud migrations to Azure and OCI, optimizing costs and performance.</li>
-          </ul>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl text-green-300">System Integrator</h3>
-          <p class="text-gray-400">Verint Systems | 2019 – 2020</p>
-          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-            <li>Streamlined system integrations using Docker and Kubernetes, improving deployment efficiency.</li>
-            <li>Automated workflows with CI/CD pipelines, reducing manual intervention.</li>
-          </ul>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl text-green-300">IT Analyst</h3>
-          <p class="text-gray-400">Tata Consultancy Services | 2017 – 2019</p>
-          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-            <li>Optimized enterprise infrastructure using Terraform and Ansible for scalable deployments.</li>
-            <li>Collaborated with cross-functional teams to implement secure cloud solutions.</li>
-          </ul>
-        </div>
-        <div class="card hover-scale fade-in">
-          <h3 class="font-bold text-xl text-green-300">System Administrator</h3>
-          <p class="text-gray-400">HCL Infosystems | 2013 – 2017</p>
-          <ul class="list-disc list-inside text-gray-300 mt-4 space-y-2">
-            <li>Managed Linux/Unix systems and supported early cloud adoption initiatives.</li>
-            <li>Automated routine tasks using shell scripting, improving operational efficiency.</li>
-          </ul>
-        </div>
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <a href="https://www.linkedin.com/in/vilayilarun/" class="social-btn" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <a href="https://github.com/vilayilarun" class="social-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+  <a href="https://medium.com/@vilayilarun" class="social-btn" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+  <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="social-btn" target="_blank"><i class="fab fa-stack-overflow"></i> StackOverflow</a>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="sec-label">About Me</div>
+      <h2 class="sec-title">Senior DevOps engineer who ships systems that stay up.</h2>
+      <p>I'm a seasoned <strong>DevOps Engineer and Cloud Architect</strong> with over <strong>12 years of experience</strong> designing robust, scalable, and secure infrastructure solutions across multi-cloud environments.</p>
+      <p>My expertise spans <strong>Kubernetes orchestration</strong>, end-to-end CI/CD pipeline automation, and <strong>DevSecOps</strong> — integrating SonarQube, Trivy, and Nexus to ensure secure, auditable deployments at every stage.</p>
+      <p>I've led complex <strong>database migrations</strong> for large-scale PostgreSQL systems, including cross-region syncs with logical replication, and built observability platforms monitoring systems handling <strong>10,000+ daily requests</strong>.</p>
+      <div class="about-tags">
+        <span class="tag highlight">Kubernetes</span>
+        <span class="tag highlight">GitOps / ArgoCD</span>
+        <span class="tag">Terraform IaC</span>
+        <span class="tag">DevSecOps</span>
+        <span class="tag">FinOps</span>
+        <span class="tag">SRE</span>
+        <span class="tag">PostgreSQL HA</span>
+        <span class="tag">Observability</span>
+        <span class="tag">Multi-Cloud</span>
       </div>
     </div>
-  </section>
+    <div class="about-metrics">
+      <div class="about-metric reveal reveal-delay-1"><strong>12+</strong><span>Years of production DevOps &amp; infrastructure engineering</span></div>
+      <div class="about-metric reveal reveal-delay-2"><strong>4</strong><span>Cloud platforms: AWS, Azure, GCP, OCI</span></div>
+      <div class="about-metric reveal reveal-delay-2"><strong>70%</strong><span>Maintenance overhead reduced via dynamic Helm chart generator</span></div>
+      <div class="about-metric reveal reveal-delay-3"><strong>50%</strong><span>MTTR improvement with centralised observability platform</span></div>
+      <div class="about-metric reveal reveal-delay-1"><strong>80%</strong><span>Infrastructure provisioning time cut using Terraform + Ansible</span></div>
+      <div class="about-metric reveal reveal-delay-3"><strong>35%</strong><span>Cloud cost savings from multi-cloud migration strategy</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="tech" class="section surface">
+  <div class="sec-label reveal">Technology Expertise</div>
+  <h2 class="sec-title reveal reveal-delay-1">Tools I use to build production systems.</h2>
+
+  <!-- Core -->
+  <div class="tech-cat-title reveal reveal-delay-2"><i class="fas fa-microchip"></i> Core Expertise &amp; Programming</div>
+  <div class="tech-grid reveal reveal-delay-2">
+    <div class="tech-card featured"><i class="ti ti-settings ti" style="color:var(--green)"></i><p>DevOps</p><div class="tech-tooltip">End-to-End Infra Automation</div></div>
+    <div class="tech-card"><i class="fab fa-linux ti" style="color:#ccc"></i><p>Linux</p><div class="tech-tooltip">Advanced System Admin</div></div>
+    <div class="tech-card"><i class="fab fa-python ti" style="color:#f7c948"></i><p>Python</p><div class="tech-tooltip">Scripting &amp; Automation</div></div>
+    <div class="tech-card"><i class="fa-brands fa-golang ti" style="color:#00acd7"></i><p>Golang</p><div class="tech-tooltip">Cloud-Native Apps</div></div>
+    <div class="tech-card"><i class="fas fa-terminal ti" style="color:#aaa"></i><p>Shell</p><div class="tech-tooltip">System Automation</div></div>
+    <div class="tech-card"><i class="fas fa-robot ti" style="color:var(--blue)"></i><p>Automation</p><div class="tech-tooltip">Workflow Optimisation</div></div>
+  </div>
+
+  <!-- Cloud / K8s / CI/CD -->
+  <div class="tech-cat-title reveal"><i class="fas fa-cloud"></i> Cloud, Orchestration &amp; CI/CD</div>
+  <div class="tech-grid reveal">
+    <div class="tech-card featured"><i class="fa-brands fa-docker ti" style="color:var(--blue)"></i><p>Kubernetes</p><div class="tech-tooltip">Advanced Orchestration</div></div>
+    <div class="tech-card"><i class="fas fa-network-wired ti" style="color:var(--purple)"></i><p>Istio</p><div class="tech-tooltip">Service Mesh</div></div>
+    <div class="tech-card featured"><i class="fas fa-code-branch ti" style="color:var(--orange)"></i><p>ArgoCD</p><div class="tech-tooltip">GitOps CD</div></div>
+    <div class="tech-card"><i class="fa-brands fa-docker ti" style="color:#2496ed"></i><p>Docker</p><div class="tech-tooltip">Containerisation</div></div>
+    <div class="tech-card"><i class="fas fa-shield-halved ti" style="color:var(--green)"></i><p>Helm</p><div class="tech-tooltip">K8s Package Mgmt</div></div>
+    <div class="tech-card"><i class="fa-brands fa-aws ti" style="color:var(--orange)"></i><p>AWS</p><div class="tech-tooltip">Cloud Infra &amp; Services</div></div>
+    <div class="tech-card"><i class="fa-brands fa-microsoft ti" style="color:var(--blue)"></i><p>Azure</p><div class="tech-tooltip">Cloud Platform</div></div>
+    <div class="tech-card"><i class="fa-brands fa-google ti" style="color:#ea4335"></i><p>GCP</p><div class="tech-tooltip">Google Cloud</div></div>
+    <div class="tech-card"><i class="fas fa-cloud ti" style="color:var(--orange)"></i><p>OCI</p><div class="tech-tooltip">Oracle Cloud Infra</div></div>
+    <div class="tech-card featured"><i class="fas fa-infinity ti" style="color:var(--purple)"></i><p>Terraform</p><div class="tech-tooltip">Infrastructure as Code</div></div>
+    <div class="tech-card"><i class="fas fa-server ti" style="color:#ee0000"></i><p>Ansible</p><div class="tech-tooltip">Config Management</div></div>
+    <div class="tech-card"><i class="fas fa-tools ti" style="color:var(--blue)"></i><p>Jenkins</p><div class="tech-tooltip">CI/CD Automation</div></div>
+    <div class="tech-card"><i class="fa-brands fa-github ti" style="color:#ccc"></i><p>GitHub Actions</p><div class="tech-tooltip">Workflow Automation</div></div>
+    <div class="tech-card"><i class="fa-brands fa-gitlab ti" style="color:var(--orange)"></i><p>GitLab CI</p><div class="tech-tooltip">CI/CD &amp; VCS</div></div>
+  </div>
+
+  <!-- Observability / DB -->
+  <div class="tech-cat-title reveal"><i class="fas fa-chart-line"></i> Databases, Monitoring &amp; Security</div>
+  <div class="tech-grid reveal">
+    <div class="tech-card featured"><i class="fas fa-database ti" style="color:#336791"></i><p>PostgreSQL</p><div class="tech-tooltip">Enterprise-grade HA DB</div></div>
+    <div class="tech-card"><i class="fas fa-database ti" style="color:#dc382d"></i><p>Redis</p><div class="tech-tooltip">In-Memory Cache</div></div>
+    <div class="tech-card"><i class="fas fa-search ti" style="color:#f7c948"></i><p>Elasticsearch</p><div class="tech-tooltip">Search &amp; Analytics</div></div>
+    <div class="tech-card featured"><i class="fas fa-chart-line ti" style="color:var(--orange)"></i><p>Prometheus</p><div class="tech-tooltip">Monitoring &amp; Alerting</div></div>
+    <div class="tech-card featured"><i class="fas fa-tachometer-alt ti" style="color:var(--orange)"></i><p>Grafana</p><div class="tech-tooltip">Visualisation Dashboards</div></div>
+    <div class="tech-card"><i class="fas fa-shield-halved ti" style="color:var(--blue)"></i><p>Nexus</p><div class="tech-tooltip">Artifact Management</div></div>
+    <div class="tech-card"><i class="fas fa-bug ti" style="color:var(--green)"></i><p>SonarQube</p><div class="tech-tooltip">Code Quality &amp; Security</div></div>
+    <div class="tech-card"><i class="fas fa-search ti" style="color:var(--purple)"></i><p>Trivy</p><div class="tech-tooltip">Container Vuln Scanning</div></div>
+    <div class="tech-card"><i class="fas fa-ticket-alt ti" style="color:var(--blue)"></i><p>Jira</p><div class="tech-tooltip">Agile Project Mgmt</div></div>
+    <div class="tech-card"><i class="fas fa-book ti" style="color:var(--green)"></i><p>Confluence</p><div class="tech-tooltip">Team Documentation</div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section dark">
+  <div class="sec-label reveal">Featured Projects</div>
+  <h2 class="sec-title reveal reveal-delay-1">Production systems that delivered measurable results.</h2>
+
+  <div class="projects-grid" style="margin-top:40px">
+    <div class="project-card reveal">
+      <div class="project-icon"><i class="fas fa-helmet-safety"></i></div>
+      <h3>Dynamic Helm Chart Generator</h3>
+      <div class="project-tags">
+        <span class="tag">Helm</span><span class="tag">ArgoCD</span><span class="tag">Kubernetes</span>
+      </div>
+      <p>Dynamic Helm umbrella chart for managing Deployments, StatefulSets, and Ingress with reusable templates. Achieved a <strong>70% reduction in maintenance overhead</strong> and standardised Kubernetes deployments across teams.</p>
+      <a href="https://github.com/vilayilarun/helm-chart-generator" class="project-link" target="_blank"><i class="fas fa-external-link-alt" style="font-size:11px"></i> View Project</a>
+    </div>
+
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-icon"><i class="fas fa-infinity"></i></div>
+      <h3>CI/CD Pipeline Automation</h3>
+      <div class="project-tags">
+        <span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">SonarQube</span><span class="tag">Trivy</span>
+      </div>
+      <p>End-to-end CI/CD pipelines with integrated security scanning. Reduced deployment failures by <strong>40%</strong> through automated testing, code quality gates, and vulnerability scanning at every stage.</p>
+      <a href="https://github.com/vilayilarun/cicd-pipeline" class="project-link" target="_blank"><i class="fas fa-external-link-alt" style="font-size:11px"></i> View Project</a>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-icon"><i class="fab fa-aws"></i></div>
+      <h3>Multi-Cloud DB Migration</h3>
+      <div class="project-tags">
+        <span class="tag">PostgreSQL</span><span class="tag">Azure</span><span class="tag">OCI</span><span class="tag">Patroni</span>
+      </div>
+      <p>Led migration of PostgreSQL Patroni clusters to Azure Flexible Server and OCI using pgcopy and logical replication. Optimised performance and achieved <strong>35% cost savings</strong> through efficient resource utilisation.</p>
+      <a href="https://github.com/vilayilarun/cloud-migration" class="project-link" target="_blank"><i class="fas fa-external-link-alt" style="font-size:11px"></i> View Project</a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-icon"><i class="fas fa-infinity" style="color:var(--purple)"></i></div>
+      <h3>Dynamic Cloud Infrastructure</h3>
+      <div class="project-tags">
+        <span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">HAProxy</span><span class="tag">Kubernetes</span>
+      </div>
+      <p>Provisioned high-availability infrastructure with HAProxy, Fortinet Firewalls, and Kubernetes clusters. Reduced provisioning time by <strong>80%</strong> through fully automated IaC pipelines.</p>
+      <a href="https://github.com/vilayilarun/cloud-infra" class="project-link" target="_blank"><i class="fas fa-external-link-alt" style="font-size:11px"></i> View Project</a>
+    </div>
+
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-icon"><i class="fas fa-chart-line" style="color:var(--amber)"></i></div>
+      <h3>Centralised Observability Platform</h3>
+      <div class="project-tags">
+        <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Loki</span><span class="tag">OpenTelemetry</span>
+      </div>
+      <p>Real-time monitoring platform for a system handling <strong>10,000 requests/day</strong>. Reduced MTTR by <strong>50%</strong>. Overcame challenges scaling Loki for high log volumes and integrating OpenTelemetry with legacy systems.</p>
+      <a href="https://github.com/vilayilarun/observability-platform" class="project-link" target="_blank"><i class="fas fa-external-link-alt" style="font-size:11px"></i> View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="sec-label reveal">Experience</div>
+  <h2 class="sec-title reveal reveal-delay-1">12+ years of production-grade engineering.</h2>
+
+  <div class="timeline" style="margin-top:44px">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><i class="fas fa-star" style="font-size:12px"></i></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h3>Lead DevOps Engineer</h3>
+          <span class="timeline-period">2020 — Present</span>
+        </div>
+        <div class="timeline-company">Trasna Solutions / Workz</div>
+        <ul>
+          <li>Architected and managed Kubernetes deployments on AKS and OKE, enhancing scalability, reliability, and release velocity across production environments.</li>
+          <li>Implemented observability frameworks with Prometheus, Grafana, Loki, and OpenTelemetry for real-time monitoring across distributed systems.</li>
+          <li>Led multi-cloud migrations to Azure and OCI, reducing operational costs by 35% while improving performance and availability.</li>
+          <li>Built DevSecOps pipelines integrating SonarQube, Trivy, and Nexus to enforce security gates across all deployment workflows.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-1">
+      <div class="timeline-dot"><i class="fas fa-cogs" style="font-size:12px"></i></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h3>System Integrator</h3>
+          <span class="timeline-period">2019 — 2020</span>
+        </div>
+        <div class="timeline-company">Verint Systems</div>
+        <ul>
+          <li>Streamlined system integrations using Docker and Kubernetes, improving deployment efficiency and reducing time-to-release.</li>
+          <li>Automated CI/CD workflows that reduced manual intervention and deployment errors across QA and production environments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-1">
+      <div class="timeline-dot"><i class="fas fa-cloud" style="font-size:12px"></i></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h3>IT Analyst</h3>
+          <span class="timeline-period">2017 — 2019</span>
+        </div>
+        <div class="timeline-company">Tata Consultancy Services</div>
+        <ul>
+          <li>Optimised enterprise infrastructure using Terraform and Ansible, enabling repeatable, scalable deployments for global clients.</li>
+          <li>Collaborated with cross-functional teams to implement secure, auditable cloud solutions meeting enterprise compliance requirements.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal reveal-delay-2">
+      <div class="timeline-dot"><i class="fab fa-linux" style="font-size:12px"></i></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <h3>System Administrator</h3>
+          <span class="timeline-period">2013 — 2017</span>
+        </div>
+        <div class="timeline-company">HCL Infosystems</div>
+        <ul>
+          <li>Managed Linux/Unix systems and supported early cloud adoption initiatives across enterprise client environments.</li>
+          <li>Automated routine operations using shell scripting, improving operational efficiency and reducing incident response time.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section surface">
+  <div class="sec-label reveal">Certifications</div>
+  <h2 class="sec-title reveal reveal-delay-1">Credentials and achievements.</h2>
+
+  <div class="cert-grid" style="margin-top:36px">
+    <div class="cert-card reveal">
+      <div class="cert-icon"><i class="fas fa-cloud" style="font-size:16px"></i></div>
+      <div>
+        <h3>Oracle Cloud Infrastructure (OCI) Foundations</h3>
+        <p>Certified expertise in OCI core services, identity, networking, and cloud architecture patterns.</p>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-1">
+      <div class="cert-icon"><i class="fa-brands fa-microsoft" style="font-size:16px"></i></div>
+      <div>
+        <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+        <p>Proficiency in Azure cloud services, governance, security, and foundational architecture concepts.</p>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-2">
+      <div class="cert-icon"><i class="fab fa-docker" style="font-size:16px"></i></div>
+      <div>
+        <h3>Certified Kubernetes Administrator (CKA) — In Progress</h3>
+        <p>Demonstrating advanced Kubernetes cluster administration, networking, security, and troubleshooting expertise.</p>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-1">
+      <div class="cert-icon"><i class="fas fa-shield-halved" style="font-size:16px"></i></div>
+      <div>
+        <h3>DevSecOps Implementation</h3>
+        <p>Led integration of SonarQube, Trivy, and Nexus for security-as-code across CI/CD pipelines in production environments.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Education -->
-  <section id="education" class="relative bg-gray-800 py-20">
-    <div class="animated-bg">
-      <i class="animated-icon fab fa-github text-gray-300"></i> <!-- GitHub -->
-      <i class="animated-icon fas fa-gears text-green-500"></i> <!-- DevOps -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
+  <div style="margin-top:48px;background:var(--card);border:1px solid var(--border-xs);border-radius:var(--r2);padding:22px 24px;display:flex;align-items:center;gap:16px" class="reveal">
+    <div style="width:40px;height:40px;border-radius:var(--r);background:var(--green-dim);border:1px solid var(--green-rim);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:18px;flex-shrink:0"><i class="fas fa-graduation-cap"></i></div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:4px">Education</div>
+      <div style="font-size:14px;font-weight:600;color:var(--text1);margin-bottom:2px">Diploma in Electronics Engineering</div>
+      <div style="font-size:13px;color:var(--text3)">Board of Technical Education, Kerala, India</div>
     </div>
-    <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
-      <h2 class="text-5xl font-extrabold mb-6 text-green-400 tracking-tight">Education</h2>
-      <p class="text-lg"><b>Diploma in Electronics Engineering</b><br>Board of Technical Education, Kerala, India</p>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Certifications -->
-  <section id="certifications" class="relative max-w-7xl mx-auto px-6 py-20">
-    <div class="animated-bg">
-      <i class="animated-icon fas fa-gears text-green-500"></i> <!-- DevOps -->
-      <i class="animated-icon fab fa-docker text-blue-500"></i> <!-- Kubernetes -->
-      <i class="animated-icon fa-solid fa-code-branch text-orange-500"></i> <!-- ArgoCD -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="section-content">
-      <h2 class="text-5xl font-extrabold mb-12 text-center text-green-400 tracking-tight">Certifications & Achievements</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card hover-scale fade-in">
-          <p class="font-medium text-green-300">Oracle Cloud Infrastructure (OCI) Foundations</p>
-          <p class="text-gray-400 text-sm mt-2">Certified expertise in OCI core services and cloud architecture.</p>
-        </div>
-        <div class="card hover-scale fade-in">
-          <p class="font-medium text-green-300">Microsoft Certified: Azure Fundamentals</p>
-          <p class="text-gray-400 text-sm mt-2">Proficiency in Azure cloud services and foundational concepts.</p>
-        </div>
-        <div class="card hover-scale fade-in">
-          <p class="font-medium text-green-300">Certified Kubernetes Administrator (CKA)</p>
-          <p class="text-gray-400 text-sm mt-2">In progress, demonstrating advanced Kubernetes expertise.</p>
-        </div>
-        <div class="card hover-scale fade-in">
-          <p class="font-medium text-green-300">DevSecOps Implementation</p>
-          <p class="text-gray-400 text-sm mt-2">Led integration of SonarQube, Trivy, and Nexus for secure CI/CD pipelines.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- CONTACT -->
+<section id="contact" class="section dark">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="sec-label">Get In Touch</div>
+      <h3>Let's build something that stays up.</h3>
+      <p>I'm open to senior DevOps, Platform Engineering, or Cloud Architecture roles — especially where reliability, automation, and cost efficiency are the priorities. Feel free to reach out.</p>
 
-  <!-- Resume Download -->
-  <section id="resume" class="relative max-w-7xl mx-auto px-6 py-16 text-center">
-    <div class="animated-bg">
-      <i class="animated-icon fas fa-database text-indigo-500"></i> <!-- PostgreSQL -->
-      <i class="animated-icon fa-solid fa-server text-red-500"></i> <!-- Ansible -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="section-content fade-in">
-      <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank"
-         class="bg-green-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300 text-lg">
-        <i class="fas fa-file-download mr-2"></i> Download Resume
-      </a>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="relative py-20 bg-gradient-to-br from-green-600 to-blue-600 text-white">
-    <div class="animated-bg">
-      <i class="animated-icon fab fa-aws text-orange-500"></i> <!-- AWS -->
-      <i class="animated-icon fas fa-tools text-blue-500"></i> <!-- Jenkins -->
-      <i class="animated-icon fa-brands fa-microsoft text-blue-500"></i> <!-- Azure -->
-      <i class="animated-icon fa-solid fa-bug text-purple-500"></i> <!-- Hacking -->
-    </div>
-    <div class="section-content max-w-7xl mx-auto px-6 text-center fade-in">
-      <h2 class="text-5xl font-extrabold mb-8 tracking-tight">Let's Collaborate</h2>
-      <p class="text-lg mb-8">I'm always open to discussing new opportunities, projects, or innovative ideas. Reach out to connect!</p>
-      <div class="flex flex-col md:flex-row justify-center gap-8 text-lg">
-        <a href="tel:+971585014388" class="bg-gray-800 text-green-300 px-8 py-4 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
-          <i class="fas fa-phone mr-2"></i> +971 58 501 4388
+      <div class="contact-links">
+        <a href="tel:+971585014388" class="contact-link">
+          <div class="contact-link-icon"><i class="fas fa-phone"></i></div>
+          <div><strong>+971 58 501 4388</strong><span>Call or WhatsApp</span></div>
         </a>
-        <a href="mailto:vilayilarun@gmail.com" class="bg-gray-800 text-green-300 px-8 py-4 rounded-full shadow-lg hover:bg-teal-500 hover-scale transition duration-300">
-          <i class="fas fa-envelope mr-2"></i> vilayilarun@gmail.com
+        <a href="mailto:vilayilarun@gmail.com" class="contact-link">
+          <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+          <div><strong>vilayilarun@gmail.com</strong><span>Email — typically reply within 24h</span></div>
+        </a>
+        <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" class="contact-link">
+          <div class="contact-link-icon"><i class="fas fa-file-download"></i></div>
+          <div><strong>Download Resume</strong><span>PDF — full work history and skills</span></div>
         </a>
       </div>
     </div>
-  </section>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to top" class="text-white p-4 rounded-full shadow-lg hover:bg-teal-500 transition duration-300">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-10">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <div class="flex justify-center gap-6 mb-4">
-        <a href="https://www.linkedin.com/in/vilayilarun/" class="text-green-400 hover:text-teal-400"><i class="fab fa-linkedin text-2xl"></i></a>
-        <a href="https://github.com/vilayilarun" class="text-green-400 hover:text-teal-400"><i class="fab fa-github text-2xl"></i></a>
-        <a href="https://medium.com/@vilayilarun" class="text-green-400 hover:text-teal-400"><i class="fab fa-medium text-2xl"></i></a>
-        <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="text-green-400 hover:text-teal-400"><i class="fab fa-stack-overflow text-2xl"></i></a>
+    <div class="reveal reveal-delay-1">
+      <div class="sec-label">Online Profiles</div>
+      <h3 style="font-size:20px;margin-bottom:20px">Find me across the dev community.</h3>
+      <div class="social-links-grid">
+        <a href="https://www.linkedin.com/in/vilayilarun/" class="social-card" target="_blank">
+          <i class="fab fa-linkedin ti" style="color:#0077b5"></i>
+          <div><strong>LinkedIn</strong><span>Professional network</span></div>
+        </a>
+        <a href="https://github.com/vilayilarun" class="social-card" target="_blank">
+          <i class="fab fa-github ti" style="color:#ccc"></i>
+          <div><strong>GitHub</strong><span>Open source projects</span></div>
+        </a>
+        <a href="https://medium.com/@vilayilarun" class="social-card" target="_blank">
+          <i class="fab fa-medium ti" style="color:var(--green)"></i>
+          <div><strong>Medium</strong><span>Technical articles</span></div>
+        </a>
+        <a href="https://stackoverflow.com/users/15299659/vilayilarun" class="social-card" target="_blank">
+          <i class="fab fa-stack-overflow ti" style="color:var(--orange)"></i>
+          <div><strong>StackOverflow</strong><span>Q&amp;A contributions</span></div>
+        </a>
       </div>
-      <p class="mb-4">Designed & Developed by Arun Thiruvacholayil</p>
-      <p>&copy; 2025 Arun Thiruvacholayil. All Rights Reserved.</p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- JavaScript for Interactivity -->
-  <script>
-    // Fade-in animations on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-mark">AT</div>
+    <span class="footer-copy">© 2025 Arun Thiruvacholayil. All rights reserved.</span>
+  </div>
+  <span class="footer-copy" style="color:var(--text4)">Lead DevOps Engineer · Dubai, UAE</span>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/vilayilarun/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/vilayilarun" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://medium.com/@vilayilarun" target="_blank"><i class="fab fa-medium"></i></a>
+    <a href="https://stackoverflow.com/users/15299659/vilayilarun" target="_blank"><i class="fab fa-stack-overflow"></i></a>
+  </div>
+</footer>
 
-    // Sticky navbar effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+<!-- BACK TO TOP -->
+<button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-    // Back to Top button
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+<script>
+  /* ── SCROLL REVEAL ─────────────────────────────────────────── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
+  /* ── NAV SCROLL ────────────────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  const backTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    backTop.classList.toggle('show', window.scrollY > 300);
+  }, { passive: true });
+
+  /* ── BACK TO TOP ───────────────────────────────────────────── */
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── MOBILE MENU ───────────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const menu   = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  function closeMobile() { menu.classList.remove('open'); }
+
+  /* ── SMOOTH SCROLL ─────────────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
