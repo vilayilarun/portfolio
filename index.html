@@ -1,1291 +1,2526 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ARUN.SYS | DevOps Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arun Thiruvacholayil | Senior DevOps &amp; Site Reliability Engineer</title>
+
+  <meta name="description" content="Portfolio of Arun Thiruvacholayil, a Senior DevOps and Site Reliability Engineer with 13+ years of experience in Kubernetes, cloud infrastructure, CI/CD, observability, automation and platform engineering.">
+  <meta name="theme-color" content="#05070d">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arun Thiruvacholayil | Senior DevOps &amp; Site Reliability Engineer">
+  <meta property="og:description" content="Senior DevOps and Site Reliability Engineer with 13+ years of experience across Kubernetes, multi-cloud infrastructure, automation, observability and platform engineering.">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arun Thiruvacholayil | Senior DevOps &amp; Site Reliability Engineer">
+  <meta name="twitter:description" content="Senior DevOps and Site Reliability Engineer with 13+ years of enterprise infrastructure and platform engineering experience.">
+  <meta name="twitter:image" content="https://example.com/og-image.jpg">
+
+  <link rel="canonical" href="https://example.com/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!--
+    Deployment security note:
+    Configure this header at the web server or CDN layer after replacing example.com values:
+    Content-Security-Policy:
+      default-src 'self';
+      style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+      font-src https://fonts.gstatic.com;
+      img-src 'self' data: https:;
+      script-src 'self' 'unsafe-inline';
+      connect-src 'self';
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+      upgrade-insecure-requests;
+  -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arun Thiruvacholayil",
+    "jobTitle": "Senior DevOps / Site Reliability Engineer",
+    "url": "https://example.com/",
+    "email": "mailto:vilayilarun@gmail.com",
+    "telephone": "+971585014388",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai",
+      "addressCountry": "AE"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/vilayilarun/",
+      "https://github.com/vilayilarun",
+      "https://medium.com/@vilayilarun",
+      "https://stackoverflow.com/users/15299659/vilayilarun"
+    ],
+    "knowsAbout": [
+      "DevOps",
+      "Site Reliability Engineering",
+      "Kubernetes",
+      "Cloud Architecture",
+      "Platform Engineering",
+      "DevSecOps",
+      "Observability",
+      "Infrastructure as Code"
+    ]
+  }
+  </script>
+
   <style>
     :root {
-      --neon-cyan: #00f5ff;
-      --neon-green: #39ff14;
-      --neon-purple: #bf00ff;
-      --neon-orange: #ff6b00;
-      --plasma-blue: #0048ff;
-      --deep-space: #00000a;
-      --void: #020010;
-      --glass-bg: rgba(0,245,255,0.04);
-      --glass-border: rgba(0,245,255,0.15);
-      --glass-border-hot: rgba(0,245,255,0.5);
-      --text-primary: #e0f7ff;
-      --text-dim: rgba(224,247,255,0.5);
+      color-scheme: dark;
+      --background-primary: #05070d;
+      --background-secondary: #090d18;
+      --surface-primary: rgba(14, 22, 38, 0.82);
+      --surface-secondary: rgba(18, 29, 48, 0.72);
+      --accent-primary: #39d9ff;
+      --accent-secondary: #7c5cff;
+      --accent-success: #46e6a6;
+      --accent-warning: #ffb866;
+      --text-primary: #f4f8ff;
+      --text-secondary: #aeb9c9;
+      --border-subtle: rgba(124, 163, 204, 0.16);
+      --border-strong: rgba(57, 217, 255, 0.38);
+      --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.34);
+      --shadow-md: 0 18px 45px rgba(0, 0, 0, 0.25);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --container: 1280px;
+      --nav-height: 72px;
+      --focus-ring: 0 0 0 3px rgba(57, 217, 255, 0.28);
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 20px);
+    }
 
     body {
-      font-family: 'Rajdhani', sans-serif;
-      background: var(--void);
+      margin: 0;
+      min-width: 320px;
       color: var(--text-primary);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(57, 217, 255, 0.08), transparent 30rem),
+        radial-gradient(circle at 82% 18%, rgba(124, 92, 255, 0.08), transparent 28rem),
+        linear-gradient(180deg, var(--background-primary), var(--background-secondary) 44%, var(--background-primary));
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
       overflow-x: hidden;
-      cursor: none;
     }
 
-    /* CUSTOM CURSOR */
-    #cursor-dot {
-      position: fixed; width: 8px; height: 8px;
-      background: var(--neon-cyan); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: transform 0.05s;
-      box-shadow: 0 0 12px var(--neon-cyan), 0 0 24px var(--neon-cyan);
-    }
-    #cursor-ring {
-      position: fixed; width: 40px; height: 40px;
-      border: 1px solid rgba(0,245,255,0.4);
-      border-radius: 50%; pointer-events: none; z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: all 0.15s ease;
+    body.menu-open {
+      overflow: hidden;
     }
 
-    /* CANVAS BACKGROUND */
-    #space-canvas {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0; pointer-events: none;
-    }
-
-    /* NOISE OVERLAY */
     body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 1;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none; opacity: 0.6;
-    }
-
-    /* SCANLINE */
-    body::after {
-      content: '';
-      position: fixed; inset: 0; z-index: 2;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
       pointer-events: none;
-      animation: scanMove 8s linear infinite;
-    }
-    @keyframes scanMove {
-      from { background-position: 0 0; }
-      to { background-position: 0 100px; }
+      background-image:
+        linear-gradient(rgba(124, 163, 204, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 163, 204, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 88%);
     }
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 3rem;
-      background: rgba(0,0,10,0.6);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      transition: all 0.3s;
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      pointer-events: none;
+      opacity: 0.06;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 255, 255, 0.035) 4px
+      );
     }
-    nav.scrolled {
-      background: rgba(0,0,10,0.9);
-      border-color: var(--glass-border-hot);
-      box-shadow: 0 0 30px rgba(0,245,255,0.1);
-    }
-    .nav-logo {
-      font-family: 'Orbitron', monospace;
-      font-size: 1.1rem; font-weight: 900;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 20px var(--neon-cyan);
-      letter-spacing: 0.3em;
-    }
-    .nav-logo span { color: var(--neon-green); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75rem; color: var(--text-dim);
-      text-decoration: none; letter-spacing: 0.15em;
-      text-transform: uppercase;
-      transition: all 0.3s; position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
-      background: var(--neon-cyan); transition: width 0.3s;
-      box-shadow: 0 0 8px var(--neon-cyan);
-    }
-    .nav-links a:hover { color: var(--neon-cyan); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-status {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
-      color: var(--neon-green);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .status-dot {
-      width: 6px; height: 6px; background: var(--neon-green);
-      border-radius: 50%; animation: pulse 2s infinite;
-      box-shadow: 0 0 10px var(--neon-green);
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
 
-    /* SECTIONS */
-    section { position: relative; z-index: 10; }
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
 
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 2rem 4rem;
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      border: 0;
+    }
+
+    :focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+      border-radius: 8px;
+    }
+
+    ::selection {
+      color: #021014;
+      background: var(--accent-primary);
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 12000;
+      transform: translateY(-150%);
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      color: #031016;
+      background: var(--accent-primary);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .custom-cursor,
+    .custom-cursor-ring {
+      display: none;
+      position: fixed;
+      z-index: 11000;
+      pointer-events: none;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (pointer: fine) {
+      body,
+      a,
+      button {
+        cursor: none;
+      }
+
+      .custom-cursor,
+      .custom-cursor-ring {
+        display: block;
+      }
+
+      .custom-cursor {
+        width: 7px;
+        height: 7px;
+        background: var(--accent-primary);
+        box-shadow: 0 0 16px rgba(57, 217, 255, 0.9);
+      }
+
+      .custom-cursor-ring {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(57, 217, 255, 0.45);
+        transition: width 160ms ease, height 160ms ease, border-color 160ms ease, background 160ms ease;
+      }
+
+      .custom-cursor-ring.is-active {
+        width: 56px;
+        height: 56px;
+        border-color: rgba(57, 217, 255, 0.82);
+        background: rgba(57, 217, 255, 0.06);
+      }
+    }
+
+    .container {
+      width: min(100%, var(--container));
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 4vw, 3rem);
+    }
+
+    .section {
       position: relative;
-    }
-    .hero-scan-line {
-      position: absolute; top: 0; left: -100%;
-      width: 200%; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-      animation: scanH 4s ease-in-out infinite;
-      opacity: 0.6;
-    }
-    @keyframes scanH {
-      0% { top: 0; } 100% { top: 100%; }
+      padding-block: clamp(4rem, 8vw, 7rem);
     }
 
-    .hero-tag {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem; letter-spacing: 0.4em;
-      color: var(--neon-green); text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      animation: fadeSlideUp 1s 0.2s both;
+    .section--tinted {
+      background: linear-gradient(180deg, rgba(9, 13, 24, 0.25), rgba(12, 19, 34, 0.62), rgba(9, 13, 24, 0.25));
+      border-block: 1px solid rgba(124, 163, 204, 0.08);
     }
-    .hero-tag::before { content: '[ '; }
-    .hero-tag::after { content: ' ]'; }
 
-    .hero-name {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(2.5rem, 8vw, 7rem);
-      font-weight: 900; line-height: 0.9;
-      letter-spacing: -0.02em;
-      animation: fadeSlideUp 1s 0.4s both;
+    .section-heading {
+      display: grid;
+      grid-template-columns: auto auto minmax(2rem, 1fr);
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
     }
-    .hero-name .line1 {
-      display: block;
-      background: linear-gradient(135deg, #fff 0%, var(--neon-cyan) 50%, var(--plasma-blue) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 30px rgba(0,245,255,0.4));
+
+    .section-kicker,
+    .eyebrow,
+    .meta-label,
+    .tech-meta,
+    .project-category,
+    .timeline-period,
+    .hud-label {
+      font-family: "Share Tech Mono", monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .hero-name .line2 {
-      display: block;
-      background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-green) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-size: 0.5em; letter-spacing: 0.5em; margin-top: 0.3em;
+
+    .section-kicker {
+      color: var(--accent-primary);
+      font-size: 0.72rem;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--text-primary);
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    .section-line {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(57, 217, 255, 0.35), transparent);
+    }
+
+    .section-intro {
+      max-width: 72ch;
+      margin: -1.5rem 0 2.75rem;
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+    }
+
+    .card {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, var(--surface-primary), var(--surface-secondary));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(18px);
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 9000;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(5, 7, 13, 0.72);
+      backdrop-filter: blur(20px) saturate(120%);
+      transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .site-header.is-scrolled {
+      border-color: rgba(57, 217, 255, 0.2);
+      background: rgba(5, 7, 13, 0.94);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+    }
+
+    .nav-shell {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--text-primary);
+      font-family: "Orbitron", sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-success);
+      box-shadow: 0 0 18px rgba(70, 230, 166, 0.7);
+    }
+
+    .brand-accent {
+      color: var(--accent-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      color: var(--text-secondary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 160ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      left: 0;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--accent-primary);
+      transition: transform 160ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link[aria-current="page"] {
+      color: var(--accent-primary);
+    }
+
+    .nav-link:hover::after,
+    .nav-link[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--accent-success);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.68rem;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-success);
+      box-shadow: 0 0 12px rgba(70, 230, 166, 0.75);
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      color: var(--accent-primary);
+      background: rgba(57, 217, 255, 0.05);
+    }
+
+    .menu-button span {
+      position: relative;
+      width: 20px;
+      height: 14px;
+    }
+
+    .menu-button span::before,
+    .menu-button span::after,
+    .menu-button span {
+      background-repeat: no-repeat;
+    }
+
+    .menu-button span::before,
+    .menu-button span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+      transition: transform 160ms ease, top 160ms ease;
+    }
+
+    .menu-button span::before {
+      top: 2px;
+    }
+
+    .menu-button span::after {
+      top: 11px;
+    }
+
+    .menu-button[aria-expanded="true"] span::before {
+      top: 6px;
+      transform: rotate(45deg);
+    }
+
+    .menu-button[aria-expanded="true"] span::after {
+      top: 6px;
+      transform: rotate(-45deg);
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--nav-height) + 3rem);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.35rem;
+      color: var(--accent-success);
+      font-size: 0.72rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: currentColor;
     }
 
     .hero-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: clamp(0.8rem, 2vw, 1.1rem);
-      color: var(--text-dim); margin-top: 2rem;
-      letter-spacing: 0.3em;
-      animation: fadeSlideUp 1s 0.6s both;
+      margin: 0;
+      max-width: 11ch;
+      color: var(--text-primary);
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(3.1rem, 8vw, 7.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
     }
-    .hero-title .highlight { color: var(--neon-cyan); }
+
+    .hero-title span {
+      display: block;
+      color: var(--accent-primary);
+      font-size: 0.42em;
+      line-height: 1.25;
+      letter-spacing: 0.18em;
+      margin-top: 0.55rem;
+    }
+
+    .hero-role {
+      margin: 1.6rem 0 0;
+      color: var(--text-primary);
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 650;
+    }
+
+    .hero-summary {
+      max-width: 68ch;
+      margin: 1rem 0 0;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .hero-capabilities {
+      margin: 1.3rem 0 0;
+      color: var(--text-secondary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.8;
+    }
+
+    .hero-capabilities strong {
+      color: var(--accent-primary);
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      position: relative;
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.15rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 11px;
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button--primary {
+      border-color: transparent;
+      color: #031014;
+      background: linear-gradient(120deg, var(--accent-primary), #67b9ff);
+      font-weight: 700;
+    }
+
+    .button--secondary {
+      color: var(--accent-primary);
+      background: rgba(57, 217, 255, 0.045);
+    }
+
+    .button--ghost {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .button--secondary:hover,
+    .button--ghost:hover {
+      border-color: var(--border-strong);
+      background: rgba(57, 217, 255, 0.08);
+    }
+
+    .system-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 1.35rem;
+    }
+
+    .system-panel::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 92, 255, 0.18), transparent 68%);
+    }
+
+    .system-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .system-panel-title {
+      margin: 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+    }
+
+    .system-panel-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-success);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.66rem;
+    }
+
+    .system-list {
+      display: grid;
+      gap: 0.78rem;
+      margin: 1rem 0 0;
+    }
+
+    .system-row {
+      display: grid;
+      grid-template-columns: 8.2rem 1fr;
+      gap: 0.8rem;
+      padding: 0.72rem 0.78rem;
+      border: 1px solid rgba(124, 163, 204, 0.1);
+      border-radius: 10px;
+      background: rgba(5, 9, 18, 0.4);
+    }
+
+    .system-label {
+      color: var(--text-secondary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+    }
+
+    .system-value {
+      color: var(--text-primary);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
 
     .hero-metrics {
-      display: flex; gap: 3rem; margin-top: 4rem;
-      animation: fadeSlideUp 1s 0.8s both;
-    }
-    .metric {
-      text-align: center;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      padding: 1.2rem 2rem; border-radius: 4px;
-      position: relative; overflow: hidden;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s;
-    }
-    .metric::before {
-      content: ''; position: absolute;
-      top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0,245,255,0.06), transparent);
-      transition: left 0.5s;
-    }
-    .metric:hover::before { left: 100%; }
-    .metric:hover {
-      border-color: var(--glass-border-hot);
-      box-shadow: 0 0 30px rgba(0,245,255,0.15), inset 0 0 20px rgba(0,245,255,0.05);
-    }
-    .metric-num {
-      font-family: 'Orbitron', monospace;
-      font-size: 2rem; font-weight: 700;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 20px var(--neon-cyan);
-      display: block;
-    }
-    .metric-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem; color: var(--text-dim);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      display: block; margin-top: 0.3rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: clamp(2.5rem, 5vw, 4rem);
     }
 
-    .hero-cta {
-      display: flex; gap: 1rem; margin-top: 3rem;
-      animation: fadeSlideUp 1s 1s both;
-      flex-wrap: wrap; justify-content: center;
+    .metric-card {
+      min-height: 128px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.15rem;
+      transition: border-color 160ms ease, transform 160ms ease;
     }
-    .btn-primary {
-      font-family: 'Orbitron', monospace; font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 1rem 2.5rem; border: none; border-radius: 2px;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--plasma-blue));
-      color: var(--void); text-decoration: none; cursor: none;
-      position: relative; overflow: hidden;
-      transition: all 0.3s;
-      box-shadow: 0 0 30px rgba(0,245,255,0.3);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 50px rgba(0,245,255,0.5), 0 0 100px rgba(0,72,255,0.3);
-    }
-    .btn-ghost {
-      font-family: 'Orbitron', monospace; font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      padding: 1rem 2.5rem; border: 1px solid var(--glass-border-hot); border-radius: 2px;
-      background: transparent;
-      color: var(--neon-cyan); text-decoration: none; cursor: none;
-      transition: all 0.3s;
-    }
-    .btn-ghost:hover {
-      background: rgba(0,245,255,0.08);
-      box-shadow: 0 0 30px rgba(0,245,255,0.15);
+
+    .metric-card:hover {
+      border-color: var(--border-strong);
       transform: translateY(-2px);
     }
 
-    /* SECTION STRUCTURE */
-    .section-wrapper { padding: 7rem 2rem; max-width: 1400px; margin: 0 auto; }
-
-    .section-header {
-      display: flex; align-items: baseline; gap: 1rem;
-      margin-bottom: 4rem;
-    }
-    .section-number {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75rem; color: var(--neon-cyan);
-      opacity: 0.5; letter-spacing: 0.1em;
-    }
-    .section-title {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(1.8rem, 4vw, 3rem);
+    .metric-value {
+      color: var(--accent-primary);
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.45rem, 3vw, 2rem);
       font-weight: 700;
-      background: linear-gradient(90deg, #fff, var(--neon-cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .section-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, var(--glass-border), transparent);
-      margin-left: 1rem;
     }
 
-    /* GLASS CARD */
-    .glass-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 4px; padding: 2rem;
-      backdrop-filter: blur(10px);
-      position: relative; overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    .glass-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,245,255,0.06) 0%, transparent 60%);
-      opacity: 0; transition: opacity 0.4s;
-    }
-    .glass-card:hover { border-color: var(--glass-border-hot); transform: translateY(-4px); }
-    .glass-card:hover::before { opacity: 1; }
-    .glass-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,245,255,0.1); }
-
-    /* Corner decorations */
-    .glass-card::after {
-      content: ''; position: absolute;
-      top: 0; left: 0; width: 20px; height: 20px;
-      border-top: 2px solid var(--neon-cyan);
-      border-left: 2px solid var(--neon-cyan);
-      opacity: 0.5;
+    .metric-label {
+      margin-top: 0.35rem;
+      color: var(--text-secondary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.67rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    /* ABOUT */
-    #about { background: linear-gradient(180deg, var(--void) 0%, #000820 100%); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
-    .about-avatar {
-      position: relative; display: flex; align-items: center; justify-content: center;
-    }
-    .avatar-ring {
-      width: 280px; height: 280px;
-      border-radius: 50%; position: relative;
-    }
-    .avatar-ring::before, .avatar-ring::after {
-      content: ''; position: absolute; border-radius: 50%;
-    }
-    .avatar-ring::before {
-      inset: -6px;
-      border: 2px solid transparent;
-      border-top-color: var(--neon-cyan);
-      border-right-color: var(--neon-cyan);
-      animation: spinRing 4s linear infinite;
-    }
-    .avatar-ring::after {
-      inset: -16px;
-      border: 1px solid transparent;
-      border-bottom-color: var(--neon-purple);
-      border-left-color: var(--neon-purple);
-      animation: spinRing 7s linear infinite reverse;
-    }
-    @keyframes spinRing { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-    .avatar-inner {
-      width: 100%; height: 100%; border-radius: 50%;
-      background: linear-gradient(135deg, #000820, #001040);
-      display: flex; align-items: center; justify-content: center;
-      border: 2px solid rgba(0,245,255,0.2);
-      font-family: 'Orbitron', monospace;
-      font-size: 5rem; font-weight: 900;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 40px var(--neon-cyan), 0 0 80px rgba(0,245,255,0.3);
-    }
-    .about-text h3 {
-      font-family: 'Orbitron', monospace; font-size: 1.5rem;
-      color: var(--neon-cyan); margin-bottom: 0.5rem;
-    }
-    .about-subtitle {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8rem; color: var(--neon-green);
-      letter-spacing: 0.2em; margin-bottom: 1.5rem;
-    }
-    .about-bio {
-      font-size: 1.05rem; line-height: 1.8;
-      color: var(--text-dim); font-weight: 300;
-    }
-    .about-bio strong { color: var(--text-primary); font-weight: 600; }
-    .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-    .tag {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
-      color: var(--neon-cyan); border: 1px solid rgba(0,245,255,0.3);
-      padding: 0.3rem 0.8rem; border-radius: 2px;
-      letter-spacing: 0.1em; background: rgba(0,245,255,0.04);
-      transition: all 0.3s;
-    }
-    .tag:hover { background: rgba(0,245,255,0.1); border-color: var(--neon-cyan); }
-
-    /* TECH STACK */
-    #tech { background: var(--void); }
-    .tech-category-title {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.75rem;
-      color: var(--neon-orange); letter-spacing: 0.3em;
-      text-transform: uppercase; margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .tech-category-title::after {
-      content: ''; flex: 1; height: 1px;
-      background: linear-gradient(90deg, rgba(255,107,0,0.3), transparent);
-    }
-    .tech-group { margin-bottom: 3rem; }
-    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1rem; }
-    .tech-item {
-      background: var(--glass-bg); border: 1px solid var(--glass-border);
-      border-radius: 4px; padding: 1.2rem 0.8rem;
-      text-align: center; cursor: none;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-      position: relative; overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-    .tech-item::before {
-      content: ''; position: absolute;
-      bottom: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--plasma-blue));
-      transform: scaleX(0); transition: transform 0.3s;
-    }
-    .tech-item:hover { border-color: rgba(0,245,255,0.3); transform: translateY(-4px); }
-    .tech-item:hover::before { transform: scaleX(1); }
-    .tech-item i { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
-    .tech-item p {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem; color: var(--text-dim);
-      letter-spacing: 0.05em;
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
     }
 
-    /* PROJECTS */
-    #projects { background: linear-gradient(180deg, #000820 0%, var(--void) 100%); }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1.5rem; }
-    .project-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 4px; padding: 2rem;
-      position: relative; overflow: hidden;
-      transition: all 0.4s;
-      backdrop-filter: blur(10px);
-    }
-    .project-card::before {
-      content: ''; position: absolute;
-      top: 0; right: 0; width: 80px; height: 80px;
-      background: radial-gradient(circle at top right, rgba(0,245,255,0.1), transparent);
-    }
-    .project-card:hover {
-      border-color: var(--glass-border-hot);
-      box-shadow: 0 0 40px rgba(0,245,255,0.1), 0 20px 60px rgba(0,0,0,0.4);
-      transform: translateY(-6px);
-    }
-    .project-num {
-      font-family: 'Orbitron', monospace; font-size: 0.65rem;
-      color: var(--neon-cyan); opacity: 0.4;
-      letter-spacing: 0.3em; margin-bottom: 0.8rem;
-    }
-    .project-title {
-      font-family: 'Orbitron', monospace; font-size: 1rem;
-      color: #fff; margin-bottom: 1rem; font-weight: 600;
-      line-height: 1.3;
-    }
-    .project-desc {
-      font-size: 0.9rem; line-height: 1.7;
-      color: var(--text-dim); margin-bottom: 1.5rem;
-    }
-    .project-stat {
-      display: inline-block;
-      background: rgba(57,255,20,0.1);
-      border: 1px solid rgba(57,255,20,0.3);
-      color: var(--neon-green); padding: 0.2rem 0.6rem;
-      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
-      border-radius: 2px; margin-right: 0.5rem; margin-bottom: 0.5rem;
-    }
-    .project-link {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
-      color: var(--neon-cyan); text-decoration: none;
-      letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 0.5rem;
-      margin-top: 1rem; transition: all 0.3s;
-    }
-    .project-link:hover { color: #fff; gap: 0.8rem; }
-
-    /* EXPERIENCE */
-    #experience { background: var(--void); }
-    .timeline { position: relative; }
-    .timeline::before {
-      content: ''; position: absolute;
-      left: 0; top: 0; bottom: 0; width: 1px;
-      background: linear-gradient(180deg, var(--neon-cyan), transparent);
-      opacity: 0.3;
-    }
-    .timeline-item {
-      padding-left: 3rem; margin-bottom: 3rem; position: relative;
-    }
-    .timeline-dot {
-      position: absolute; left: -6px; top: 8px;
-      width: 13px; height: 13px; border-radius: 50%;
-      background: var(--neon-cyan); border: 2px solid var(--void);
-      box-shadow: 0 0 15px var(--neon-cyan);
-    }
-    .exp-period {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
-      color: var(--neon-orange); letter-spacing: 0.2em; margin-bottom: 0.5rem;
-    }
-    .exp-role {
-      font-family: 'Orbitron', monospace; font-size: 1.1rem;
-      color: #fff; font-weight: 600; margin-bottom: 0.3rem;
-    }
-    .exp-company {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.8rem;
-      color: var(--neon-cyan); margin-bottom: 1rem;
-    }
-    .exp-list { list-style: none; }
-    .exp-list li {
-      font-size: 0.9rem; color: var(--text-dim);
-      line-height: 1.7; padding: 0.3rem 0;
-      padding-left: 1rem; position: relative;
-    }
-    .exp-list li::before {
-      content: '▸'; position: absolute; left: 0;
-      color: var(--neon-cyan); font-size: 0.7rem;
-      top: 0.4rem;
-    }
-
-    /* CERTIFICATIONS */
-    #certifications { background: linear-gradient(180deg, var(--void) 0%, #000820 100%); }
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-    .cert-card {
-      background: var(--glass-bg); border: 1px solid var(--glass-border);
-      border-radius: 4px; padding: 1.5rem;
-      transition: all 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .cert-card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; width: 3px; height: 100%;
-      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
-    }
-    .cert-card:hover {
-      border-color: var(--glass-border-hot);
-      transform: translateX(4px);
-      box-shadow: 0 0 30px rgba(0,245,255,0.1);
-    }
-    .cert-name {
-      font-family: 'Rajdhani', sans-serif; font-size: 1rem;
-      font-weight: 600; color: var(--neon-cyan);
-      margin-bottom: 0.5rem;
-    }
-    .cert-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
-    .cert-badge {
-      display: inline-block; margin-top: 0.8rem;
-      font-family: 'Share Tech Mono', monospace; font-size: 0.65rem;
-      color: var(--neon-green); border: 1px solid rgba(57,255,20,0.3);
-      padding: 0.2rem 0.5rem; border-radius: 2px;
-      background: rgba(57,255,20,0.05);
-    }
-
-    /* CONTACT */
-    #contact { background: var(--void); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .contact-info h3 {
-      font-family: 'Orbitron', monospace; font-size: 1.3rem;
-      color: #fff; margin-bottom: 0.5rem;
-    }
-    .contact-info p { color: var(--text-dim); line-height: 1.8; font-size: 0.95rem; }
-    .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-    .contact-link {
-      display: flex; align-items: center; gap: 1rem;
-      background: var(--glass-bg); border: 1px solid var(--glass-border);
-      padding: 1rem 1.5rem; border-radius: 4px;
-      text-decoration: none; transition: all 0.3s;
-      font-family: 'Share Tech Mono', monospace; font-size: 0.8rem;
-      color: var(--text-primary);
-    }
-    .contact-link:hover {
-      border-color: var(--glass-border-hot); background: rgba(0,245,255,0.06);
-      color: var(--neon-cyan); transform: translateX(4px);
-    }
-    .contact-link i { color: var(--neon-cyan); width: 20px; text-align: center; }
-    .social-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 1rem; }
-    .social-btn {
-      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
-      background: var(--glass-bg); border: 1px solid var(--glass-border);
-      padding: 1rem; border-radius: 4px;
-      text-decoration: none; transition: all 0.3s;
-      font-family: 'Orbitron', monospace; font-size: 0.65rem;
-      font-weight: 600; color: var(--text-dim); letter-spacing: 0.1em;
-    }
-    .social-btn:hover {
-      border-color: var(--glass-border-hot); color: var(--neon-cyan);
-      transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(0,245,255,0.1);
-    }
-    .social-btn i { font-size: 1.2rem; }
-
-    /* EDUCATION */
-    #education { background: var(--void); }
-    .edu-card {
-      max-width: 600px;
-      background: var(--glass-bg); border: 1px solid var(--glass-border);
-      border-radius: 4px; padding: 2.5rem;
-      position: relative; overflow: hidden;
-    }
-    .edu-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,245,255,0.05) 0%, rgba(191,0,255,0.05) 100%);
-    }
-    .edu-degree {
-      font-family: 'Orbitron', monospace; font-size: 1.2rem;
-      color: #fff; font-weight: 600; margin-bottom: 0.5rem;
-    }
-    .edu-inst {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.8rem;
-      color: var(--neon-cyan); letter-spacing: 0.1em;
-    }
-
-    /* RESUME */
-    .resume-section {
-      text-align: center; padding: 4rem 2rem;
-      background: linear-gradient(180deg, #000820 0%, var(--void) 100%);
-    }
-    .resume-cta-wrap { margin-top: 2rem; }
-
-    /* FOOTER */
-    footer {
-      background: rgba(0,0,5,0.9); border-top: 1px solid var(--glass-border);
-      padding: 2rem; text-align: center;
-      font-family: 'Share Tech Mono', monospace; font-size: 0.7rem;
-      color: var(--text-dim); letter-spacing: 0.1em;
-    }
-    footer a { color: var(--neon-cyan); text-decoration: none; }
-
-    /* BACK TO TOP */
-    #back-to-top {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 1000;
-      width: 48px; height: 48px;
-      background: rgba(0,245,255,0.1); border: 1px solid var(--glass-border-hot);
-      color: var(--neon-cyan); display: none; align-items: center; justify-content: center;
-      border-radius: 4px; cursor: none; transition: all 0.3s;
-      font-size: 1rem;
-    }
-    #back-to-top:hover {
-      background: rgba(0,245,255,0.2);
-      box-shadow: 0 0 20px rgba(0,245,255,0.3);
-    }
-    #back-to-top.visible { display: flex; }
-
-    /* ANIMATIONS */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
-    .reveal.in-view { opacity: 1; transform: translateY(0); }
-
-    /* GLITCH TEXT */
-    .glitch {
+    .profile-panel {
       position: relative;
-      animation: glitchBase 8s infinite;
-    }
-    @keyframes glitchBase {
-      0%,90%,100% { transform: none; }
-      91% { transform: skewX(-1deg); }
-      92% { transform: skewX(1deg); }
-      93% { transform: none; }
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 2rem;
     }
 
-    /* HUD ELEMENTS */
-    .hud-corner {
-      position: fixed; z-index: 100; pointer-events: none;
-      font-family: 'Share Tech Mono', monospace; font-size: 0.6rem;
-      color: rgba(0,245,255,0.3); letter-spacing: 0.1em;
-    }
-    .hud-tl { top: 80px; left: 20px; }
-    .hud-br { bottom: 20px; left: 20px; }
-    .hud-line { margin-bottom: 4px; }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      nav { padding: 1rem; }
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; text-align: center; }
-      .about-avatar { justify-content: center; margin-bottom: 2rem; }
-      .hero-metrics { flex-direction: column; gap: 1rem; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .social-grid { grid-template-columns: repeat(2,1fr); }
+    .profile-panel::before,
+    .profile-panel::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(57, 217, 255, 0.16);
+      border-radius: 50%;
     }
 
-    /* SECTION DIVIDERS */
-    .section-divider {
-      height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-      margin: 0 2rem;
+    .profile-panel::before {
+      width: 260px;
+      height: 260px;
     }
 
-    /* LOADING SCREEN */
-    #loader {
-      position: fixed; inset: 0; z-index: 9000;
-      background: var(--void);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      transition: opacity 0.8s, visibility 0.8s;
+    .profile-panel::after {
+      width: 330px;
+      height: 330px;
+      border-color: rgba(124, 92, 255, 0.12);
     }
-    #loader.done { opacity: 0; visibility: hidden; }
-    .loader-logo {
-      font-family: 'Orbitron', monospace; font-size: 1.5rem;
-      font-weight: 900; color: var(--neon-cyan);
-      text-shadow: 0 0 30px var(--neon-cyan);
-      letter-spacing: 0.5em; margin-bottom: 2rem;
+
+    .profile-monogram {
+      position: relative;
+      z-index: 1;
+      width: 190px;
+      height: 190px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: 50%;
+      color: var(--accent-primary);
+      background: radial-gradient(circle at 38% 30%, rgba(57, 217, 255, 0.12), rgba(5, 9, 18, 0.9) 68%);
+      font-family: "Orbitron", sans-serif;
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      box-shadow: 0 0 50px rgba(57, 217, 255, 0.08);
     }
-    .loader-bar-wrap {
-      width: 300px; height: 2px;
-      background: rgba(0,245,255,0.1); border-radius: 1px; overflow: hidden;
+
+    .profile-hud {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      background: rgba(5, 9, 18, 0.72);
     }
-    .loader-bar {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, var(--neon-cyan), var(--plasma-blue));
-      box-shadow: 0 0 10px var(--neon-cyan);
-      animation: loadBar 1.5s ease-out forwards;
+
+    .hud-label {
+      color: var(--text-secondary);
+      font-size: 0.64rem;
     }
-    @keyframes loadBar {
-      0% { width: 0% }
-      60% { width: 80% }
-      100% { width: 100% }
+
+    .profile-hud strong {
+      color: var(--accent-success);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.68rem;
     }
-    .loader-text {
-      font-family: 'Share Tech Mono', monospace; font-size: 0.65rem;
-      color: var(--text-dim); margin-top: 1rem;
-      letter-spacing: 0.3em;
+
+    .about-copy {
+      max-width: 75ch;
+    }
+
+    .about-copy h3 {
+      margin: 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .about-role {
+      margin: 0.65rem 0 0;
+      color: var(--accent-primary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .about-copy p {
+      margin: 1.4rem 0 0;
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      min-height: 210px;
+      padding: 1.25rem;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+    }
+
+    .skill-number {
+      color: var(--accent-primary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.7rem;
+    }
+
+    .skill-card h3 {
+      margin: 1rem 0 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .skill-card p {
+      margin: 0.75rem 0 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .tech-categories {
+      display: grid;
+      gap: 2.25rem;
+    }
+
+    .tech-category-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-category-heading h3 {
+      margin: 0;
+      color: var(--accent-warning);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .tech-category-heading span {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 184, 102, 0.28), transparent);
+    }
+
+    .tech-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+      gap: 0.8rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tech-card {
+      min-height: 104px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: rgba(14, 22, 38, 0.66);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .tech-card:hover,
+    .tech-card:focus-within {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: rgba(18, 29, 48, 0.86);
+    }
+
+    .tech-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(57, 217, 255, 0.18);
+      border-radius: 12px;
+      color: var(--accent-primary);
+      background: rgba(57, 217, 255, 0.055);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-align: center;
+    }
+
+    .tech-name {
+      display: block;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 650;
+      line-height: 1.25;
+    }
+
+    .tech-meta {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--text-secondary);
+      font-size: 0.58rem;
+      line-height: 1.35;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      padding: 1.35rem;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+    }
+
+    .project-category {
+      color: var(--accent-primary);
+      font-size: 0.66rem;
+    }
+
+    .project-card h3 {
+      margin: 0.9rem 0 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.4;
+    }
+
+    .project-block {
+      margin-top: 1rem;
+    }
+
+    .project-block h4 {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+    }
+
+    .project-block p {
+      margin: 0.35rem 0 0;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 0.3rem 0.5rem;
+      border: 1px solid rgba(70, 230, 166, 0.18);
+      border-radius: 8px;
+      color: var(--accent-success);
+      background: rgba(70, 230, 166, 0.04);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.62rem;
+    }
+
+    .project-outcome {
+      margin-top: auto;
+      padding-top: 1.25rem;
+      color: var(--accent-success);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.7rem;
+      line-height: 1.5;
+    }
+
+    .case-study {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-top: 0.9rem;
+      color: var(--accent-primary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 0.4rem;
+      padding-left: 2.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      left: 0;
+      width: 1px;
+      background: linear-gradient(var(--accent-primary), rgba(57, 217, 255, 0.08));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 0.4rem;
+      left: -2.88rem;
+      width: 13px;
+      height: 13px;
+      border: 3px solid var(--background-primary);
+      border-radius: 50%;
+      background: var(--accent-primary);
+      box-shadow: 0 0 16px rgba(57, 217, 255, 0.65);
+    }
+
+    .timeline-period {
+      color: var(--accent-warning);
+      font-size: 0.68rem;
+    }
+
+    .timeline-role {
+      margin: 0.45rem 0 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .timeline-company {
+      margin-top: 0.3rem;
+      color: var(--accent-primary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.74rem;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 0.55rem;
+      max-width: 88ch;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline-list li {
+      position: relative;
+      padding-left: 1.1rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .timeline-list li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: 700;
+    }
+
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .capability-card {
+      min-height: 150px;
+      padding: 1rem;
+    }
+
+    .capability-card span {
+      color: var(--accent-primary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.68rem;
+    }
+
+    .capability-card h3 {
+      margin: 0.8rem 0 0;
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .credential-card {
+      min-height: 220px;
+      padding: 1.25rem;
+    }
+
+    .credential-card h3 {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.45;
+    }
+
+    .credential-card p {
+      margin: 0.85rem 0 0;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      margin-top: 1rem;
+      padding: 0.35rem 0.55rem;
+      border: 1px solid rgba(70, 230, 166, 0.22);
+      border-radius: 8px;
+      color: var(--accent-success);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.62rem;
+    }
+
+    .status-badge--planned {
+      border-color: rgba(255, 184, 102, 0.26);
+      color: var(--accent-warning);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1rem;
+    }
+
+    .contact-card {
+      padding: 1.4rem;
+    }
+
+    .contact-card h3 {
+      margin: 0;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .contact-card > p {
+      margin: 0.85rem 0 0;
+      color: var(--text-secondary);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-link {
+      display: flex;
+      min-height: 50px;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.015);
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .contact-link:hover {
+      transform: translateX(2px);
+      border-color: var(--border-strong);
+      background: rgba(57, 217, 255, 0.055);
+    }
+
+    .contact-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(57, 217, 255, 0.16);
+      border-radius: 9px;
+      color: var(--accent-primary);
+      background: rgba(57, 217, 255, 0.05);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.65rem;
+    }
+
+    .contact-label {
+      display: block;
+      color: var(--text-secondary);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      display: block;
+      margin-top: 0.12rem;
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(5, 7, 13, 0.82);
+    }
+
+    .footer-inner {
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+    }
+
+    .footer strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .footer-status {
+      color: var(--accent-success);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.68rem;
+      text-align: right;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 8000;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      color: var(--accent-primary);
+      background: rgba(9, 13, 24, 0.9);
+      transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease, background 160ms ease;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: rgba(57, 217, 255, 0.1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .noscript-note {
+      margin: calc(var(--nav-height) + 1rem) auto 0;
+      padding: 0.8rem 1rem;
+      border: 1px solid rgba(255, 184, 102, 0.28);
+      border-radius: 10px;
+      color: var(--text-primary);
+      background: rgba(255, 184, 102, 0.08);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1120px) {
+      .nav-status {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .system-panel {
+        max-width: 720px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .capabilities-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .menu-button {
+        display: grid;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: var(--nav-height) 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 1rem;
+        transform: translateX(100%);
+        background: rgba(5, 7, 13, 0.98);
+        backdrop-filter: blur(20px);
+        transition: transform 200ms ease;
+      }
+
+      body.menu-open .nav-links {
+        transform: translateX(0);
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid rgba(124, 163, 204, 0.1);
+      }
+
+      .nav-link {
+        min-height: 58px;
+        padding-inline: 0.75rem;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-block: calc(var(--nav-height) + 4rem) 4rem;
+      }
+
+      .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-panel {
+        min-height: 350px;
+      }
+
+      .projects-grid,
+      .credentials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --nav-height: 66px;
+      }
+
+      .section-heading {
+        grid-template-columns: auto 1fr;
+      }
+
+      .section-line {
+        grid-column: 1 / -1;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 16vw, 4.8rem);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .system-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+
+      .hero-metrics,
+      .skills-grid,
+      .capabilities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tech-card {
+        min-height: 118px;
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .footer-inner {
+        min-height: 130px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-status {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .tech-list {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        font-size: 0.88rem;
+      }
+
+      .profile-monogram {
+        width: 160px;
+        height: 160px;
+        font-size: 3.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      body::after,
+      .site-canvas,
+      .custom-cursor,
+      .custom-cursor-ring {
+        display: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .button:hover,
+      .skill-card:hover,
+      .tech-card:hover,
+      .project-card:hover,
+      .metric-card:hover,
+      .contact-link:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-logo glitch">ARUN.SYS</div>
-  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-  <div class="loader-text" id="loader-text">INITIALIZING NEURAL INTERFACE...</div>
-</div>
+  <canvas id="site-canvas" class="site-canvas" aria-hidden="true"></canvas>
+  <div id="cursor-dot" class="custom-cursor" aria-hidden="true"></div>
+  <div id="cursor-ring" class="custom-cursor-ring" aria-hidden="true"></div>
 
-<!-- CURSOR -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
+  <header class="site-header" id="site-header">
+    <nav class="container nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="ARUN.SYS home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        ARUN<span class="brand-accent">.SYS</span>
+      </a>
 
-<!-- HUD CORNERS -->
-<div class="hud-corner hud-tl">
-  <div class="hud-line">SYS_STATUS: ONLINE</div>
-  <div class="hud-line">NODE: DEVOPS.PRIME</div>
-  <div class="hud-line" id="hud-time">TIME: --:--:--</div>
-</div>
-<div class="hud-corner hud-br">
-  <div class="hud-line">LOC: DUBAI, UAE</div>
-  <div class="hud-line">UPTIME: 10Y+</div>
-</div>
+      <ul class="nav-links" id="primary-navigation">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#technology">Technology</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#credentials">Credentials</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
 
-<!-- CANVAS -->
-<canvas id="space-canvas"></canvas>
+      <div class="nav-status" aria-label="Availability status">
+        <span class="status-dot" aria-hidden="true"></span>
+        OPEN TO OPPORTUNITIES
+      </div>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">ARUN<span>.</span>SYS</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#tech">Stack</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#certifications">Certs</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-status"><div class="status-dot"></div>AVAILABLE FOR HIRE</div>
-</nav>
+      <button
+        class="menu-button"
+        id="menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false">
+        <span aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-scan-line"></div>
-  <div class="hero-tag">Lead DevOps Engineer · Dubai, UAE · 10+ Years</div>
-  <h1 class="hero-name glitch">
-    <span class="line1">ARUN</span>
-    <span class="line2">THIRUVACHOLAYIL</span>
-  </h1>
-  <p class="hero-title">
-    <span class="highlight">Kubernetes</span> · Cloud Architecture · <span class="highlight">CI/CD</span> · Infrastructure Automation
-  </p>
-  <div class="hero-metrics">
-    <div class="metric"><span class="metric-num">10+</span><span class="metric-label">Years Active</span></div>
-    <div class="metric"><span class="metric-num">80%</span><span class="metric-label">Deploy Faster</span></div>
-    <div class="metric"><span class="metric-num">35%</span><span class="metric-label">Cost Reduction</span></div>
-    <div class="metric"><span class="metric-num">50%</span><span class="metric-label">MTTR Reduction</span></div>
-  </div>
-  <div class="hero-cta">
-    <a href="#projects" class="btn-primary">VIEW PROJECTS</a>
-    <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" class="btn-ghost">DOWNLOAD RESUME</a>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 01</span>
-      <h2 class="section-title">ABOUT</h2>
-      <div class="section-line"></div>
+  <noscript>
+    <div class="container noscript-note">
+      JavaScript is disabled. All portfolio content remains available; only navigation highlighting and background motion are disabled.
     </div>
-    <div class="about-grid">
-      <div class="about-avatar reveal">
-        <div class="avatar-ring">
-          <div class="avatar-inner">AT</div>
+  </noscript>
+
+  <main id="main-content">
+    <section class="hero section" id="home" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Senior DevOps / Site Reliability Engineer · Dubai, UAE · 13+ Years</div>
+            <h1 class="hero-title" id="hero-heading">
+              ARUN
+              <span>THIRUVACHOLAYIL</span>
+            </h1>
+            <p class="hero-role">Senior DevOps / Site Reliability Engineer</p>
+            <p class="hero-summary">
+              Designing secure, scalable and observable enterprise platforms across cloud, Kubernetes, Linux and hybrid infrastructure.
+            </p>
+            <p class="hero-capabilities">
+              <strong>Cloud Architecture</strong> · Kubernetes · Platform Engineering · DevSecOps · Observability · Reliability Engineering
+            </p>
+
+            <div class="hero-actions" aria-label="Portfolio actions">
+              <a class="button button--primary" href="#experience">View Experience</a>
+              <a class="button button--secondary" href="#projects">View Projects</a>
+              <a class="button button--ghost" href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+              <a class="button button--ghost" href="#contact">Contact Me</a>
+            </div>
+          </div>
+
+          <aside class="system-panel card reveal" aria-labelledby="platform-status-heading">
+            <div class="system-panel-header">
+              <h2 class="system-panel-title" id="platform-status-heading">PLATFORM STATUS</h2>
+              <span class="system-panel-status"><span class="status-dot" aria-hidden="true"></span>READY</span>
+            </div>
+
+            <div class="system-list">
+              <div class="system-row"><span class="system-label">Cloud</span><span class="system-value">Azure · AWS · GCP · OCI</span></div>
+              <div class="system-row"><span class="system-label">Kubernetes</span><span class="system-value">AKS · EKS · GKE · OKE · Kubeadm</span></div>
+              <div class="system-row"><span class="system-label">Automation</span><span class="system-value">Terraform · OpenTofu · Terragrunt · Ansible · Helm</span></div>
+              <div class="system-row"><span class="system-label">Observability</span><span class="system-value">Prometheus · Grafana · Elastic Stack · OpenTelemetry</span></div>
+              <div class="system-row"><span class="system-label">Incident Mgmt</span><span class="system-value">incident.io · Jira · ServiceNow · Microsoft Teams</span></div>
+              <div class="system-row"><span class="system-label">Location</span><span class="system-value">Dubai, UAE</span></div>
+              <div class="system-row"><span class="system-label">UPTIME</span><span class="system-value">13Y+</span></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-metrics" aria-label="Professional summary metrics">
+          <article class="metric-card card reveal">
+            <strong class="metric-value">13+</strong>
+            <span class="metric-label">Years of Experience</span>
+          </article>
+          <article class="metric-card card reveal">
+            <strong class="metric-value">Multi-cloud</strong>
+            <span class="metric-label">Enterprise Expertise</span>
+          </article>
+          <article class="metric-card card reveal">
+            <strong class="metric-value">4</strong>
+            <span class="metric-label">Major Cloud Platforms</span>
+          </article>
+          <article class="metric-card card reveal">
+            <strong class="metric-value">Global</strong>
+            <span class="metric-label">Enterprise Delivery</span>
+          </article>
         </div>
       </div>
-      <div class="about-text reveal">
-        <h3>Arun Thiruvacholayil</h3>
-        <div class="about-subtitle">// LEAD DEVOPS ENGINEER · TRASNA SOLUTIONS</div>
-        <p class="about-bio">
-          A battle-tested DevOps architect with <strong>10+ years</strong> of engineering high-availability cloud infrastructure across <strong>Azure, OCI, AWS, and GCP</strong>. I specialize in Kubernetes-native architectures, GitOps workflows, and observable distributed systems that handle real scale.
-          <br><br>
-          From orchestrating multi-cloud migrations to building DevSecOps pipelines that catch vulnerabilities before they ship — I bridge the gap between development velocity and production reliability. My infrastructure doesn't just run; it <strong>heals itself</strong>.
+    </section>
+
+    <section class="section section--tinted" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 01</span>
+          <h2 class="section-title" id="about-heading">About</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="about-grid">
+          <div class="profile-panel card reveal" aria-label="Arun Thiruvacholayil profile identity">
+            <div class="profile-monogram" aria-hidden="true">AT</div>
+            <div class="profile-hud">
+              <span class="hud-label">LOCATION: DUBAI, UAE</span>
+              <strong>UPTIME: 13Y+</strong>
+            </div>
+          </div>
+
+          <div class="about-copy reveal">
+            <h3>Senior DevOps, SRE, Cloud Infrastructure &amp; Platform Engineer</h3>
+            <div class="about-role">Enterprise Platforms · Reliability · Automation</div>
+
+            <p>
+              Senior DevOps, SRE, Cloud Infrastructure, and Platform Engineer with more than 13 years of experience designing, automating, securing, and operating mission-critical enterprise environments. Experienced across Azure, AWS, GCP, OCI, VMware, and on-premises infrastructure, with deep expertise in Kubernetes, Infrastructure as Code, CI/CD, observability, Linux administration, incident management, and reliability engineering.
+            </p>
+
+            <p>
+              I design scalable platforms, automate infrastructure and application delivery, strengthen DevSecOps controls, improve platform observability, and reduce operational risk. My experience includes telecom, cybersecurity, enterprise data centres, hybrid cloud, multi-cloud migrations, Kubernetes platform engineering, and production incident response.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 02</span>
+          <h2 class="section-title" id="skills-heading">Skills Overview</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <p class="section-intro reveal">
+          Core engineering capabilities covering the design, delivery, operation and governance of modern enterprise platforms.
         </p>
-        <div class="about-tags">
-          <span class="tag">Kubernetes</span>
-          <span class="tag">Terraform</span>
-          <span class="tag">ArgoCD</span>
-          <span class="tag">Azure</span>
-          <span class="tag">OCI</span>
-          <span class="tag">GitOps</span>
-          <span class="tag">DevSecOps</span>
-          <span class="tag">Prometheus</span>
-          <span class="tag">Helm</span>
-          <span class="tag">Docker</span>
+
+        <div class="skills-grid">
+          <article class="skill-card card reveal">
+            <span class="skill-number">01 / CLOUD</span>
+            <h3>Cloud &amp; Platform Engineering</h3>
+            <p>Architecture and operations across Azure, AWS, GCP, OCI and hybrid infrastructure.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">02 / K8S</span>
+            <h3>Kubernetes &amp; Containers</h3>
+            <p>Platform engineering across AKS, EKS, GKE, OKE, Kubeadm, Docker, Helm and Istio.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">03 / DELIVERY</span>
+            <h3>CI/CD &amp; GitOps</h3>
+            <p>Secure release automation using Jenkins, GitHub Actions, GitLab CI/CD, Azure DevOps and Argo CD.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">04 / IAC</span>
+            <h3>Infrastructure as Code</h3>
+            <p>Reusable provisioning and configuration with Terraform, OpenTofu, Terragrunt, Ansible and Helm.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">05 / SRE</span>
+            <h3>Observability &amp; SRE</h3>
+            <p>Metrics, logs, traces, alerting, capacity analysis, reliability engineering and operational readiness.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">06 / SECURITY</span>
+            <h3>DevSecOps</h3>
+            <p>Release governance, SAST, SCA, secrets management, code quality and container security controls.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">07 / SYSTEMS</span>
+            <h3>Linux &amp; Virtualization</h3>
+            <p>Enterprise Linux, UNIX, Windows Server, VMware vSphere, VMware ESXi and KVM operations.</p>
+          </article>
+          <article class="skill-card card reveal">
+            <span class="skill-number">08 / INCIDENTS</span>
+            <h3>Incident Management</h3>
+            <p>Service reliability, incident coordination, postmortems, Jira, ServiceNow, incident.io and Teams workflows.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<div class="section-divider"></div>
+    <section class="section section--tinted" id="technology" aria-labelledby="technology-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 03</span>
+          <h2 class="section-title" id="technology-heading">Technology Stack</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
 
-<!-- TECH STACK -->
-<section id="tech">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 02</span>
-      <h2 class="section-title">TECH STACK</h2>
-      <div class="section-line"></div>
-    </div>
+        <p class="section-intro reveal">
+          A structured view of the platforms and tools used across cloud engineering, delivery automation, security, reliability, data platforms and enterprise operations.
+        </p>
 
-    <div class="tech-group reveal">
-      <div class="tech-category-title">CLOUD PLATFORMS</div>
-      <div class="tech-grid">
-        <div class="tech-item"><i class="fab fa-aws" style="color:#FF9900"></i><p>AWS</p></div>
-        <div class="tech-item"><i class="fab fa-microsoft" style="color:#00ADEF"></i><p>Azure</p></div>
-        <div class="tech-item"><i class="fas fa-cloud" style="color:#E37627"></i><p>OCI</p></div>
-        <div class="tech-item"><i class="fab fa-google" style="color:#4285F4"></i><p>GCP</p></div>
-      </div>
-    </div>
+        <div class="tech-categories">
+          <section class="tech-category reveal" aria-labelledby="cloud-category">
+            <div class="tech-category-heading"><h3 id="cloud-category">Cloud Platforms</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Microsoft Azure — enterprise cloud platform"><span class="tech-icon" aria-hidden="true">AZ</span><span><strong class="tech-name">Azure</strong><span class="tech-meta">Cloud platform</span></span></li>
+              <li class="tech-card" title="Amazon Web Services — enterprise cloud platform"><span class="tech-icon" aria-hidden="true">AWS</span><span><strong class="tech-name">AWS</strong><span class="tech-meta">Cloud platform</span></span></li>
+              <li class="tech-card" title="Google Cloud Platform — enterprise cloud platform"><span class="tech-icon" aria-hidden="true">GCP</span><span><strong class="tech-name">GCP</strong><span class="tech-meta">Cloud platform</span></span></li>
+              <li class="tech-card" title="Oracle Cloud Infrastructure — enterprise cloud platform"><span class="tech-icon" aria-hidden="true">OCI</span><span><strong class="tech-name">OCI</strong><span class="tech-meta">Cloud platform</span></span></li>
+            </ul>
+          </section>
 
-    <div class="tech-group reveal">
-      <div class="tech-category-title">CONTAINER & ORCHESTRATION</div>
-      <div class="tech-grid">
-        <div class="tech-item"><i class="fab fa-docker" style="color:#0db7ed"></i><p>Docker</p></div>
-        <div class="tech-item"><i class="fas fa-dharmachakra" style="color:#326CE5"></i><p>Kubernetes</p></div>
-        <div class="tech-item"><i class="fas fa-code-branch" style="color:#EF7B4D"></i><p>ArgoCD</p></div>
-        <div class="tech-item"><i class="fas fa-layer-group" style="color:#0F1689"></i><p>Helm</p></div>
-        <div class="tech-item"><i class="fas fa-network-wired" style="color:#60D9FA"></i><p>Istio</p></div>
-        <div class="tech-item"><i class="fas fa-database" style="color:#326CE5"></i><p>AKS</p></div>
-        <div class="tech-item"><i class="fas fa-server" style="color:#E37627"></i><p>OKE</p></div>
-      </div>
-    </div>
+          <section class="tech-category reveal" aria-labelledby="kubernetes-category">
+            <div class="tech-category-heading"><h3 id="kubernetes-category">Kubernetes &amp; Container Platforms</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Kubernetes — container orchestration"><span class="tech-icon" aria-hidden="true">K8S</span><span><strong class="tech-name">Kubernetes</strong><span class="tech-meta">Container orchestration</span></span></li>
+              <li class="tech-card" title="Azure Kubernetes Service"><span class="tech-icon" aria-hidden="true">AKS</span><span><strong class="tech-name">AKS</strong><span class="tech-meta">Managed Kubernetes</span></span></li>
+              <li class="tech-card" title="Amazon Elastic Kubernetes Service"><span class="tech-icon" aria-hidden="true">EKS</span><span><strong class="tech-name">EKS</strong><span class="tech-meta">Managed Kubernetes</span></span></li>
+              <li class="tech-card" title="Google Kubernetes Engine"><span class="tech-icon" aria-hidden="true">GKE</span><span><strong class="tech-name">GKE</strong><span class="tech-meta">Managed Kubernetes</span></span></li>
+              <li class="tech-card" title="Oracle Kubernetes Engine"><span class="tech-icon" aria-hidden="true">OKE</span><span><strong class="tech-name">OKE</strong><span class="tech-meta">Managed Kubernetes</span></span></li>
+              <li class="tech-card" title="Kubeadm — Kubernetes cluster bootstrapping"><span class="tech-icon" aria-hidden="true">KDM</span><span><strong class="tech-name">Kubeadm</strong><span class="tech-meta">Cluster bootstrap</span></span></li>
+              <li class="tech-card" title="Docker — container runtime and packaging"><span class="tech-icon" aria-hidden="true">DKR</span><span><strong class="tech-name">Docker</strong><span class="tech-meta">Container platform</span></span></li>
+              <li class="tech-card" title="Helm — Kubernetes package management"><span class="tech-icon" aria-hidden="true">HLM</span><span><strong class="tech-name">Helm</strong><span class="tech-meta">Package management</span></span></li>
+              <li class="tech-card" title="Argo CD — GitOps continuous delivery"><span class="tech-icon" aria-hidden="true">ARGO</span><span><strong class="tech-name">Argo CD</strong><span class="tech-meta">GitOps delivery</span></span></li>
+              <li class="tech-card" title="Istio — service mesh"><span class="tech-icon" aria-hidden="true">IST</span><span><strong class="tech-name">Istio</strong><span class="tech-meta">Service mesh</span></span></li>
+            </ul>
+          </section>
 
-    <div class="tech-group reveal">
-      <div class="tech-category-title">IaC & AUTOMATION</div>
-      <div class="tech-grid">
-        <div class="tech-item"><i class="fas fa-cube" style="color:#7B42BC"></i><p>Terraform</p></div>
-        <div class="tech-item"><i class="fas fa-server" style="color:#EE0000"></i><p>Ansible</p></div>
-        <div class="tech-item"><i class="fas fa-tools" style="color:#D24939"></i><p>Jenkins</p></div>
-        <div class="tech-item"><i class="fab fa-github" style="color:#aaa"></i><p>GH Actions</p></div>
-        <div class="tech-item"><i class="fab fa-gitlab" style="color:#FC6D26"></i><p>GitLab CI</p></div>
-      </div>
-    </div>
+          <section class="tech-category reveal" aria-labelledby="cicd-category">
+            <div class="tech-category-heading"><h3 id="cicd-category">CI/CD &amp; Release Engineering</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Azure DevOps — pipelines and release management"><span class="tech-icon" aria-hidden="true">ADO</span><span><strong class="tech-name">Azure DevOps</strong><span class="tech-meta">CI/CD platform</span></span></li>
+              <li class="tech-card" title="GitHub Actions — workflow automation"><span class="tech-icon" aria-hidden="true">GHA</span><span><strong class="tech-name">GitHub Actions</strong><span class="tech-meta">Workflow automation</span></span></li>
+              <li class="tech-card" title="GitLab CI/CD — integrated pipeline automation"><span class="tech-icon" aria-hidden="true">GL</span><span><strong class="tech-name">GitLab CI/CD</strong><span class="tech-meta">Pipeline automation</span></span></li>
+              <li class="tech-card" title="Jenkins — CI/CD automation server"><span class="tech-icon" aria-hidden="true">JEN</span><span><strong class="tech-name">Jenkins</strong><span class="tech-meta">Automation server</span></span></li>
+              <li class="tech-card" title="Argo CD — GitOps deployment"><span class="tech-icon" aria-hidden="true">ARGO</span><span><strong class="tech-name">Argo CD</strong><span class="tech-meta">GitOps deployment</span></span></li>
+              <li class="tech-card" title="Git — source control"><span class="tech-icon" aria-hidden="true">GIT</span><span><strong class="tech-name">Git</strong><span class="tech-meta">Source control</span></span></li>
+              <li class="tech-card" title="GitHub — code collaboration"><span class="tech-icon" aria-hidden="true">GH</span><span><strong class="tech-name">GitHub</strong><span class="tech-meta">Code collaboration</span></span></li>
+              <li class="tech-card" title="GitLab — DevOps platform"><span class="tech-icon" aria-hidden="true">GL</span><span><strong class="tech-name">GitLab</strong><span class="tech-meta">DevOps platform</span></span></li>
+            </ul>
+          </section>
 
-    <div class="tech-group reveal">
-      <div class="tech-category-title">OBSERVABILITY & DATABASES</div>
-      <div class="tech-grid">
-        <div class="tech-item"><i class="fas fa-chart-line" style="color:#E6522C"></i><p>Prometheus</p></div>
-        <div class="tech-item"><i class="fas fa-tachometer-alt" style="color:#F46800"></i><p>Grafana</p></div>
-        <div class="tech-item"><i class="fas fa-book" style="color:#F8C12C"></i><p>Loki</p></div>
-        <div class="tech-item"><i class="fas fa-database" style="color:#336791"></i><p>PostgreSQL</p></div>
-        <div class="tech-item"><i class="fas fa-database" style="color:#DC382D"></i><p>Redis</p></div>
-        <div class="tech-item"><i class="fas fa-search" style="color:#FEC514"></i><p>Elastic</p></div>
-        <div class="tech-item"><i class="fas fa-bug" style="color:#4E9BCD"></i><p>SonarQube</p></div>
-        <div class="tech-item"><i class="fas fa-shield-alt" style="color:#1B998B"></i><p>Trivy</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+          <section class="tech-category reveal" aria-labelledby="iac-category">
+            <div class="tech-category-heading"><h3 id="iac-category">Infrastructure as Code &amp; Automation</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Terraform — infrastructure as code"><span class="tech-icon" aria-hidden="true">TF</span><span><strong class="tech-name">Terraform</strong><span class="tech-meta">Infrastructure as Code</span></span></li>
+              <li class="tech-card" title="OpenTofu — open infrastructure as code"><span class="tech-icon" aria-hidden="true">OTF</span><span><strong class="tech-name">OpenTofu</strong><span class="tech-meta">Infrastructure as Code</span></span></li>
+              <li class="tech-card" title="Terragrunt — Terraform orchestration"><span class="tech-icon" aria-hidden="true">TG</span><span><strong class="tech-name">Terragrunt</strong><span class="tech-meta">IaC orchestration</span></span></li>
+              <li class="tech-card" title="Ansible — configuration management"><span class="tech-icon" aria-hidden="true">ANS</span><span><strong class="tech-name">Ansible</strong><span class="tech-meta">Configuration automation</span></span></li>
+              <li class="tech-card" title="Helm — declarative Kubernetes packaging"><span class="tech-icon" aria-hidden="true">HLM</span><span><strong class="tech-name">Helm</strong><span class="tech-meta">Kubernetes automation</span></span></li>
+              <li class="tech-card" title="Bash — shell automation"><span class="tech-icon" aria-hidden="true">SH</span><span><strong class="tech-name">Bash</strong><span class="tech-meta">Shell automation</span></span></li>
+              <li class="tech-card" title="Python — automation and tooling"><span class="tech-icon" aria-hidden="true">PY</span><span><strong class="tech-name">Python</strong><span class="tech-meta">Automation language</span></span></li>
+              <li class="tech-card" title="Go — systems and platform tooling"><span class="tech-icon" aria-hidden="true">GO</span><span><strong class="tech-name">Go</strong><span class="tech-meta">Systems language</span></span></li>
+            </ul>
+          </section>
 
-<div class="section-divider"></div>
+          <section class="tech-category reveal" aria-labelledby="observability-category">
+            <div class="tech-category-heading"><h3 id="observability-category">Observability, SRE &amp; Incident Management</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Prometheus — metrics and alerting"><span class="tech-icon" aria-hidden="true">PRM</span><span><strong class="tech-name">Prometheus</strong><span class="tech-meta">Metrics &amp; alerting</span></span></li>
+              <li class="tech-card" title="Grafana — dashboards and observability"><span class="tech-icon" aria-hidden="true">GRA</span><span><strong class="tech-name">Grafana</strong><span class="tech-meta">Dashboards</span></span></li>
+              <li class="tech-card" title="Elastic Stack — search, logs and analytics"><span class="tech-icon" aria-hidden="true">ELK</span><span><strong class="tech-name">Elastic Stack</strong><span class="tech-meta">Logs &amp; analytics</span></span></li>
+              <li class="tech-card" title="Kibana — Elastic data visualization"><span class="tech-icon" aria-hidden="true">KIB</span><span><strong class="tech-name">Kibana</strong><span class="tech-meta">Log visualization</span></span></li>
+              <li class="tech-card" title="Loki — log aggregation"><span class="tech-icon" aria-hidden="true">LOK</span><span><strong class="tech-name">Loki</strong><span class="tech-meta">Log aggregation</span></span></li>
+              <li class="tech-card" title="OpenTelemetry — telemetry instrumentation"><span class="tech-icon" aria-hidden="true">OTEL</span><span><strong class="tech-name">OpenTelemetry</strong><span class="tech-meta">Metrics, logs &amp; traces</span></span></li>
+              <li class="tech-card" title="Azure Monitor — Azure observability"><span class="tech-icon" aria-hidden="true">AZM</span><span><strong class="tech-name">Azure Monitor</strong><span class="tech-meta">Cloud monitoring</span></span></li>
+              <li class="tech-card" title="Application Insights — application performance monitoring"><span class="tech-icon" aria-hidden="true">AI</span><span><strong class="tech-name">Application Insights</strong><span class="tech-meta">Application monitoring</span></span></li>
+              <li class="tech-card" title="incident.io — incident management"><span class="tech-icon" aria-hidden="true">INC</span><span><strong class="tech-name">incident.io</strong><span class="tech-meta">Incident management</span></span></li>
+            </ul>
+          </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 03</span>
-      <h2 class="section-title">FEATURED PROJECTS</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
+          <section class="tech-category reveal" aria-labelledby="security-category">
+            <div class="tech-category-heading"><h3 id="security-category">Security &amp; DevSecOps</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="SonarQube — code quality and security"><span class="tech-icon" aria-hidden="true">SON</span><span><strong class="tech-name">SonarQube</strong><span class="tech-meta">Code quality &amp; SAST</span></span></li>
+              <li class="tech-card" title="Trivy — container and dependency scanning"><span class="tech-icon" aria-hidden="true">TRV</span><span><strong class="tech-name">Trivy</strong><span class="tech-meta">Security scanning</span></span></li>
+              <li class="tech-card" title="Gitleaks — secret detection"><span class="tech-icon" aria-hidden="true">GLK</span><span><strong class="tech-name">Gitleaks</strong><span class="tech-meta">Secret detection</span></span></li>
+              <li class="tech-card" title="Static application security testing"><span class="tech-icon" aria-hidden="true">SAST</span><span><strong class="tech-name">SAST</strong><span class="tech-meta">Application security</span></span></li>
+              <li class="tech-card" title="Software composition analysis"><span class="tech-icon" aria-hidden="true">SCA</span><span><strong class="tech-name">SCA</strong><span class="tech-meta">Dependency security</span></span></li>
+              <li class="tech-card" title="Container Scanning"><span class="tech-icon" aria-hidden="true">CTR</span><span><strong class="tech-name">Container Scanning</strong><span class="tech-meta">Image security</span></span></li>
+              <li class="tech-card" title="Secrets Management"><span class="tech-icon" aria-hidden="true">SEC</span><span><strong class="tech-name">Secrets Management</strong><span class="tech-meta">Credential protection</span></span></li>
+              <li class="tech-card" title="Azure Key Vault"><span class="tech-icon" aria-hidden="true">AKV</span><span><strong class="tech-name">Azure Key Vault</strong><span class="tech-meta">Cloud secrets platform</span></span></li>
+              <li class="tech-card" title="HashiCorp Vault"><span class="tech-icon" aria-hidden="true">HCV</span><span><strong class="tech-name">HashiCorp Vault</strong><span class="tech-meta">Secrets platform</span></span></li>
+            </ul>
+          </section>
 
-      <div class="project-card reveal">
-        <div class="project-num">PROJECT_001</div>
-        <div class="project-title">Dynamic Helm Chart Generator</div>
-        <p class="project-desc">Engineered a dynamic Helm umbrella chart for managing Deployments, StatefulSets, and Ingress with Helm and ArgoCD. Integrated reusable templates to streamline Kubernetes deployments at scale.</p>
-        <div><span class="project-stat">70% OVERHEAD REDUCTION</span><span class="project-stat">HELM + ARGOCD</span></div>
-        <a href="https://github.com/vilayilarun/helm-chart-generator" class="project-link" target="_blank">VIEW ON GITHUB <i class="fas fa-arrow-right"></i></a>
-      </div>
+          <section class="tech-category reveal" aria-labelledby="os-category">
+            <div class="tech-category-heading"><h3 id="os-category">Operating Systems</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Ubuntu Linux"><span class="tech-icon" aria-hidden="true">UBU</span><span><strong class="tech-name">Ubuntu</strong><span class="tech-meta">Linux distribution</span></span></li>
+              <li class="tech-card" title="CentOS Linux"><span class="tech-icon" aria-hidden="true">CEN</span><span><strong class="tech-name">CentOS</strong><span class="tech-meta">Linux distribution</span></span></li>
+              <li class="tech-card" title="Red Hat Enterprise Linux"><span class="tech-icon" aria-hidden="true">RHEL</span><span><strong class="tech-name">Red Hat Enterprise Linux</strong><span class="tech-meta">Enterprise Linux</span></span></li>
+              <li class="tech-card" title="UNIX"><span class="tech-icon" aria-hidden="true">UNIX</span><span><strong class="tech-name">UNIX</strong><span class="tech-meta">Enterprise operating system</span></span></li>
+              <li class="tech-card" title="Windows Server"><span class="tech-icon" aria-hidden="true">WIN</span><span><strong class="tech-name">Windows Server</strong><span class="tech-meta">Server operating system</span></span></li>
+            </ul>
+          </section>
 
-      <div class="project-card reveal">
-        <div class="project-num">PROJECT_002</div>
-        <div class="project-title">CI/CD Pipeline Automation</div>
-        <p class="project-desc">Designed and implemented end-to-end CI/CD pipelines using Jenkins, GitLab CI, and ArgoCD. Integrated SonarQube and Trivy for code quality gating and container vulnerability scanning.</p>
-        <div><span class="project-stat">40% FEWER FAILURES</span><span class="project-stat">DEVSECOPS</span></div>
-        <a href="https://github.com/vilayilarun/cicd-pipeline" class="project-link" target="_blank">VIEW ON GITHUB <i class="fas fa-arrow-right"></i></a>
-      </div>
+          <section class="tech-category reveal" aria-labelledby="infra-category">
+            <div class="tech-category-heading"><h3 id="infra-category">Virtualization &amp; Infrastructure</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="VMware virtualization"><span class="tech-icon" aria-hidden="true">VMW</span><span><strong class="tech-name">VMware</strong><span class="tech-meta">Virtualization platform</span></span></li>
+              <li class="tech-card" title="VMware ESXi hypervisor"><span class="tech-icon" aria-hidden="true">ESXi</span><span><strong class="tech-name">VMware ESXi</strong><span class="tech-meta">Hypervisor</span></span></li>
+              <li class="tech-card" title="VMware vSphere management"><span class="tech-icon" aria-hidden="true">VSP</span><span><strong class="tech-name">VMware vSphere</strong><span class="tech-meta">Virtualization management</span></span></li>
+              <li class="tech-card" title="Kernel-based Virtual Machine"><span class="tech-icon" aria-hidden="true">KVM</span><span><strong class="tech-name">KVM</strong><span class="tech-meta">Linux virtualization</span></span></li>
+              <li class="tech-card" title="Virtual Machines"><span class="tech-icon" aria-hidden="true">VM</span><span><strong class="tech-name">Virtual Machines</strong><span class="tech-meta">Compute infrastructure</span></span></li>
+              <li class="tech-card" title="Linux Infrastructure"><span class="tech-icon" aria-hidden="true">LNX</span><span><strong class="tech-name">Linux Infrastructure</strong><span class="tech-meta">Enterprise operations</span></span></li>
+              <li class="tech-card" title="HAProxy load balancer"><span class="tech-icon" aria-hidden="true">HAP</span><span><strong class="tech-name">HAProxy</strong><span class="tech-meta">Load balancing</span></span></li>
+              <li class="tech-card" title="NGINX web server and proxy"><span class="tech-icon" aria-hidden="true">NGX</span><span><strong class="tech-name">NGINX</strong><span class="tech-meta">Web server &amp; proxy</span></span></li>
+              <li class="tech-card" title="Fortinet network security"><span class="tech-icon" aria-hidden="true">FTN</span><span><strong class="tech-name">Fortinet</strong><span class="tech-meta">Network security</span></span></li>
+            </ul>
+          </section>
 
-      <div class="project-card reveal">
-        <div class="project-num">PROJECT_003</div>
-        <div class="project-title">Multi-Cloud Migration</div>
-        <p class="project-desc">Led migration of PostgreSQL Patroni clusters to Azure Flexible Server and OCI using pgcopy and logical replication, optimizing performance with zero data loss and significant cost savings.</p>
-        <div><span class="project-stat">35% COST SAVINGS</span><span class="project-stat">AZURE + OCI</span></div>
-        <a href="https://github.com/vilayilarun/cloud-migration" class="project-link" target="_blank">VIEW ON GITHUB <i class="fas fa-arrow-right"></i></a>
-      </div>
+          <section class="tech-category reveal" aria-labelledby="artifact-category">
+            <div class="tech-category-heading"><h3 id="artifact-category">Artifact &amp; Repository Management</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Sonatype Nexus repository manager"><span class="tech-icon" aria-hidden="true">NX</span><span><strong class="tech-name">Sonatype Nexus</strong><span class="tech-meta">Artifact repository</span></span></li>
+              <li class="tech-card" title="Container Registries"><span class="tech-icon" aria-hidden="true">REG</span><span><strong class="tech-name">Container Registries</strong><span class="tech-meta">Image distribution</span></span></li>
+              <li class="tech-card" title="Azure Container Registry"><span class="tech-icon" aria-hidden="true">ACR</span><span><strong class="tech-name">Azure Container Registry</strong><span class="tech-meta">Cloud image registry</span></span></li>
+              <li class="tech-card" title="GitHub Packages"><span class="tech-icon" aria-hidden="true">GHP</span><span><strong class="tech-name">GitHub Packages</strong><span class="tech-meta">Package registry</span></span></li>
+            </ul>
+          </section>
 
-      <div class="project-card reveal">
-        <div class="project-num">PROJECT_004</div>
-        <div class="project-title">Dynamic Cloud Infrastructure</div>
-        <p class="project-desc">Provisioned high-availability infrastructure with HAProxy, Fortinet Firewalls, and Kubernetes clusters using Terraform and Ansible. Fully automated from zero to production.</p>
-        <div><span class="project-stat">80% FASTER DEPLOY</span><span class="project-stat">TERRAFORM + ANSIBLE</span></div>
-        <a href="https://github.com/vilayilarun/cloud-infra" class="project-link" target="_blank">VIEW ON GITHUB <i class="fas fa-arrow-right"></i></a>
-      </div>
+          <section class="tech-category reveal" aria-labelledby="data-category">
+            <div class="tech-category-heading"><h3 id="data-category">Databases &amp; Data Platforms</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="PostgreSQL relational database"><span class="tech-icon" aria-hidden="true">PG</span><span><strong class="tech-name">PostgreSQL</strong><span class="tech-meta">Relational database</span></span></li>
+              <li class="tech-card" title="Redis in-memory data store"><span class="tech-icon" aria-hidden="true">RDS</span><span><strong class="tech-name">Redis</strong><span class="tech-meta">In-memory data platform</span></span></li>
+              <li class="tech-card" title="Elasticsearch search and analytics engine"><span class="tech-icon" aria-hidden="true">ES</span><span><strong class="tech-name">Elasticsearch</strong><span class="tech-meta">Search &amp; analytics</span></span></li>
+              <li class="tech-card" title="Apache Hadoop distributed data platform"><span class="tech-icon" aria-hidden="true">HDP</span><span><strong class="tech-name">Apache Hadoop</strong><span class="tech-meta">Distributed data platform</span></span></li>
+              <li class="tech-card" title="Apache Hive data warehouse"><span class="tech-icon" aria-hidden="true">HIVE</span><span><strong class="tech-name">Hive</strong><span class="tech-meta">Data warehouse</span></span></li>
+            </ul>
+          </section>
 
-      <div class="project-card reveal">
-        <div class="project-num">PROJECT_005</div>
-        <div class="project-title">Centralized Observability Platform</div>
-        <p class="project-desc">Implemented Prometheus, Grafana, Loki, and OpenTelemetry for real-time monitoring of a system handling 10,000 requests/day. Overcame scaling challenges integrating OpenTelemetry with legacy systems.</p>
-        <div><span class="project-stat">50% MTTR REDUCTION</span><span class="project-stat">10K REQ/DAY</span></div>
-        <a href="https://github.com/vilayilarun/observability-platform" class="project-link" target="_blank">VIEW ON GITHUB <i class="fas fa-arrow-right"></i></a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 04</span>
-      <h2 class="section-title">EXPERIENCE</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="exp-period">2020 — PRESENT</div>
-        <div class="exp-role">Lead DevOps Engineer</div>
-        <div class="exp-company">Trasna Solutions / Workz · Dubai, UAE</div>
-        <ul class="exp-list">
-          <li>Architected and managed Kubernetes-based deployments on AKS and OKE, enhancing scalability and reliability at enterprise scale.</li>
-          <li>Implemented observability frameworks with Prometheus and Grafana for real-time system monitoring and alerting.</li>
-          <li>Led cloud migrations to Azure and OCI, optimizing infrastructure costs and improving performance benchmarks.</li>
-        </ul>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="exp-period">2019 — 2020</div>
-        <div class="exp-role">System Integrator</div>
-        <div class="exp-company">Verint Systems</div>
-        <ul class="exp-list">
-          <li>Streamlined system integrations using Docker and Kubernetes, improving deployment efficiency and container orchestration.</li>
-          <li>Automated workflows with CI/CD pipelines, significantly reducing manual intervention and human error.</li>
-        </ul>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="exp-period">2017 — 2019</div>
-        <div class="exp-role">IT Analyst</div>
-        <div class="exp-company">Tata Consultancy Services</div>
-        <ul class="exp-list">
-          <li>Optimized enterprise infrastructure using Terraform and Ansible for scalable, repeatable deployments.</li>
-          <li>Collaborated with cross-functional teams to implement secure cloud solutions across multiple clients.</li>
-        </ul>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="exp-period">2013 — 2017</div>
-        <div class="exp-role">System Administrator</div>
-        <div class="exp-company">HCL Infosystems</div>
-        <ul class="exp-list">
-          <li>Managed Linux/Unix systems and supported early cloud adoption initiatives for enterprise clients.</li>
-          <li>Automated routine tasks using shell scripting, improving operational efficiency and reducing downtime.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 05</span>
-      <h2 class="section-title">EDUCATION</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="exp-period" style="margin-bottom:0.5rem">DIPLOMA · ELECTRONICS ENGINEERING</div>
-      <div class="edu-degree">Diploma in Electronics Engineering</div>
-      <div class="edu-inst">Board of Technical Education, Kerala, India</div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 06</span>
-      <h2 class="section-title">CERTIFICATIONS</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-name">Oracle Cloud Infrastructure Foundations</div>
-        <div class="cert-desc">Certified expertise in OCI core services, cloud architecture, and infrastructure design patterns.</div>
-        <span class="cert-badge">✓ CERTIFIED</span>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Microsoft Azure Fundamentals</div>
-        <div class="cert-desc">Proficiency in Azure cloud services, foundational concepts, and cloud deployment models.</div>
-        <span class="cert-badge">✓ CERTIFIED</span>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">Certified Kubernetes Administrator (CKA)</div>
-        <div class="cert-desc">In-progress certification demonstrating advanced Kubernetes cluster administration and operations expertise.</div>
-        <span class="cert-badge" style="color:var(--neon-orange);border-color:rgba(255,107,0,0.3)">◎ IN PROGRESS</span>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-name">DevSecOps Implementation</div>
-        <div class="cert-desc">Led integration of SonarQube, Trivy, and Nexus for fully automated, secure CI/CD pipelines.</div>
-        <span class="cert-badge">✓ IMPLEMENTED</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-wrapper">
-    <div class="section-header reveal">
-      <span class="section-number">// 07</span>
-      <h2 class="section-title">CONTACT</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <h3>Let's Build Something Extraordinary</h3>
-        <p style="margin-top:1rem">Open to new opportunities, challenging infrastructure problems, and innovative cloud-native projects. Based in Dubai, working globally.</p>
-        <div class="contact-links">
-          <a href="tel:+971585014388" class="contact-link"><i class="fas fa-phone"></i>+971 58 501 4388</a>
-          <a href="mailto:vilayilarun@gmail.com" class="contact-link"><i class="fas fa-envelope"></i>vilayilarun@gmail.com</a>
+          <section class="tech-category reveal" aria-labelledby="collaboration-category">
+            <div class="tech-category-heading"><h3 id="collaboration-category">Collaboration &amp; IT Service Management</h3><span aria-hidden="true"></span></div>
+            <ul class="tech-list">
+              <li class="tech-card" title="Jira issue and project management"><span class="tech-icon" aria-hidden="true">JRA</span><span><strong class="tech-name">Jira</strong><span class="tech-meta">Work management</span></span></li>
+              <li class="tech-card" title="Confluence documentation platform"><span class="tech-icon" aria-hidden="true">CFL</span><span><strong class="tech-name">Confluence</strong><span class="tech-meta">Documentation</span></span></li>
+              <li class="tech-card" title="ServiceNow IT service management"><span class="tech-icon" aria-hidden="true">SNOW</span><span><strong class="tech-name">ServiceNow</strong><span class="tech-meta">IT service management</span></span></li>
+              <li class="tech-card" title="incident.io incident management"><span class="tech-icon" aria-hidden="true">INC</span><span><strong class="tech-name">incident.io</strong><span class="tech-meta">Incident management</span></span></li>
+              <li class="tech-card" title="Microsoft Teams collaboration"><span class="tech-icon" aria-hidden="true">MS</span><span><strong class="tech-name">Microsoft Teams</strong><span class="tech-meta">Collaboration</span></span></li>
+            </ul>
+          </section>
         </div>
       </div>
-      <div class="reveal">
-        <div style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--text-dim);letter-spacing:0.2em;margin-bottom:1rem;">// FIND ME ONLINE</div>
-        <div class="social-grid">
-          <a href="https://www.linkedin.com/in/vilayilarun/" target="_blank" class="social-btn">
-            <i class="fab fa-linkedin" style="color:#0A66C2"></i>LINKEDIN
-          </a>
-          <a href="https://github.com/vilayilarun" target="_blank" class="social-btn">
-            <i class="fab fa-github"></i>GITHUB
-          </a>
-          <a href="https://medium.com/@vilayilarun" target="_blank" class="social-btn">
-            <i class="fab fa-medium"></i>MEDIUM
-          </a>
-          <a href="https://stackoverflow.com/users/15299659/vilayilarun" target="_blank" class="social-btn">
-            <i class="fab fa-stack-overflow" style="color:#F58025"></i>STACK OVERFLOW
-          </a>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 04</span>
+          <h2 class="section-title" id="projects-heading">Selected Projects</h2>
+          <span class="section-line" aria-hidden="true"></span>
         </div>
-        <div style="margin-top:2rem;text-align:center">
-          <a href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" class="btn-primary" style="display:inline-block">
-            <i class="fas fa-download" style="margin-right:0.5rem"></i>DOWNLOAD RESUME
-          </a>
+
+        <p class="section-intro reveal">
+          Representative enterprise engineering initiatives. Outcomes are described qualitatively unless a verified measurement is available.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card card reveal">
+            <div class="project-category">Platform Engineering</div>
+            <h3>Enterprise Kubernetes Platform</h3>
+            <div class="project-block"><h4>Business challenge</h4><p>Standardize deployment and operations across managed and on-premises Kubernetes environments.</p></div>
+            <div class="project-block"><h4>Technical solution</h4><p>Designed reusable platform patterns covering cluster provisioning, Helm-based application delivery, GitOps, ingress, service networking, security and operational monitoring.</p></div>
+            <div class="project-tech"><span class="chip">AKS</span><span class="chip">EKS</span><span class="chip">GKE</span><span class="chip">OKE</span><span class="chip">Kubeadm</span><span class="chip">Helm</span><span class="chip">Argo CD</span><span class="chip">Istio</span><span class="chip">Terraform</span><span class="chip">Ansible</span></div>
+            <div class="project-outcome">Outcome: Standardized environment provisioning and reduced deployment effort.</div>
+            <span class="case-study">CASE STUDY</span>
+          </article>
+
+          <article class="project-card card reveal">
+            <div class="project-category">Release Engineering</div>
+            <h3>Enterprise CI/CD &amp; DevSecOps</h3>
+            <div class="project-block"><h4>Business challenge</h4><p>Improve release consistency, security controls and promotion governance across application teams.</p></div>
+            <div class="project-block"><h4>Technical solution</h4><p>Implemented automated pipelines with source validation, build, testing, code quality, secret detection, dependency scanning, container scanning, artifact management and approval workflows.</p></div>
+            <div class="project-tech"><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span><span class="chip">GitHub Actions</span><span class="chip">SonarQube</span><span class="chip">Trivy</span><span class="chip">Gitleaks</span><span class="chip">Sonatype Nexus</span></div>
+            <div class="project-outcome">Outcome: Strengthened release governance and improved delivery consistency.</div>
+            <span class="case-study">CASE STUDY</span>
+          </article>
+
+          <article class="project-card card reveal">
+            <div class="project-category">Observability &amp; SRE</div>
+            <h3>Centralized Observability &amp; Incident Management</h3>
+            <div class="project-block"><h4>Business challenge</h4><p>Improve production visibility, fault detection, incident coordination and service reliability.</p></div>
+            <div class="project-block"><h4>Technical solution</h4><p>Integrated metrics, logs, traces, dashboards, alerting and incident workflows across cloud and Kubernetes platforms.</p></div>
+            <div class="project-tech"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Elastic Stack</span><span class="chip">OpenTelemetry</span><span class="chip">Azure Monitor</span><span class="chip">Application Insights</span><span class="chip">incident.io</span></div>
+            <div class="project-outcome">Outcome: Improved operational visibility, recovery coordination and post-incident follow-up.</div>
+            <span class="case-study">CASE STUDY</span>
+          </article>
+
+          <article class="project-card card reveal">
+            <div class="project-category">Cloud Infrastructure</div>
+            <h3>Multi-cloud Infrastructure Automation</h3>
+            <div class="project-block"><h4>Business challenge</h4><p>Create repeatable, governed infrastructure across multiple cloud providers and environments.</p></div>
+            <div class="project-block"><h4>Technical solution</h4><p>Developed modular infrastructure automation for networking, identity, Kubernetes, databases, security, load balancing and observability.</p></div>
+            <div class="project-tech"><span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">OCI</span><span class="chip">Terraform</span><span class="chip">OpenTofu</span><span class="chip">Terragrunt</span><span class="chip">Ansible</span></div>
+            <div class="project-outcome">Outcome: Standardized provisioning and improved infrastructure consistency.</div>
+            <span class="case-study">CASE STUDY</span>
+          </article>
+
+          <article class="project-card card reveal">
+            <div class="project-category">Systems Engineering</div>
+            <h3>Linux &amp; Virtualization Platform Operations</h3>
+            <div class="project-block"><h4>Business challenge</h4><p>Operate and modernize enterprise compute environments across physical, virtual and hybrid infrastructure.</p></div>
+            <div class="project-block"><h4>Technical solution</h4><p>Implemented server lifecycle standards, patching, configuration automation, monitoring, capacity management and production support.</p></div>
+            <div class="project-tech"><span class="chip">Ubuntu</span><span class="chip">CentOS</span><span class="chip">RHEL</span><span class="chip">VMware ESXi</span><span class="chip">VMware vSphere</span><span class="chip">KVM</span><span class="chip">Bash</span><span class="chip">Python</span></div>
+            <div class="project-outcome">Outcome: Improved operational consistency and platform maintainability.</div>
+            <span class="case-study">CASE STUDY</span>
+          </article>
+
+          <article class="project-card card reveal">
+            <div class="project-category">Reliability Engineering</div>
+            <h3>Cloud Cost &amp; Reliability Optimization</h3>
+            <div class="project-block"><h4>Business challenge</h4><p>Balance reliability, capacity, performance and cloud resource consumption across production services.</p></div>
+            <div class="project-block"><h4>Technical solution</h4><p>Applied capacity planning, workload analysis, performance tuning, high-availability design, proactive monitoring and resource governance.</p></div>
+            <div class="project-tech"><span class="chip">Capacity Planning</span><span class="chip">High Availability</span><span class="chip">Performance Tuning</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Cloud Governance</span></div>
+            <div class="project-outcome">Outcome: Strengthened reliability planning and resource utilization decisions.</div>
+            <span class="case-study">CASE STUDY</span>
+          </article>
         </div>
       </div>
+    </section>
+
+    <section class="section section--tinted" id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 05</span>
+          <h2 class="section-title" id="experience-heading">Experience</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-period">2020 — PRESENT</div>
+            <h3 class="timeline-role">Lead DevOps Engineer</h3>
+            <div class="timeline-company">Trasna Solutions / Workz · Dubai, UAE</div>
+            <ul class="timeline-list">
+              <li>Administer Kubernetes environments across AKS, EKS, GKE and on-premises clusters, with responsibility for deployment standards, security, availability and operational readiness.</li>
+              <li>Automate infrastructure and application delivery using Terraform, Ansible, Helm, OpenTofu and Terragrunt patterns.</li>
+              <li>Design and maintain CI/CD workflows with Jenkins, GitLab CI/CD, GitHub Actions and Azure DevOps.</li>
+              <li>Implement monitoring and logging using Prometheus, Grafana, Elastic Stack, Azure Monitor and OpenTelemetry.</li>
+              <li>Improve incident management, service reliability and stakeholder coordination using incident.io, Jira, ServiceNow and Microsoft Teams.</li>
+              <li>Support Azure, AWS, GCP, OCI and hybrid-cloud infrastructure, including Linux, VMware and production operations.</li>
+              <li>Integrate DevSecOps controls using SonarQube, Trivy, Gitleaks, SAST, SCA and secrets management.</li>
+              <li>Collaborate with development, QA, platform, infrastructure and security teams across enterprise delivery programmes.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-period">2019 — 2020</div>
+            <h3 class="timeline-role">System Integrator</h3>
+            <div class="timeline-company">Verint Systems</div>
+            <ul class="timeline-list">
+              <li>Delivered cybersecurity platform integration across Linux and VMware infrastructure.</li>
+              <li>Supported Apache Hadoop platform administration, Docker-based packaging and Ansible automation.</li>
+              <li>Performed international deployment delivery, customer acceptance, troubleshooting and technical support.</li>
+              <li>Worked across infrastructure, application and customer teams to resolve production and implementation issues.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-period">2017 — 2019</div>
+            <h3 class="timeline-role">IT Analyst</h3>
+            <div class="timeline-company">Tata Consultancy Services</div>
+            <ul class="timeline-list">
+              <li>Supported an Apple Linux Engineering environment and enterprise data-centre operations.</li>
+              <li>Administered Linux systems, VMware and Oracle VM infrastructure.</li>
+              <li>Coordinated patch management, live upgrades, change management and production support.</li>
+              <li>Used Git and infrastructure automation to improve repeatability and operational control.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-period">2013 — 2017</div>
+            <h3 class="timeline-role">System Administrator</h3>
+            <div class="timeline-company">HCL Infosystems</div>
+            <ul class="timeline-list">
+              <li>Administered Linux and Windows Server environments across enterprise data-centre operations.</li>
+              <li>Supported Dell enterprise hardware, server lifecycle operations, storage and patching activities.</li>
+              <li>Contributed to UIDAI and other enterprise projects requiring controlled operations and infrastructure support.</li>
+              <li>Resolved incidents within defined SLA targets and supported production service continuity.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 06</span>
+          <h2 class="section-title" id="capabilities-heading">Professional Capabilities</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="capabilities-grid">
+          <article class="capability-card card reveal"><span>01</span><h3>Kubernetes Platform Engineering</h3></article>
+          <article class="capability-card card reveal"><span>02</span><h3>DevSecOps Pipeline Architecture</h3></article>
+          <article class="capability-card card reveal"><span>03</span><h3>SRE &amp; Reliability Engineering</h3></article>
+          <article class="capability-card card reveal"><span>04</span><h3>Incident Response &amp; Postmortems</h3></article>
+          <article class="capability-card card reveal"><span>05</span><h3>Multi-cloud Architecture</h3></article>
+          <article class="capability-card card reveal"><span>06</span><h3>Infrastructure Automation</h3></article>
+          <article class="capability-card card reveal"><span>07</span><h3>Linux &amp; Virtualization</h3></article>
+          <article class="capability-card card reveal"><span>08</span><h3>Observability Strategy</h3></article>
+          <article class="capability-card card reveal"><span>09</span><h3>Capacity &amp; Cost Optimization</h3></article>
+          <article class="capability-card card reveal"><span>10</span><h3>Cross-functional Technical Leadership</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" id="credentials" aria-labelledby="credentials-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 07</span>
+          <h2 class="section-title" id="credentials-heading">Education &amp; Credentials</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <p class="section-intro reveal">
+          Formal credentials and learning status are shown conservatively. Implementation experience is presented separately under professional capabilities.
+        </p>
+
+        <div class="credentials-grid">
+          <article class="credential-card card reveal">
+            <h3>Diploma in Electronics Engineering</h3>
+            <p>Board of Technical Education, Kerala, India.</p>
+            <span class="status-badge">EDUCATION</span>
+          </article>
+
+          <article class="credential-card card reveal">
+            <h3>Oracle Cloud Infrastructure Foundations</h3>
+            <p>Foundational understanding of Oracle Cloud services, architecture, security and operational concepts.</p>
+            <span class="status-badge">CERTIFIED</span>
+          </article>
+
+          <article class="credential-card card reveal">
+            <h3>Microsoft Azure Fundamentals</h3>
+            <p>Foundational understanding of Azure cloud concepts, governance, services, security and pricing models.</p>
+            <span class="status-badge">CERTIFIED</span>
+          </article>
+
+          <article class="credential-card card reveal">
+            <h3>Certified Kubernetes Administrator</h3>
+            <p>Planned validation of advanced Kubernetes administration, networking, storage, security and troubleshooting skills.</p>
+            <span class="status-badge status-badge--planned">PLANNED</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">// 08</span>
+          <h2 class="section-title" id="contact-heading">Contact</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card card reveal">
+            <h3>Professional Opportunities</h3>
+            <p>
+              Open to Senior DevOps, SRE, Platform Engineering, Cloud Infrastructure, and Solutions Architecture opportunities in the UAE and internationally.
+            </p>
+
+            <ul class="contact-list">
+              <li>
+                <a class="contact-link" href="mailto:vilayilarun@gmail.com">
+                  <span class="contact-icon" aria-hidden="true">@</span>
+                  <span><span class="contact-label">Email</span><span class="contact-value">vilayilarun@gmail.com</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-link" href="tel:+971585014388">
+                  <span class="contact-icon" aria-hidden="true">TEL</span>
+                  <span><span class="contact-label">Phone</span><span class="contact-value">+971 58 501 4388</span></span>
+                </a>
+              </li>
+              <li>
+                <div class="contact-link">
+                  <span class="contact-icon" aria-hidden="true">LOC</span>
+                  <span><span class="contact-label">Location</span><span class="contact-value">Dubai, United Arab Emirates</span></span>
+                </div>
+              </li>
+              <li>
+                <a class="contact-link" href="https://raw.githubusercontent.com/vilayilarun/portfolio/main/Arun-Thiruvacholayil.pdf" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-icon" aria-hidden="true">PDF</span>
+                  <span><span class="contact-label">Resume</span><span class="contact-value">Download Arun Thiruvacholayil’s resume</span></span>
+                </a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="contact-card card reveal">
+            <h3>Professional Profiles</h3>
+            <p>Connect through professional networks, review technical work and access published engineering content.</p>
+
+            <ul class="contact-list">
+              <li>
+                <a class="contact-link" href="https://www.linkedin.com/in/vilayilarun/" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-icon" aria-hidden="true">IN</span>
+                  <span><span class="contact-label">LinkedIn</span><span class="contact-value">linkedin.com/in/vilayilarun</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-link" href="https://github.com/vilayilarun" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-icon" aria-hidden="true">GH</span>
+                  <span><span class="contact-label">GitHub</span><span class="contact-value">github.com/vilayilarun</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-link" href="https://medium.com/@vilayilarun" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-icon" aria-hidden="true">M</span>
+                  <span><span class="contact-label">Medium</span><span class="contact-value">medium.com/@vilayilarun</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-link" href="https://stackoverflow.com/users/15299659/vilayilarun" target="_blank" rel="noopener noreferrer">
+                  <span class="contact-icon" aria-hidden="true">SO</span>
+                  <span><span class="contact-label">Stack Overflow</span><span class="contact-value">Technical profile and contributions</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-link" href="#home">
+                  <span class="contact-icon" aria-hidden="true">WEB</span>
+                  <span><span class="contact-label">Portfolio</span><span class="contact-value">ARUN.SYS</span></span>
+                </a>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>Designed and engineered by <strong>Arun Thiruvacholayil</strong> · © <span id="current-year">2026</span></div>
+      <div class="footer-status">Dubai, UAE · Available for Senior DevOps / SRE Opportunities</div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- BACK TO TOP -->
-<button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script>
+    "use strict";
 
-<!-- FOOTER -->
-<footer>
-  <p>DESIGNED & ENGINEERED BY <a href="#">ARUN THIRUVACHOLAYIL</a> · © 2025 · ALL SYSTEMS OPERATIONAL</p>
-</footer>
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointer = window.matchMedia("(pointer: fine)");
+    const siteHeader = document.getElementById("site-header");
+    const menuButton = document.getElementById("menu-button");
+    const navigation = document.getElementById("primary-navigation");
+    const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+    const backToTopButton = document.getElementById("back-to-top");
+    const revealItems = Array.from(document.querySelectorAll(".reveal"));
 
-<script>
-// LOADER
-const loaderTexts = ['INITIALIZING NEURAL INTERFACE...','LOADING DEVOPS MATRIX...','CALIBRATING CLOUD NODES...','SYSTEM ONLINE'];
-let li = 0;
-const loaderTextEl = document.getElementById('loader-text');
-const txtInterval = setInterval(() => {
-  li++;
-  if (li < loaderTexts.length) loaderTextEl.textContent = loaderTexts[li];
-  else clearInterval(txtInterval);
-}, 400);
-setTimeout(() => document.getElementById('loader').classList.add('done'), 1800);
+    document.getElementById("current-year").textContent = String(new Date().getFullYear());
 
-// CUSTOM CURSOR
-const dot = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-});
-function animRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) *.12;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(animRing);
-}
-animRing();
-document.querySelectorAll('a,button,.tech-item,.glass-card,.project-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = 'rgba(0,245,255,0.8)'; });
-  el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = 'rgba(0,245,255,0.4)'; });
-});
+    // Mobile navigation with Escape support and focus trapping.
+    let lastFocusedElement = null;
 
-// HUD TIME
-function updateTime() {
-  const now = new Date();
-  document.getElementById('hud-time').textContent = 'TIME: ' + now.toTimeString().slice(0,8);
-}
-setInterval(updateTime, 1000); updateTime();
-
-// CANVAS PARTICLE SYSTEM
-const canvas = document.getElementById('space-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); });
-
-const PARTICLE_COUNT = 180;
-const STAR_COUNT = 200;
-let particles = [], stars = [], mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
-
-document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-
-function initStars() {
-  stars = [];
-  for (let i = 0; i < STAR_COUNT; i++) {
-    stars.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5,
-      a: Math.random(),
-      speed: 0.001 + Math.random() * 0.003
-    });
-  }
-}
-
-function initParticles() {
-  particles = [];
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      r: 0.5 + Math.random() * 2,
-      color: Math.random() < 0.6 ? '#00f5ff' : Math.random() < 0.5 ? '#39ff14' : '#bf00ff',
-      alpha: 0.1 + Math.random() * 0.4,
-      pulse: Math.random() * Math.PI * 2
-    });
-  }
-  initStars();
-}
-initParticles();
-
-function drawScene() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Stars
-  stars.forEach(s => {
-    s.a = Math.sin(Date.now() * s.speed + s.x) * 0.5 + 0.5;
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${s.a * 0.6})`;
-    ctx.fill();
-  });
-
-  // Grid lines (subtle)
-  const scrollY = window.scrollY;
-  ctx.strokeStyle = 'rgba(0,245,255,0.03)';
-  ctx.lineWidth = 1;
-  const gSize = 60;
-  for (let x = 0; x < canvas.width; x += gSize) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
-  }
-  for (let y = -(scrollY % gSize); y < canvas.height; y += gSize) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
-  }
-
-  // Particles & connections
-  particles.forEach((p, i) => {
-    // Mouse attraction
-    const dx = mouseX - p.x, dy = mouseY - p.y;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if (dist < 200) {
-      p.vx += dx / dist * 0.02;
-      p.vy += dy / dist * 0.02;
+    function getMenuFocusableElements() {
+      return Array.from(navigation.querySelectorAll("a[href]"));
     }
-    p.vx *= 0.98; p.vy *= 0.98;
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-    p.pulse += 0.02;
-    const a = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
 
-    // Draw
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color.replace(')', `,${a})`).replace('rgb', 'rgba').replace('#00f5ff', `rgba(0,245,255,${a})`).replace('#39ff14', `rgba(57,255,20,${a})`).replace('#bf00ff', `rgba(191,0,255,${a})`);
-    ctx.shadowBlur = 8; ctx.shadowColor = p.color;
-    ctx.fill();
-    ctx.shadowBlur = 0;
+    function setMenuState(open) {
+      document.body.classList.toggle("menu-open", open);
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
 
-    // Connections
-    for (let j = i + 1; j < particles.length; j++) {
-      const q = particles[j];
-      const ex = p.x - q.x, ey = p.y - q.y;
-      const edist = Math.sqrt(ex*ex + ey*ey);
-      if (edist < 100) {
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = `rgba(0,245,255,${(1 - edist/100) * 0.12})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
+      if (open) {
+        lastFocusedElement = document.activeElement;
+        const firstLink = getMenuFocusableElements()[0];
+        if (firstLink) {
+          firstLink.focus();
+        }
+      } else if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
       }
     }
-  });
 
-  // Nebula glow near cursor
-  const grad = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 200);
-  grad.addColorStop(0, 'rgba(0,245,255,0.04)');
-  grad.addColorStop(1, 'rgba(0,245,255,0)');
-  ctx.fillStyle = grad;
-  ctx.beginPath();
-  ctx.arc(mouseX, mouseY, 200, 0, Math.PI * 2);
-  ctx.fill();
+    menuButton.addEventListener("click", () => {
+      setMenuState(menuButton.getAttribute("aria-expanded") !== "true");
+    });
 
-  requestAnimationFrame(drawScene);
-}
-drawScene();
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setMenuState(false));
+    });
 
-// NAV
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
+        setMenuState(false);
+        return;
+      }
 
-// REVEAL ON SCROLL
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('in-view'), i * 60);
+      if (event.key !== "Tab" || !document.body.classList.contains("menu-open")) {
+        return;
+      }
+
+      const focusable = getMenuFocusableElements();
+      if (!focusable.length) {
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Header state, active section and back-to-top visibility.
+    function updateScrollState() {
+      const scrollY = window.scrollY;
+      siteHeader.classList.toggle("is-scrolled", scrollY > 24);
+      backToTopButton.classList.toggle("is-visible", scrollY > 560);
     }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// BACK TO TOP
-const btt = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
-btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
 
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-</script>
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        navLinks.forEach((link) => {
+          const active = link.getAttribute("href") === "#" + entry.target.id;
+          if (active) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      });
+    }, {
+      rootMargin: "-35% 0px -55% 0px",
+      threshold: 0
+    });
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion.matches ? "auto" : "smooth"
+      });
+    });
+
+    // Scroll reveal, disabled automatically for reduced motion.
+    if (prefersReducedMotion.matches) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    }
+
+    // Custom cursor only for fine pointers.
+    if (finePointer.matches && !prefersReducedMotion.matches) {
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+      let pointerX = window.innerWidth / 2;
+      let pointerY = window.innerHeight / 2;
+      let ringX = pointerX;
+      let ringY = pointerY;
+      let cursorFrame = 0;
+
+      document.addEventListener("pointermove", (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        cursorDot.style.left = pointerX + "px";
+        cursorDot.style.top = pointerY + "px";
+      }, { passive: true });
+
+      function animateCursor() {
+        ringX += (pointerX - ringX) * 0.14;
+        ringY += (pointerY - ringY) * 0.14;
+        cursorRing.style.left = ringX + "px";
+        cursorRing.style.top = ringY + "px";
+        cursorFrame = window.requestAnimationFrame(animateCursor);
+      }
+
+      cursorFrame = window.requestAnimationFrame(animateCursor);
+
+      document.querySelectorAll("a, button, .tech-card, .project-card").forEach((element) => {
+        element.addEventListener("pointerenter", () => cursorRing.classList.add("is-active"));
+        element.addEventListener("pointerleave", () => cursorRing.classList.remove("is-active"));
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          window.cancelAnimationFrame(cursorFrame);
+        } else {
+          cursorFrame = window.requestAnimationFrame(animateCursor);
+        }
+      });
+    }
+
+    // Optimized canvas background.
+    const canvas = document.getElementById("site-canvas");
+    const context = canvas.getContext("2d", { alpha: true });
+
+    if (context && !prefersReducedMotion.matches) {
+      const maximumDpr = 1.5;
+      let dpr = Math.min(window.devicePixelRatio || 1, maximumDpr);
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let animationFrame = 0;
+      let running = true;
+      let pointerX = window.innerWidth / 2;
+      let pointerY = window.innerHeight / 2;
+      let pointerActiveUntil = 0;
+      let lastFrameTime = 0;
+
+      function particleTargetCount() {
+        if (window.innerWidth < 640) return 24;
+        if (window.innerWidth < 1024) return 48;
+        return 82;
+      }
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        dpr = Math.min(window.devicePixelRatio || 1, maximumDpr);
+
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+        context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const count = particleTargetCount();
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: (Math.random() - 0.5) * 0.12,
+          radius: 0.55 + Math.random() * 1.1,
+          alpha: 0.12 + Math.random() * 0.22
+        }));
+      }
+
+      function updatePointer(event) {
+        if (!finePointer.matches) return;
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        pointerActiveUntil = performance.now() + 1400;
+      }
+
+      function drawCanvas(now) {
+        if (!running) return;
+
+        if (now - lastFrameTime < 24) {
+          animationFrame = window.requestAnimationFrame(drawCanvas);
+          return;
+        }
+
+        lastFrameTime = now;
+        context.clearRect(0, 0, width, height);
+
+        const gridSize = 72;
+        const scrollOffset = window.scrollY % gridSize;
+        context.strokeStyle = "rgba(124, 163, 204, 0.028)";
+        context.lineWidth = 1;
+
+        for (let x = 0; x < width; x += gridSize) {
+          context.beginPath();
+          context.moveTo(x, 0);
+          context.lineTo(x, height);
+          context.stroke();
+        }
+
+        for (let y = -scrollOffset; y < height; y += gridSize) {
+          context.beginPath();
+          context.moveTo(0, y);
+          context.lineTo(width, y);
+          context.stroke();
+        }
+
+        const pointerIsActive = now < pointerActiveUntil;
+        const connectParticles = width >= 768;
+        const connectionDistance = 92;
+
+        for (let i = 0; i < particles.length; i += 1) {
+          const particle = particles[i];
+
+          if (pointerIsActive) {
+            const dx = pointerX - particle.x;
+            const dy = pointerY - particle.y;
+            const distanceSquared = dx * dx + dy * dy;
+
+            if (distanceSquared > 0 && distanceSquared < 19000) {
+              const inverseDistance = 1 / Math.sqrt(distanceSquared);
+              particle.vx += dx * inverseDistance * 0.0009;
+              particle.vy += dy * inverseDistance * 0.0009;
+            }
+          }
+
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+
+          if (particle.x < -8) particle.x = width + 8;
+          if (particle.x > width + 8) particle.x = -8;
+          if (particle.y < -8) particle.y = height + 8;
+          if (particle.y > height + 8) particle.y = -8;
+
+          context.beginPath();
+          context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+          context.fillStyle = "rgba(57, 217, 255, " + particle.alpha + ")";
+          context.fill();
+
+          if (connectParticles) {
+            for (let j = i + 1; j < particles.length; j += 1) {
+              const other = particles[j];
+              const dx = particle.x - other.x;
+              const dy = particle.y - other.y;
+
+              if (Math.abs(dx) > connectionDistance || Math.abs(dy) > connectionDistance) {
+                continue;
+              }
+
+              const distanceSquared = dx * dx + dy * dy;
+              if (distanceSquared < connectionDistance * connectionDistance) {
+                const opacity = (1 - Math.sqrt(distanceSquared) / connectionDistance) * 0.055;
+                context.beginPath();
+                context.moveTo(particle.x, particle.y);
+                context.lineTo(other.x, other.y);
+                context.strokeStyle = "rgba(57, 217, 255, " + opacity + ")";
+                context.stroke();
+              }
+            }
+          }
+        }
+
+        animationFrame = window.requestAnimationFrame(drawCanvas);
+      }
+
+      function setCanvasRunning(shouldRun) {
+        running = shouldRun;
+        if (running) {
+          lastFrameTime = 0;
+          animationFrame = window.requestAnimationFrame(drawCanvas);
+        } else {
+          window.cancelAnimationFrame(animationFrame);
+        }
+      }
+
+      resizeCanvas();
+      animationFrame = window.requestAnimationFrame(drawCanvas);
+
+      window.addEventListener("resize", resizeCanvas);
+      window.addEventListener("pointermove", updatePointer, { passive: true });
+
+      document.addEventListener("visibilitychange", () => {
+        setCanvasRunning(!document.hidden);
+      });
+    }
+  </script>
 </body>
 </html>
